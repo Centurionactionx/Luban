@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
     <meta charset="utf-8">
@@ -9,7 +9,7 @@
     <script>document.documentElement.classList.replace('no-js', 'js');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/home.css">
 
     <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -18,12 +18,12 @@
 
   <body>
     <!--
-    THESIS: Luban is a centered civic opportunity poster sheet where active programs, not decoration, carry the identity.
-    OWN-WORLD: White paper, white gutters, black rules, plum, indigo, berry, lavender, and precise geometric marks.
-    STORY: State the mission, make four programs tangible, show honest scale, explain the model, then invite contact.
-    FIRST VIEWPORT: A calm mission rail faces a 2x2 wall of responsive program posters; the wall reacts without reshuffling.
-    FORM: A centered paper sheet, generous chapter gaps, square editorial regions, thin seams, moderate grotesk type, flat color, real lists, and native controls.
-    SEED KEY: 9e416951 / design-canon-swiss-grid-poster-wall / composition A.
+    THESIS: Luban is a centered civic opportunity poster sheet where real events and teaching, not decoration, carry the identity.
+    OWN-WORLD: Purple-led paper, ink-black rules, restrained lime and pink accents, and playful editorial line art.
+    STORY: State the mission, show honest scale, move from teaching lessons into a featured competition, explain the model, then invite contact.
+    FIRST VIEWPORT: A calm mission rail faces one oversized editorial illustration; the program wall follows below.
+    FORM: A centered paper sheet, generous chapter gaps, square editorial regions, black seams, highlighted type, flat color, real lists, and native controls.
+    DIRECTION: purple-led Luban identity / reference-inspired newspaper composition.
     FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
     -->
 
@@ -38,22 +38,26 @@
 
         <nav class="primary-nav" id="primary-nav" aria-label="Main navigation" data-primary-nav>
           <ul>
-            <li><a href="#top" aria-current="page">Home</a></li>
-            <li><a href="#programs">Programs</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#top" aria-current="location" data-nav-link>Home</a></li>
+            <li class="nav-dropdown" data-nav-dropdown>
+              <span class="nav-dropdown__trigger">
+                <a href="#programs" data-nav-link>Events</a>
+                <button class="nav-dropdown__toggle" type="button" aria-expanded="false" aria-controls="event-nav-menu" aria-label="Show event links" data-nav-dropdown-toggle>
+                  <svg aria-hidden="true" viewBox="0 0 16 16"><path d="m4 6 4 4 4-4"></path></svg>
+                </button>
+              </span>
+              <ul class="nav-dropdown__menu" id="event-nav-menu" data-nav-dropdown-menu>
+                <li><a href="#teaching-lessons">Teaching Lessons</a></li>
+                <li><a href="spc.html">SPC</a></li>
+                <li><a href="econ.html">Econ Competition</a></li>
+              </ul>
+            </li>
+            <li><a href="#about" data-nav-link>About</a></li>
+            <li><a href="#contact" data-nav-link>Contact Us</a></li>
           </ul>
         </nav>
 
         <div class="header-actions">
-          <button class="header-control search-toggle" type="button" aria-expanded="false" aria-controls="site-search-panel" data-search-toggle>
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <circle cx="10.5" cy="10.5" r="6.5"></circle>
-              <path d="m15.5 15.5 5 5"></path>
-            </svg>
-            <span>Search</span>
-          </button>
-
           <button class="header-control menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-toggle>
             <span>Menu</span>
             <span class="menu-toggle__mark" aria-hidden="true">
@@ -63,35 +67,18 @@
           </button>
         </div>
       </div>
-
-      <div class="search-panel page-frame" id="site-search-panel" hidden data-search-panel>
-        <form class="site-search" id="site-search-form" role="search">
-          <label for="site-search-input">Search this page</label>
-          <div class="site-search__controls">
-            <input id="site-search-input" name="query" type="search" autocomplete="off" placeholder="Try mentorship or university">
-            <button class="search-submit" type="submit">
-              <span>Find</span>
-              <svg aria-hidden="true" viewBox="0 0 24 24">
-                <path d="M5 12h13M14 7l5 5-5 5"></path>
-              </svg>
-            </button>
-            <button class="search-clear" type="button" data-search-clear>Clear</button>
-          </div>
-          <p class="search-status" role="status" aria-live="polite" data-search-status></p>
-        </form>
-      </div>
     </header>
 
     <main id="main-content">
       <section class="hero" id="top" aria-labelledby="hero-title">
         <div class="hero__layout page-frame">
-          <div class="hero__copy" data-searchable>
-            <span class="hero__rule" aria-hidden="true"></span>
-            <h1 id="hero-title">Prepare for university and a career in business</h1>
+          <div class="hero__copy">
+            <p class="eyebrow"><span aria-hidden="true">✦</span> Free programs across Canada</p>
+            <h1 id="hero-title">Prepare for <span class="text-highlight">university</span> and a career in business</h1>
             <p class="hero__intro">Luban is a youth-led nonprofit active across multiple Canadian provinces. We help high school students, especially those in underserved communities, prepare for post-secondary education and careers in business.</p>
             <div class="hero__actions">
               <a class="action action--primary" href="#programs">
-                <span>Explore programs</span>
+                <span>Explore events</span>
                 <svg aria-hidden="true" viewBox="0 0 24 24">
                   <path d="M5 12h13M14 7l5 5-5 5"></path>
                 </svg>
@@ -105,111 +92,25 @@
             </div>
           </div>
 
-          <div class="poster-wall" aria-labelledby="poster-wall-title" data-poster-wall>
-            <h2 class="visually-hidden" id="poster-wall-title">Luban's four program pillars</h2>
-
-            <article class="program-poster program-poster--plum" data-poster data-active="true">
-              <a class="program-poster__link" href="#program-hands-on">
-                <span class="program-poster__copy">
-                  <span class="program-poster__bar" aria-hidden="true"></span>
-                  <span class="program-poster__index">01 / 04</span>
-                  <h3>Hands-On Events</h3>
-                  <p>Practice with paper trading, market simulations, stock pitches, and debate.</p>
-                  <span class="program-poster__action">
-                    <span>See details</span>
-                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
-                  </span>
-                </span>
-                <svg class="program-poster__art" aria-hidden="true" viewBox="0 0 320 260" preserveAspectRatio="xMidYMid slice">
-                  <rect x="154" y="44" width="15" height="136"></rect>
-                  <rect x="184" y="44" width="15" height="136"></rect>
-                  <rect x="214" y="44" width="15" height="136"></rect>
-                  <rect x="244" y="44" width="15" height="136"></rect>
-                  <path class="poster-shape poster-shape--accent" d="M155 262a156 156 0 0 1 156-156v64a92 92 0 0 0-92 92z"></path>
-                </svg>
-              </a>
-            </article>
-
-            <article class="program-poster program-poster--indigo" data-poster data-active="false">
-              <a class="program-poster__link" href="#program-blueprint">
-                <span class="program-poster__copy">
-                  <span class="program-poster__bar" aria-hidden="true"></span>
-                  <span class="program-poster__index">02 / 04</span>
-                  <h3>Post-Secondary Blueprint</h3>
-                  <p>Build an application plan and bring your questions to admission officers.</p>
-                  <span class="program-poster__action">
-                    <span>See details</span>
-                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
-                  </span>
-                </span>
-                <svg class="program-poster__art" aria-hidden="true" viewBox="0 0 320 260" preserveAspectRatio="xMidYMid slice">
-                  <path class="poster-shape poster-shape--accent" d="M70 258a152 152 0 1 1 304 0h-64a88 88 0 1 0-176 0z"></path>
-                  <rect x="250" y="46" width="70" height="10"></rect>
-                  <rect x="250" y="72" width="70" height="10"></rect>
-                  <rect x="250" y="98" width="70" height="10"></rect>
-                  <rect x="250" y="124" width="70" height="10"></rect>
-                </svg>
-              </a>
-            </article>
-
-            <article class="program-poster program-poster--berry" data-poster data-active="false">
-              <a class="program-poster__link" href="#program-career">
-                <span class="program-poster__copy">
-                  <span class="program-poster__bar" aria-hidden="true"></span>
-                  <span class="program-poster__index">03 / 04</span>
-                  <h3>Career Pathfinder</h3>
-                  <p>Learn finance basics, find out how internships work, and ask professionals about their careers.</p>
-                  <span class="program-poster__action">
-                    <span>See details</span>
-                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
-                  </span>
-                </span>
-                <svg class="program-poster__art" aria-hidden="true" viewBox="0 0 320 260" preserveAspectRatio="xMidYMid slice">
-                  <path class="poster-shape poster-shape--accent" d="M316 12a154 154 0 1 0 0 308v-66a88 88 0 1 1 0-176z"></path>
-                  <rect x="48" y="188" width="13" height="72"></rect>
-                  <rect x="75" y="166" width="13" height="94"></rect>
-                  <rect x="102" y="142" width="13" height="118"></rect>
-                  <rect x="129" y="118" width="13" height="142"></rect>
-                </svg>
-              </a>
-            </article>
-
-            <article class="program-poster program-poster--ink" data-poster data-active="false">
-              <a class="program-poster__link" href="#program-mentorship">
-                <span class="program-poster__copy">
-                  <span class="program-poster__bar" aria-hidden="true"></span>
-                  <span class="program-poster__index">04 / 04</span>
-                  <h3>Mentorship</h3>
-                  <p>Meet professionals in coffee chats, hear from university students at fireside sessions, or join a chat roulette.</p>
-                  <span class="program-poster__action">
-                    <span>See details</span>
-                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
-                  </span>
-                </span>
-                <svg class="program-poster__art" aria-hidden="true" viewBox="0 0 320 260" preserveAspectRatio="xMidYMid slice">
-                  <rect class="poster-shape poster-shape--indigo" x="54" y="32" width="13" height="116"></rect>
-                  <rect class="poster-shape poster-shape--indigo" x="82" y="32" width="13" height="116"></rect>
-                  <rect class="poster-shape poster-shape--indigo" x="110" y="32" width="13" height="116"></rect>
-                  <rect class="poster-shape poster-shape--indigo" x="138" y="32" width="13" height="116"></rect>
-                  <path class="poster-shape poster-shape--plum" d="M145 262a156 156 0 0 1 156-156v64a92 92 0 0 0-92 92z"></path>
-                  <rect x="246" y="208" width="74" height="9"></rect>
-                  <rect x="246" y="232" width="74" height="9"></rect>
-                </svg>
-              </a>
-            </article>
-          </div>
+          <figure class="hero__visual">
+            <img src="assets/images/luban-hero-panel.webp" width="1200" height="768" fetchpriority="high" decoding="async" alt="Editorial illustration of an open book, compass, and orbiting ideas">
+            <figcaption>
+              <span>Learn by doing</span>
+              <span>Plan what comes next</span>
+            </figcaption>
+          </figure>
         </div>
       </section>
 
-      <section class="facts page-frame" aria-labelledby="facts-title" data-searchable>
+      <section class="facts page-frame" aria-labelledby="facts-title">
         <h2 class="visually-hidden" id="facts-title">Luban at a glance</h2>
         <div class="facts__signal" aria-hidden="true">
           <span></span><span></span><span></span><span></span>
         </div>
         <dl>
           <div class="fact fact--plum">
-            <dt>Active program pillars</dt>
-            <dd>4</dd>
+            <dt>Entrepreneurship lessons this August</dt>
+            <dd>2</dd>
           </div>
           <div class="fact fact--indigo">
             <dt>Current core members</dt>
@@ -222,112 +123,88 @@
         </dl>
       </section>
 
-      <section class="story page-frame" aria-label="Our mission and programs" data-searchable>
+      <section class="story page-frame" aria-label="Our mission and events">
         <article class="story__panel story__panel--mission">
-          <h2>Plan for life after high school</h2>
+          <h2>Plan for life after <span class="text-highlight">high school</span></h2>
           <p>Our free events and mentorship help students prepare for post-secondary education, get practical experience, and see how school connects to future careers.</p>
         </article>
-        <article class="story__panel story__panel--pillars">
-          <h2>Free programs, online and in person</h2>
-          <p>Our four program pillars cover hands-on events, post-secondary planning, career pathfinding, and mentorship.</p>
+        <article class="story__panel story__panel--events">
+          <h2><span class="text-highlight">Free</span> events, online and in person</h2>
+          <p>Students learn through teaching sessions, competitions, speaker events, and guided conversations with people who can help them plan what comes next.</p>
         </article>
-        <nav class="event-pages" aria-label="Event pages">
-          <span>Featured events</span>
-          <a href="spc.html">
-            <span>Stock Pitch Competition</span>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
-          </a>
-          <a href="econ.html">
-            <span>Economics Competition</span>
-            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
-          </a>
-        </nav>
       </section>
 
-      <section class="programs page-frame" id="programs" aria-labelledby="programs-title" data-searchable>
-        <header class="programs__header">
-          <h2 id="programs-title">Four active program pillars</h2>
-          <p>Luban runs free programs online and in person. Students get practical experience, plan for post-secondary education, learn about careers, and meet mentors.</p>
+      <section class="events page-frame" id="programs" aria-labelledby="events-title">
+        <header class="events__header">
+          <h2 id="events-title">Events that turn ideas into <span class="text-highlight">practice</span></h2>
+          <p>Luban runs free online and in-person sessions where students can test business ideas, learn from real decisions, and build confidence before university and a career.</p>
         </header>
 
-        <article class="program-row" id="program-hands-on">
-          <p class="program-row__index" aria-hidden="true">01 / 04</p>
-          <h3>Hands-On Events</h3>
-          <div class="program-row__content">
-            <ul>
-              <li>Paper Trading Simulation</li>
-              <li>Market Simulations</li>
-              <li>Stock Pitch Competition</li>
-              <li>Market Debate</li>
-            </ul>
-            <div class="program-row__links">
-              <a href="spc.html">
-                <span>Stock Pitch Competition details</span>
-                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
-              </a>
-              <a href="econ.html">
-                <span>Economics Competition details</span>
-                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
-              </a>
+        <section class="lesson-series" id="teaching-lessons" aria-labelledby="lesson-series-title">
+          <header class="lesson-series__header">
+            <h3 id="lesson-series-title">Teaching lessons</h3>
+            <p>Two entrepreneurship teaching events move from understanding the mindset to building a business. Select an event to open its recap or preview.</p>
+          </header>
+
+          <div class="lesson-tabs" data-lesson-tabs>
+            <div class="lesson-tabs__list" role="tablist" aria-label="Entrepreneurship teaching lessons" data-lesson-tablist hidden>
+              <button class="lesson-tab" id="lesson-tab-discovering" type="button" role="tab" aria-selected="false" aria-controls="lesson-panel-discovering" tabindex="-1" data-lesson-tab>
+                <span class="lesson-tab__status" data-state="complete">Completed event</span>
+                <span class="lesson-tab__title">Discovering Entrepreneurship</span>
+                <span class="lesson-tab__date">August 8 &middot; 1:30 PM ET</span>
+                <span class="lesson-tab__cta">
+                  <span>Read event recap</span>
+                  <span class="lesson-tab__cta-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
+                  </span>
+                </span>
+              </button>
+              <button class="lesson-tab" id="lesson-tab-am-i" type="button" role="tab" aria-selected="true" aria-controls="lesson-panel-am-i" tabindex="0" data-lesson-tab>
+                <span class="lesson-tab__status" data-state="upcoming">Upcoming event</span>
+                <span class="lesson-tab__title">Am I an Entrepreneur?</span>
+                <span class="lesson-tab__date">August 15 &middot; 1:30 PM ET</span>
+                <span class="lesson-tab__cta">
+                  <span>Read event preview</span>
+                  <span class="lesson-tab__cta-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
+                  </span>
+                </span>
+              </button>
+            </div>
+
+            <div class="lesson-tabs__panels">
+              <div class="lesson-panel" id="lesson-panel-discovering" role="tabpanel" aria-labelledby="lesson-tab-discovering" tabindex="0" data-lesson-panel>
+                <p class="lesson-panel__status">Completed lesson recap</p>
+                <h4>Entrepreneurship can start in everyday life.</h4>
+                <p>Students explored what it means to be an entrepreneur and how an entrepreneurial mindset can shape the way they approach opportunities. The lesson also covered practical ways to protect a healthy work-life balance while pursuing ambitious goals.</p>
+                <dl class="lesson-panel__facts">
+                  <div><dt>When</dt><dd>August 8 at 1:30 PM ET</dd></div>
+                  <div><dt>Takeaway</dt><dd>A practical understanding of how to become entrepreneurial in their own lives.</dd></div>
+                </dl>
+              </div>
+
+              <div class="lesson-panel" id="lesson-panel-am-i" role="tabpanel" aria-labelledby="lesson-tab-am-i" tabindex="0" data-lesson-panel>
+                <p class="lesson-panel__status">Upcoming lesson preview</p>
+                <h4>Turn an idea into a business students can explain.</h4>
+                <p>Students will learn how branding, operations, and funding work together inside a successful company. The session will also share resources and opportunities for young entrepreneurs, plus strategies for managing self-doubt and stress.</p>
+                <dl class="lesson-panel__facts">
+                  <div><dt>When</dt><dd>August 15 at 1:30 PM ET</dd></div>
+                  <div><dt>Takeaway</dt><dd>A clearer path from an early idea to the building blocks of a real business.</dd></div>
+                </dl>
+              </div>
             </div>
           </div>
-          <div class="program-row__signal program-row__signal--plum" aria-hidden="true">
-            <span></span><span></span><span></span><span></span>
-          </div>
-        </article>
+        </section>
 
-        <article class="program-row" id="program-blueprint">
-          <p class="program-row__index" aria-hidden="true">02 / 04</p>
-          <h3>Post-Secondary Blueprint</h3>
-          <div class="program-row__content">
-            <ul>
-              <li>University Application Roadmap: the university landscape, application timelines, and admissions</li>
-              <li>Connections and Q&amp;A sessions with admission officers</li>
-            </ul>
-          </div>
-          <div class="program-row__signal program-row__signal--indigo" aria-hidden="true">
-            <span></span>
-          </div>
-        </article>
-
-        <article class="program-row" id="program-career">
-          <p class="program-row__index" aria-hidden="true">03 / 04</p>
-          <h3>Career Pathfinder</h3>
-          <div class="program-row__content">
-            <ul>
-              <li>Finance 101: Technical Finance Education Series</li>
-              <li>Introduction to Internships: finance, consulting, accounting, and marketing</li>
-              <li>Ask Me Anything sessions with industry professionals</li>
-            </ul>
-          </div>
-          <div class="program-row__signal program-row__signal--berry" aria-hidden="true">
-            <span></span><span></span><span></span>
-          </div>
-        </article>
-
-        <article class="program-row" id="program-mentorship">
-          <p class="program-row__index" aria-hidden="true">04 / 04</p>
-          <h3>Mentorship</h3>
-          <div class="program-row__content">
-            <ul>
-              <li>Coffee chat pairings with industry professionals</li>
-              <li>Fireside chats with university students</li>
-              <li>Chat roulettes</li>
-            </ul>
-          </div>
-          <div class="program-row__signal program-row__signal--ink" aria-hidden="true">
-            <span></span><span></span><span></span><span></span>
-          </div>
-        </article>
       </section>
 
-      <section class="about page-frame" id="about" aria-labelledby="about-title" data-searchable>
+      <section class="about page-frame" id="about" aria-labelledby="about-title">
         <div class="about__statement">
-          <h2 id="about-title">Business education should be easier to reach</h2>
+          <h2 id="about-title">Business education should be <span class="text-highlight">easier to reach</span></h2>
           <p>Our vision is to give more students in underserved communities the chance to explore business. Creative learning and mentorship can help them understand their options, build useful skills and confidence, and prepare for post-secondary education and future careers.</p>
         </div>
 
-        <div class="faq" aria-labelledby="faq-title">
+        <section class="faq" aria-labelledby="faq-title">
           <h2 id="faq-title">About Luban</h2>
 
           <details open>
@@ -340,10 +217,10 @@
 
           <details>
             <summary>
-              <span>How do our programs work?</span>
+              <span>How do Luban events work?</span>
               <span class="faq__mark" aria-hidden="true"><span></span><span></span></span>
             </summary>
-            <p>Luban runs free events online and in person through four program pillars: Hands-On Events, Post-Secondary Blueprint, Career Pathfinder, and Mentorship. Depending on the program, students might join a workshop, enter a competition, hear from a speaker, or meet people through guided networking.</p>
+            <p>Luban runs free online and in-person teaching sessions, competitions, speaker events, and guided networking. Each experience gives students a practical way to explore business, university pathways, and future careers.</p>
           </details>
 
           <details>
@@ -361,12 +238,12 @@
             </summary>
             <p>Luban is improving mentor training and seeking a wider mix of funding sources. We are also keeping curriculum standards consistent and developing transparent financial protocols so students can count on reliable, high-quality support.</p>
           </details>
-        </div>
+        </section>
       </section>
 
-      <section class="contact page-frame" id="contact" aria-labelledby="contact-title" data-searchable>
+      <section class="contact page-frame" id="contact" aria-labelledby="contact-title">
         <div class="contact__statement">
-          <h2 id="contact-title">Talk with our team</h2>
+          <h2 id="contact-title">Talk with our <span class="text-highlight">team</span></h2>
           <p>Students, educators, sponsors, mentors, admission officers, and industry professionals are welcome to reach out. Tell us how you would like to take part or work with Luban.</p>
           <div class="contact__signal" aria-hidden="true">
             <span></span><span></span><span></span><span></span><span></span>
@@ -411,6 +288,7 @@
       <div class="site-footer__grid page-frame">
         <a class="site-footer__wordmark" href="#top">Luban</a>
         <nav aria-label="Featured event pages">
+          <a href="#teaching-lessons">Teaching Lessons</a>
           <a href="spc.html">Stock Pitch Competition</a>
           <a href="econ.html">Economics Competition</a>
         </nav>

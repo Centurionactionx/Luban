@@ -1,16 +1,19 @@
 (() => {
   "use strict";
 
-  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-
   const menuToggle = document.querySelector("[data-menu-toggle]");
   const primaryNav = document.querySelector("[data-primary-nav]");
-  const searchToggle = document.querySelector("[data-search-toggle]");
-  const searchPanel = document.querySelector("[data-search-panel]");
-  const searchForm = document.getElementById("site-search-form");
-  const searchInput = document.getElementById("site-search-input");
-  const searchClear = document.querySelector("[data-search-clear]");
-  const searchStatus = document.querySelector("[data-search-status]");
+  const dropdown = document.querySelector("[data-nav-dropdown]");
+  const dropdownToggle = document.querySelector("[data-nav-dropdown-toggle]");
+  const navLinks = Array.from(document.querySelectorAll("[data-nav-link]"));
+
+  const setDropdownOpen = (open, restoreFocus = false) => {
+    if (!dropdown || !dropdownToggle) return;
+    dropdown.dataset.open = String(open);
+    dropdownToggle.setAttribute("aria-expanded", String(open));
+
+    if (restoreFocus) dropdownToggle.focus();
+  };
 
   const setMenuOpen = (open, restoreFocus = false) => {
     if (!menuToggle || !primaryNav) return;
@@ -19,44 +22,37 @@
 
     if (open) {
       window.requestAnimationFrame(() => primaryNav.querySelector("a")?.focus());
-    } else if (restoreFocus) {
-      menuToggle.focus();
-    }
-  };
-
-  const setSearchOpen = (open, restoreFocus = false) => {
-    if (!searchToggle || !searchPanel) return;
-    searchToggle.setAttribute("aria-expanded", String(open));
-    searchPanel.hidden = !open;
-
-    if (open) {
-      setMenuOpen(false);
-      window.requestAnimationFrame(() => searchInput?.focus());
-    } else if (restoreFocus) {
-      searchToggle.focus();
+    } else {
+      setDropdownOpen(false);
+      if (restoreFocus) menuToggle.focus();
     }
   };
 
   menuToggle?.addEventListener("click", () => {
     const willOpen = menuToggle.getAttribute("aria-expanded") !== "true";
-    if (willOpen) setSearchOpen(false);
     setMenuOpen(willOpen);
   });
 
-  primaryNav?.addEventListener("click", (event) => {
-    if (event.target.closest("a")) setMenuOpen(false);
+  dropdownToggle?.addEventListener("click", () => {
+    const willOpen = dropdownToggle.getAttribute("aria-expanded") !== "true";
+    setDropdownOpen(willOpen);
   });
 
-  searchToggle?.addEventListener("click", () => {
-    const willOpen = searchToggle.getAttribute("aria-expanded") !== "true";
-    setSearchOpen(willOpen);
+  primaryNav?.addEventListener("click", (event) => {
+    if (!event.target.closest("a")) return;
+    setDropdownOpen(false);
+    setMenuOpen(false);
+  });
+
+  document.addEventListener("pointerdown", (event) => {
+    if (dropdown && !dropdown.contains(event.target)) setDropdownOpen(false);
   });
 
   document.addEventListener("keydown", (event) => {
     if (event.key !== "Escape") return;
 
-    if (searchToggle?.getAttribute("aria-expanded") === "true") {
-      setSearchOpen(false, true);
+    if (dropdownToggle?.getAttribute("aria-expanded") === "true") {
+      setDropdownOpen(false, true);
       return;
     }
 
@@ -66,157 +62,102 @@
   });
 
   window.addEventListener("resize", () => {
-    if (window.innerWidth > 880) setMenuOpen(false);
-  });
-
-  const posterWall = document.querySelector("[data-poster-wall]");
-  const posters = Array.from(document.querySelectorAll("[data-poster]"));
-
-  const activatePoster = (selected) => {
-    posters.forEach((poster) => {
-      poster.dataset.active = String(poster === selected);
-    });
-  };
-
-  posters.forEach((poster) => {
-    poster.addEventListener("pointerenter", () => activatePoster(poster));
-    poster.addEventListener("pointerdown", () => activatePoster(poster));
-    poster.addEventListener("focusin", () => activatePoster(poster));
-  });
-
-  posterWall?.addEventListener("pointerleave", () => {
-    const focusedPoster = document.activeElement?.closest?.("[data-poster]");
-    activatePoster(focusedPoster || posters[0]);
-  });
-
-  posterWall?.addEventListener("focusout", () => {
-    window.requestAnimationFrame(() => {
-      const focusedPoster = document.activeElement?.closest?.("[data-poster]");
-      activatePoster(focusedPoster || posters[0]);
-    });
-  });
-
-  let previousSearchTarget = null;
-
-  const clearSearchMarks = () => {
-    document.querySelectorAll("mark.search-highlight").forEach((mark) => {
-      const parent = mark.parentNode;
-      mark.replaceWith(document.createTextNode(mark.textContent || ""));
-      parent?.normalize();
-    });
-
-    if (previousSearchTarget) {
-      previousSearchTarget.removeAttribute("tabindex");
-      previousSearchTarget = null;
+    if (window.innerWidth > 880) {
+      setMenuOpen(false);
+      setDropdownOpen(false);
     }
-  };
+  });
 
-  const highlightTextNodes = (root, query) => {
-    const nodes = [];
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
-      acceptNode(node) {
-        const parent = node.parentElement;
-        if (!parent || !node.nodeValue?.trim()) return NodeFilter.FILTER_REJECT;
-        if (parent.closest("script, style, svg, mark, input, textarea, button, .visually-hidden")) {
-          return NodeFilter.FILTER_REJECT;
-        }
-        return NodeFilter.FILTER_ACCEPT;
-      },
+  const trackedSections = navLinks
+    .map((link) => {
+      const href = link.getAttribute("href") || "";
+      if (!href.startsWith("#")) return null;
+      const section = document.querySelector(href);
+      return section ? { link, section } : null;
+    })
+    .filter(Boolean);
+
+  let scrollFrame = 0;
+
+  const syncCurrentNav = () => {
+    scrollFrame = 0;
+    if (!trackedSections.length) return;
+
+    const header = document.querySelector("[data-site-header]");
+    const threshold = window.scrollY + (header?.getBoundingClientRect().height || 0) + 48;
+    let current = trackedSections[0];
+
+    trackedSections.forEach((item) => {
+      if (item.section.offsetTop <= threshold) current = item;
     });
 
-    while (walker.nextNode()) nodes.push(walker.currentNode);
-
-    let matches = 0;
-    let firstMark = null;
-    const needle = query.toLocaleLowerCase();
-
-    nodes.forEach((node) => {
-      const source = node.nodeValue || "";
-      const sourceLower = source.toLocaleLowerCase();
-      let cursor = 0;
-      let index = sourceLower.indexOf(needle, cursor);
-      if (index === -1) return;
-
-      const fragment = document.createDocumentFragment();
-
-      while (index !== -1) {
-        fragment.append(document.createTextNode(source.slice(cursor, index)));
-
-        const mark = document.createElement("mark");
-        mark.className = "search-highlight";
-        mark.textContent = source.slice(index, index + query.length);
-        fragment.append(mark);
-
-        firstMark ||= mark;
-        matches += 1;
-        cursor = index + query.length;
-        index = sourceLower.indexOf(needle, cursor);
-      }
-
-      fragment.append(document.createTextNode(source.slice(cursor)));
-      node.replaceWith(fragment);
-    });
-
-    return { matches, firstMark };
-  };
-
-  searchForm?.addEventListener("submit", (event) => {
-    event.preventDefault();
-    clearSearchMarks();
-
-    const query = searchInput.value.trim();
-    if (!query) {
-      searchStatus.textContent = "Type a word or phrase to search this page.";
-      searchInput.focus();
-      return;
+    if (Math.ceil(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight - 2) {
+      current = trackedSections[trackedSections.length - 1];
     }
 
-    let count = 0;
-    let firstMatch = null;
+    navLinks.forEach((link) => link.removeAttribute("aria-current"));
+    current.link.setAttribute("aria-current", "location");
+  };
 
-    document.querySelectorAll("main [data-searchable]").forEach((root) => {
-      const result = highlightTextNodes(root, query);
-      count += result.matches;
-      firstMatch ||= result.firstMark;
-    });
+  const requestNavSync = () => {
+    if (scrollFrame) return;
+    scrollFrame = window.requestAnimationFrame(syncCurrentNav);
+  };
 
-    if (!firstMatch) {
-      searchStatus.textContent = `No matches for "${query}". Try a program name or "university".`;
-      return;
-    }
+  window.addEventListener("scroll", requestNavSync, { passive: true });
+  window.addEventListener("resize", requestNavSync);
+  window.addEventListener("hashchange", requestNavSync);
+  window.addEventListener("load", () => window.setTimeout(requestNavSync, 120), { once: true });
+  syncCurrentNav();
 
-    const containingDetails = firstMatch.closest("details");
-    if (containingDetails) containingDetails.open = true;
+  document.querySelectorAll("[data-lesson-tabs]").forEach((tabsRoot) => {
+    const tablist = tabsRoot.querySelector("[data-lesson-tablist]");
+    const tabs = Array.from(tabsRoot.querySelectorAll("[data-lesson-tab]"));
+    const panels = Array.from(tabsRoot.querySelectorAll("[data-lesson-panel]"));
 
-    const target =
-      firstMatch.closest("h1, h2, h3, p, li, summary, dt, dd") ||
-      firstMatch.parentElement;
+    if (!tablist || !tabs.length || !panels.length) return;
 
-    if (target) {
-      previousSearchTarget = target;
-      target.setAttribute("tabindex", "-1");
-      target.focus({ preventScroll: true });
-      target.scrollIntoView({
-        behavior: reducedMotion.matches ? "auto" : "smooth",
-        block: "center",
+    const activateTab = (nextTab, moveFocus = false) => {
+      const panelId = nextTab.getAttribute("aria-controls");
+
+      tabs.forEach((tab) => {
+        const selected = tab === nextTab;
+        tab.setAttribute("aria-selected", String(selected));
+        tab.tabIndex = selected ? 0 : -1;
       });
-    }
 
-    searchStatus.textContent = `${count} ${count === 1 ? "match" : "matches"} for "${query}".`;
-  });
+      panels.forEach((panel) => {
+        panel.hidden = panel.id !== panelId;
+      });
 
-  searchClear?.addEventListener("click", () => {
-    clearSearchMarks();
-    searchInput.value = "";
-    searchStatus.textContent = "";
-    searchInput.focus();
-  });
+      if (moveFocus) nextTab.focus();
+    };
 
-  searchInput?.addEventListener("input", () => {
-    if (!searchInput.value) {
-      clearSearchMarks();
-      searchStatus.textContent = "";
-    }
+    const selectedTab = tabs.find((tab) => tab.getAttribute("aria-selected") === "true") || tabs[0];
+    tablist.hidden = false;
+    activateTab(selectedTab);
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener("click", () => activateTab(tab));
+      tab.addEventListener("keydown", (event) => {
+        let nextIndex = index;
+
+        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+          nextIndex = (index + 1) % tabs.length;
+        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+          nextIndex = (index - 1 + tabs.length) % tabs.length;
+        } else if (event.key === "Home") {
+          nextIndex = 0;
+        } else if (event.key === "End") {
+          nextIndex = tabs.length - 1;
+        } else {
+          return;
+        }
+
+        event.preventDefault();
+        activateTab(tabs[nextIndex], true);
+      });
+    });
   });
 
   const contactForm = document.getElementById("contact-form");

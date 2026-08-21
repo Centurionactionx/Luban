@@ -1,843 +1,487 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-  <title>Stock Pitch Competition – Luban</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/fontawesome.css">
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/animate.css">
-
-  <style>
-    /* ─── Page Hero ─── */
-    .spc-hero {
-      background: linear-gradient(135deg, #5a4bc2 0%, #7a6ad8 50%, #9b8fe0 100%);
-      padding: 160px 0 100px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .spc-hero::before {
-      content: '';
-      position: absolute;
-      top: -80px;
-      right: -80px;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .spc-hero::after {
-      content: '';
-      position: absolute;
-      bottom: -60px;
-      left: 8%;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .spc-hero .breadcrumb-label {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      padding: 6px 18px;
-      border-radius: 20px;
-      margin-bottom: 22px;
-    }
-
-    .spc-hero h1 {
-      font-size: 54px;
-      font-weight: 800;
-      color: #fff;
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-
-    .spc-hero h1 span {
-      display: block;
-      font-size: 22px;
-      font-weight: 300;
-      opacity: 0.85;
-      margin-top: 8px;
-    }
-
-    .spc-hero p.lead {
-      color: rgba(255, 255, 255, 0.88);
-      font-size: 15px;
-      line-height: 28px;
-      max-width: 560px;
-      margin-bottom: 36px;
-    }
-
-    .hero-cta {
-      display: inline-block;
-      background: #fff;
-      color: #7a6ad8;
-      font-size: 15px;
-      font-weight: 600;
-      height: 52px;
-      line-height: 52px;
-      padding: 0 32px;
-      border-radius: 26px;
-      transition: all .3s;
-      margin-right: 14px;
-    }
-
-    .hero-cta:hover {
-      background: #f1f0fe;
-      color: #5a4bc2;
-    }
-
-    .hero-cta-ghost {
-      display: inline-block;
-      background: transparent;
-      border: 2px solid rgba(255, 255, 255, 0.5);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 500;
-      height: 52px;
-      line-height: 48px;
-      padding: 0 28px;
-      border-radius: 26px;
-      transition: all .3s;
-    }
-
-    .hero-cta-ghost:hover {
-      border-color: #fff;
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-    }
-
-    /* ─── Key Info Bar ─── */
-    .info-bar {
-      background: #fff;
-      border-radius: 25px;
-      padding: 40px 50px;
-      box-shadow: 0 10px 40px rgba(122, 106, 216, 0.12);
-      margin-top: -60px;
-      position: relative;
-      z-index: 10;
-    }
-
-    .info-bar .info-item {
-      text-align: center;
-      padding: 10px 20px;
-    }
-
-    .info-bar .info-item+.info-item {
-      border-left: 1px solid #eee;
-    }
-
-    .info-bar .info-item i {
-      font-size: 26px;
-      color: #7a6ad8;
-      margin-bottom: 10px;
-      display: block;
-    }
-
-    .info-bar .info-item h6 {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: #999;
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-
-    .info-bar .info-item p {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1e1e1e;
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    /* ─── Section Shared ─── */
-    .spc-section {
-      padding: 80px 0;
-    }
-
-    .spc-label {
-      display: inline-block;
-      color: #7a6ad8;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-    }
-
-    .spc-section h2 {
-      font-size: 34px;
-      font-weight: 700;
-      color: #1e1e1e;
-      margin-bottom: 16px;
-      line-height: 1.3;
-    }
-
-    .spc-section .intro-text {
-      font-size: 15px;
-      line-height: 29px;
-      color: #4a4a4a;
-      max-width: 680px;
-    }
-
-    /* ─── What to Expect Cards ─── */
-    .expect-card {
-      background: #f1f0fe;
-      border-radius: 25px;
-      padding: 36px 32px;
-      height: 100%;
-      transition: all .35s;
-    }
-
-    .expect-card:hover {
-      background: #7a6ad8;
-    }
-
-    .expect-card:hover h4,
-    .expect-card:hover p,
-    .expect-card:hover .card-icon {
-      color: #fff !important;
-    }
-
-    .expect-card .card-icon {
-      font-size: 32px;
-      color: #7a6ad8;
-      margin-bottom: 18px;
-      display: block;
-      transition: all .35s;
-    }
-
-    .expect-card:hover .card-icon {
-      color: rgba(255, 255, 255, 0.8) !important;
-    }
-
-    .expect-card h4 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #1e1e1e;
-      margin-bottom: 10px;
-      transition: all .35s;
-    }
-
-    .expect-card p {
-      font-size: 14px;
-      line-height: 26px;
-      color: #4a4a4a;
-      margin: 0;
-      transition: all .35s;
-    }
-
-    /* ─── Timeline / Schedule ─── */
-    .schedule-block {
-      background: #7a6ad8;
-      border-radius: 30px;
-      padding: 60px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .schedule-block::before {
-      content: '';
-      position: absolute;
-      top: -40px;
-      right: -40px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.07);
-    }
-
-    .schedule-block h2 {
-      color: #fff;
-      font-size: 30px;
-      font-weight: 700;
-      margin-bottom: 40px;
-    }
-
-    .timeline-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 32px;
-      position: relative;
-    }
-
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-dot {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-right: 22px;
-    }
-
-    .timeline-dot i {
-      color: #fff;
-      font-size: 18px;
-    }
-
-    .timeline-content h5 {
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .timeline-content p {
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 14px;
-      margin: 0;
-      line-height: 24px;
-    }
-
-    .timeline-connector {
-      width: 2px;
-      height: 24px;
-      background: rgba(255, 255, 255, 0.2);
-      margin-left: 24px;
-      margin-bottom: 0;
-    }
-
-    /* ─── Prizes ─── */
-    .prize-card {
-      border-radius: 25px;
-      padding: 15px 20px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .prize-card.gold {
-      background: linear-gradient(135deg, #f9c74f, #f4a803);
-    }
-
-    .prize-card.silver {
-      background: linear-gradient(135deg, #d4d4d4, #b0b0b0);
-    }
-
-    .prize-card.bronze {
-      background: linear-gradient(135deg, #e8a87c, #c97b4b);
-    }
-
-    .prize-card .medal {
-      font-size: 36px;
-      margin-bottom: 5px;
-      display: block;
-    }
-
-    .prize-card h4 {
-      font-size: 20px;
-      font-weight: 800;
-      color: #fff;
-      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-      margin-bottom: 10px;
-    }
-
-    .prize-card p {
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 14px;
-      margin: 0;
-      line-height: 22px;
-    }
-
-    /* ─── FAQ / Notes ─── */
-    .note-block {
-      background: #f1f0fe;
-      border-left: 4px solid #7a6ad8;
-      border-radius: 0 16px 16px 0;
-      padding: 20px 24px;
-      margin-bottom: 16px;
-    }
-
-    .note-block p {
-      font-size: 14px;
-      line-height: 26px;
-      margin: 0;
-      color: #4a4a4a;
-    }
-
-    .note-block p a {
-      color: #7a6ad8;
-      text-decoration: underline !important;
-      font-weight: 500;
-    }
-
-    /* ─── Registration CTA ─── */
-    .reg-cta {
-      background: #f1f0fe;
-      border-radius: 30px;
-      padding: 70px 60px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .reg-cta::before {
-      content: '';
-      position: absolute;
-      top: -60px;
-      left: -60px;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: rgba(122, 106, 216, 0.08);
-    }
-
-    .reg-cta h2 {
-      font-size: 34px;
-      font-weight: 700;
-      color: #1e1e1e;
-      margin-bottom: 16px;
-    }
-
-    .reg-cta p {
-      font-size: 15px;
-      color: #4a4a4a;
-      max-width: 500px;
-      margin: 0 auto 36px;
-      line-height: 28px;
-    }
-
-    .reg-cta .deadline-badge {
-      display: inline-block;
-      background: #fff;
-      border-radius: 20px;
-      padding: 8px 22px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #7a6ad8;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 14px rgba(122, 106, 216, 0.15);
-    }
-
-    .reg-btn {
-      display: inline-block;
-      background: #7a6ad8;
-      color: #fff;
-      font-size: 15px;
-      font-weight: 600;
-      height: 54px;
-      line-height: 54px;
-      padding: 0 42px;
-      border-radius: 27px;
-      transition: all .3s;
-    }
-
-    .reg-btn:hover {
-      background: #5a4bc2;
-      color: #fff;
-    }
-
-    /* ─── Back nav ─── */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 30px;
-      transition: color .2s;
-    }
-
-    .back-link:hover {
-      color: #fff;
-    }
-
-    /* ─── Eligibility pill list ─── */
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .pill {
-      background: #fff;
-      border: 2px solid #e8e5fb;
-      border-radius: 20px;
-      padding: 7px 20px;
-      font-size: 13px;
-      font-weight: 500;
-      color: #7a6ad8;
-    }
-
-    /* ─── Responsive ─── */
-    @media (max-width: 768px) {
-      .spc-hero {
-        padding: 120px 0 80px;
-      }
-
-      .spc-hero h1 {
-        font-size: 36px;
-      }
-
-      .info-bar {
-        padding: 30px 20px;
-      }
-
-      .info-bar .info-item+.info-item {
-        border-left: none;
-        border-top: 1px solid #eee;
-      }
-
-      .schedule-block {
-        padding: 36px 28px;
-      }
-
-      .reg-cta {
-        padding: 48px 28px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- Preloader -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots"><span></span><span></span><span></span></div>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header class="header-area header-sticky">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- Logo -->
-            <a href="index.html" class="logo">
-              <h1>Luban</h1>
-            </a>
-
-            <!-- Search -->
-            <div class="search-input">
-              <form id="search" action="#" onsubmit="return false;">
-                <input type="text" placeholder="Search..." id="searchText" name="searchKeyword" />
-                <i class="fa fa-search"></i>
-              </form>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Review the published format, schedule, and participation details for the archived Luban Stock Pitch Competition 2026."
+    >
+    <title>Stock Pitch Competition 2026 | Luban</title>
+
+    <script>
+      document.documentElement.classList.replace("no-js", "js");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/competition.css">
+    <script defer src="assets/js/home.js"></script>
+  </head>
+
+  <body class="competition-document competition-document--spc">
+    <!--
+    THESIS: A competition briefing sheet turns dense logistics into a readable event dossier instead of a generic gradient marketing page.
+    OWN-WORLD: Luban purple canvas, white paper, ink rules, deep functional fields, and sparse lime cues with Space Grotesk and IBM Plex Mono.
+    STORY: Identify the archived event, understand the assignment, review the published schedule and requirements, then reach the preserved materials.
+    FIRST VIEWPORT: The ruled Luban header sits above a seven-five masthead, an event mechanism brief, and one attached facts band.
+    FORM: Established-world extension / competition dossier / inherited key luban-opportunity-press.
+    DIRECTION: Purple-led Luban identity / reference-inspired newspaper composition.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+    -->
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header" data-site-header>
+      <div class="site-header__row page-frame">
+        <a class="wordmark" href="index.html#top" aria-label="Luban home">
+          <span class="wordmark__name">Luban</span>
+          <span class="wordmark__descriptor">Youth-led nonprofit</span>
+        </a>
+
+        <nav
+          class="primary-nav"
+          id="primary-nav"
+          aria-label="Main navigation"
+          data-primary-nav
+        >
+          <ul>
+            <li><a href="index.html#top" data-nav-link>Home</a></li>
+            <li class="nav-dropdown nav-dropdown--current" data-nav-dropdown>
+              <span class="nav-dropdown__trigger">
+                <a href="index.html#programs" data-nav-link>Events</a>
+                <button
+                  class="nav-dropdown__toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="event-nav-menu"
+                  aria-label="Show event links"
+                  data-nav-dropdown-toggle
+                >
+                  <svg aria-hidden="true" viewBox="0 0 16 16">
+                    <path d="m4 6 4 4 4-4"></path>
+                  </svg>
+                </button>
+              </span>
+              <ul
+                class="nav-dropdown__menu"
+                id="event-nav-menu"
+                data-nav-dropdown-menu
+              >
+                <li>
+                  <a href="index.html#teaching-lessons">Teaching Lessons</a>
+                </li>
+                <li><a href="spc.html" aria-current="page">SPC</a></li>
+                <li><a href="econ.html">Econ Competition</a></li>
+              </ul>
+            </li>
+            <li><a href="index.html#about" data-nav-link>About</a></li>
+            <li><a href="index.html#contact" data-nav-link>Contact Us</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            class="header-control menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="primary-nav"
+            data-menu-toggle
+          >
+            <span>Menu</span>
+            <span class="menu-toggle__mark" aria-hidden="true"
+              ><span></span><span></span
+            ></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="competition-page" id="main-content">
+      <section
+        class="competition-opening page-frame"
+        id="top"
+        aria-labelledby="spc-title"
+      >
+        <div class="competition-hero">
+          <div class="competition-hero__lead">
+            <div>
+              <p class="competition-record">
+                <span>2026 event archive</span>
+                <span>Registration closed</span>
+              </p>
+              <h1 id="spc-title">Stock Pitch Competition</h1>
+              <p class="competition-hero__deck">
+                Research one public company, build a buy, sell, or hold case,
+                and defend the recommendation to industry judges.
+              </p>
             </div>
 
-            <!-- Menu -->
-            <ul class="nav">
-              <li class="scroll-to-section">
-                <a href="index.html#top">Home</a>
-              </li>
+            <div class="competition-actions">
+              <a class="action action--primary" href="index.html#programs">
+                <span>Explore current events</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M5 12h13M14 7l5 5-5 5"></path>
+                </svg>
+              </a>
+              <a class="action action--secondary" href="#event-format">
+                <span>Read the event format</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M5 12h13M14 7l5 5-5 5"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
 
-              <li class="scroll-to-section has-sub">
-                <a href="index.html#services">Events</a>
-                <ul class="sub-menu">
-                  <li><a href="spc.html">SPC</a></li>
-                  <li><a href="econ.html">Econ Competition</a></li>
-                </ul>
-              </li>
-
-              <!-- <li>
-                    <a href="apply.html">Join Us</a>
-                  </li> -->
-
-              <li class="scroll-to-section">
-                <a href="index.html#contact">Contact Us</a>
-              </li>
+          <div class="competition-hero__brief">
+            <h2>Build one case. Defend every assumption.</h2>
+            <p>
+              The same selected company gave every team a common starting point.
+              The work was to turn qualitative research, financial statements,
+              and basic ratios into a clear investment thesis.
+            </p>
+            <ul
+              class="competition-terms"
+              aria-label="Possible stock recommendations"
+            >
+              <li>Buy</li>
+              <li>Sell</li>
+              <li>Hold</li>
             </ul>
-
-            <!-- Mobile menu trigger -->
-            <a class="menu-trigger">
-              <span>Menu</span>
-            </a>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- ─── Hero ─── -->
-  <div class="spc-hero" id="top">
-    <div class="container">
-      <a href="index.html#services" class="back-link">
-        <i class="fa fa-arrow-left"></i> Back to Events
-      </a>
-      <div class="row">
-        <div class="col-lg-9">
-          <span class="breadcrumb-label">Luban SPC 2026</span>
-          <h1>
-            Stock Pitch Competition
-            <span>Analyze. Pitch. Win.</span>
-          </h1>
-          <p class="lead">
-            A hands-on case competition for high school students in grades 9–12 to practice real-world investing skills by researching a company, developing an investment thesis, and presenting to industry professionals.
-          </p>
-          <a href="https://forms.gle/rLcSFnDu8oD1221Q9" target="_blank" class="hero-cta">Register Now</a>
-          <a href="#overview" class="hero-cta-ghost">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── Info Bar ─── -->
-  <div class="container" id="overview">
-    <div class="info-bar">
-      <div class="row">
-        <div class="col-6 col-md-3">
-          <div class="info-item">
-            <i class="fa fa-calendar"></i>
-            <h6>Introduction</h6>
-            <p>April 5, 2026<br>2:00 PM EST</p>
+            <dl class="competition-brief-format">
+              <div>
+                <dt>Presentation</dt>
+                <dd>7-minute pitch</dd>
+              </div>
+              <div>
+                <dt>Judge period</dt>
+                <dd>3-minute Q&amp;A</dd>
+              </div>
+            </dl>
           </div>
         </div>
-        <div class="col-6 col-md-3">
-          <div class="info-item">
-            <i class="fa fa-microphone"></i>
-            <h6>Presentations</h6>
-            <p>April 12, 2026<br>1:00 – 5:00 PM EST</p>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="info-item">
-            <i class="fa fa-video-camera"></i>
-            <h6>Format</h6>
-            <p>Online via Zoom<br>Open Nationally</p>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="info-item">
-            <i class="fa fa-clock-o"></i>
-            <h6>Registration Closes</h6>
-            <p>April 4, 2026</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <!-- ─── What is an SPC ─── -->
-  <div class="spc-section">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-5">
-          <span class="spc-label">About the Event</span>
-          <h2>What is a Stock Pitch Competition?</h2>
-          <p class="intro-text">
-            A Stock Pitch Competition (SPC) is a case competition where teams analyze a publicly traded company's stock
-            and develop a <strong>buy, sell, or hold recommendation</strong> backed by your investment thesis, research,
-            and valuation.
-          </p>
-          <p class="intro-text" style="margin-top: 16px;">
-            This event is designed for high school students with <em>varying levels</em> of investing experience. You
-            don't need to be an expert. What matters is your reasoning, your research, and your ability to communicate a
-            clear investment case.
-          </p>
-          <div class="pill-list">
-            <span class="pill">Grades 9–12</span>
-            <span class="pill">Teams of 5</span>
-            <span class="pill">Free to Enter</span>
-            <span class="pill">Online (Zoom)</span>
-          </div>
-        </div>
-        <div class="col-lg-6 offset-lg-1 mt-5 mt-lg-0">
-          <div class="row g-4">
-            <div class="col-6">
-              <div class="expect-card">
-                <span class="card-icon"><i class="fa fa-search"></i></span>
-                <h4>Qualitative Research</h4>
-                <p>Dig into the company's business model, competitive position, and industry trends.</p>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="expect-card">
-                <span class="card-icon"><i class="fa fa-bar-chart"></i></span>
-                <h4>Financial Analysis</h4>
-                <p>Review financial statements and apply basic ratios to support your thesis.</p>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="expect-card">
-                <span class="card-icon"><i class="fa fa-comments"></i></span>
-                <h4>Q&A with Judges</h4>
-                <p>Defend your recommendation live with 3 minutes of Q&A from industry professionals.</p>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="expect-card">
-                <span class="card-icon"><i class="fa fa-users"></i></span>
-                <h4>Teamwork</h4>
-                <p>Collaborate with a team of up to 5; solo entrants are matched into complete teams.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── Schedule ─── -->
-  <div class="spc-section" style="padding-top: 0;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-7">
-          <div class="schedule-block">
-            <h2>Event Schedule</h2>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"><i class="fa fa-flag"></i></div>
-              <div class="timeline-content">
-                <h5>Team Registration Deadline: April 4, 2026</h5>
-                <p>All teams must register by April 4th. Teams will be matched with others and assigned a presentation
-                  time slot.</p>
-              </div>
-            </div>
-            <div class="timeline-connector"></div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"><i class="fa fa-play-circle"></i></div>
-              <div class="timeline-content">
-                <h5>Introduction Session: April 5, 2026 at 2:00 PM EST</h5>
-                <p>The event is formally reintroduced on Zoom. Attendees receive orientation and timeslot assignments
-                  are delivered to team emails.</p>
-              </div>
-            </div>
-            <div class="timeline-connector"></div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"><i class="fa fa-microphone"></i></div>
-              <div class="timeline-content">
-                <h5>Presentations: April 12, 2026 at 1:00–5:00 PM EST</h5>
-                <p>Each team presents: <strong>7-minute pitch</strong> + <strong>3-minute Q&A</strong>. You must attend
-                  opening/closing ceremonies and your designated slot. You're welcome (and encouraged) to watch others
-                  present.</p>
-              </div>
-            </div>
-            <div class="timeline-connector"></div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"><i class="fa fa-trophy"></i></div>
-              <div class="timeline-content">
-                <h5>Closing Ceremony & Awards</h5>
-                <p>Top 3 teams announced. Winners receive cash prizes and exclusive judge networking opportunities.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4 offset-lg-1 mt-5 mt-lg-0 d-flex flex-column">
+        <dl class="competition-meta">
           <div>
-            <span class="spc-label">Prizes</span>
-            <h2>What Do You Win?</h2>
-            <p class="intro-text" style="margin-bottom: 28px;">Top three teams are rewarded with cash prizes and the
-              opportunity to connect directly with the judging panel.</p>
+            <dt>Introduction</dt>
+            <dd>
+              <time datetime="2026-04-05T14:00"
+                >April 5, 2026<br>2:00 PM ET</time
+              >
+            </dd>
           </div>
-          <div class="d-flex flex-column" style="flex-grow: 1;">
-            <div class="prize-card gold mb-3" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
-              <span class="medal" style="margin-bottom: 5px;">🥇</span>
-              <h4>1st Place</h4>
-              <p>Cash Prize + Judge Networking Chat</p>
-            </div>
-            <div class="prize-card silver mb-3" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
-              <span class="medal" style="margin-bottom: 5px;">🥈</span>
-              <h4>2nd Place</h4>
-              <p>Cash Prize + Judge Networking Chat</p>
-            </div>
-            <div class="prize-card bronze" style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
-              <span class="medal" style="margin-bottom: 5px;">🥉</span>
-              <h4>3rd Place</h4>
-              <p>Cash Prize + Judge Networking Chat</p>
-            </div>
+          <div>
+            <dt>Presentations</dt>
+            <dd>
+              <time datetime="2026-04-12T13:00"
+                >April 12, 2026<br>1:00&ndash;5:00 PM ET</time
+              >
+            </dd>
           </div>
+          <div>
+            <dt>Format</dt>
+            <dd>Online<br>via Zoom</dd>
+          </div>
+          <div>
+            <dt>Audience</dt>
+            <dd>Students<br>in grades 9&ndash;12</dd>
+          </div>
+          <div>
+            <dt>Registration</dt>
+            <dd>Closed<br>April 2, 2026</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section
+        class="competition-sheet competition-sheet--features page-frame"
+        id="event-format"
+        aria-labelledby="practice-title"
+      >
+        <header class="competition-section-head">
+          <h2 id="practice-title">What students practised</h2>
+          <p>
+            Students with varying levels of investing experience worked through
+            the core parts of a strong stock pitch. Advanced valuation was
+            optional; judges were asked to consider clarity, effort, and the
+            skill shown in the case.
+          </p>
+        </header>
+        <ul class="competition-feature-grid">
+          <li>
+            <h3>Qualitative research</h3>
+            <p>
+              Study the company&rsquo;s business model, competitive position,
+              and wider industry trends.
+            </p>
+          </li>
+          <li>
+            <h3>Financial analysis</h3>
+            <p>
+              Read financial statements and use basic ratios to give the
+              recommendation evidence.
+            </p>
+          </li>
+          <li>
+            <h3>Judge questions</h3>
+            <p>
+              Explain the reasoning live and respond to three minutes of
+              questions from the panel.
+            </p>
+          </li>
+          <li>
+            <h3>Team presentation</h3>
+            <p>
+              Shape one clear narrative with a five-person team and deliver the
+              pitch through slides.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section
+        class="competition-sheet competition-sheet--schedule page-frame"
+        aria-labelledby="schedule-title"
+      >
+        <header class="competition-section-head">
+          <h2 id="schedule-title">Published 2026 schedule</h2>
+          <p>
+            This timetable records how the 2026 competition was planned. The
+            event dates and registration deadline have passed.
+          </p>
+        </header>
+        <div class="competition-schedule-layout">
+          <ol class="competition-timeline">
+            <li>
+              <div class="competition-timeline__rail">
+                <p class="competition-timeline__date">Deadline</p>
+                <time datetime="2026-04-02">April 2, 2026</time>
+              </div>
+              <div class="competition-timeline__body">
+                <h3>Team registration</h3>
+                <p>
+                  Registration closed for complete teams, individuals, and
+                  incomplete teams awaiting matching.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="competition-timeline__rail">
+                <p class="competition-timeline__date">Assignment</p>
+                <time datetime="2026-04-02">April 2, 2026</time>
+              </div>
+              <div class="competition-timeline__body">
+                <h3>Company announcement</h3>
+                <p>
+                  The judges&rsquo; selected public company was scheduled to be
+                  shared with every team through Luban&rsquo;s social channels.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="competition-timeline__rail">
+                <p class="competition-timeline__date">Introduction</p>
+                <time datetime="2026-04-05T14:00">April 5<br>2:00 PM ET</time>
+              </div>
+              <div class="competition-timeline__body">
+                <h3>Orientation session</h3>
+                <p>
+                  The Zoom introduction covered the competition format and gave
+                  teams a shared starting point.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="competition-timeline__rail">
+                <p class="competition-timeline__date">Presentations</p>
+                <time datetime="2026-04-12T13:00"
+                  >April 12<br>1:00&ndash;5:00 PM ET</time
+                >
+              </div>
+              <div class="competition-timeline__body">
+                <h3>Team pitch slots</h3>
+                <p>
+                  Each team had ten minutes: seven minutes to present and three
+                  minutes for judge questions.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="competition-timeline__rail">
+                <p class="competition-timeline__date">Closing</p>
+                <time datetime="2026-04-12">April 12, 2026</time>
+              </div>
+              <div class="competition-timeline__body">
+                <h3>Closing ceremony</h3>
+                <p>
+                  The published plan concluded with final remarks and the
+                  announcement of the top three teams.
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <aside class="competition-side" aria-labelledby="pitch-format-title">
+            <h3 id="pitch-format-title">The ten-minute pitch</h3>
+            <p>
+              Clear thinking mattered more than advanced modelling. The
+              presentation needed to connect the thesis, evidence, and
+              recommendation before the judges opened the floor.
+            </p>
+            <dl class="competition-format-list">
+              <div>
+                <dt>7 minutes</dt>
+                <dd>
+                  Present the company, evidence, thesis, and buy, sell, or hold
+                  recommendation.
+                </dd>
+              </div>
+              <div>
+                <dt>3 minutes</dt>
+                <dd>
+                  Answer questions and defend the reasoning behind the
+                  team&rsquo;s case.
+                </dd>
+              </div>
+              <div>
+                <dt>Delivery</dt>
+                <dd>Slides presented live through Zoom.</dd>
+              </div>
+            </dl>
+          </aside>
         </div>
-      </div>
-    </div>
-  </div>
+      </section>
 
-  <!-- ─── Notes ─── -->
-  <div class="spc-section" style="padding-top: 0;">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8">
-          <span class="spc-label">Important Notes</span>
-          <h2 style="margin-bottom: 28px;">Before You Register</h2>
+      <section
+        class="competition-sheet competition-sheet--awards page-frame"
+        aria-labelledby="awards-title"
+      >
+        <header class="competition-section-head">
+          <h2 id="awards-title">Published prize structure</h2>
+          <p>
+            The 2026 event materials stated that first-, second-, and
+            third-place teams would receive a cash prize and an opportunity to
+            speak directly with the judging panel. Prize amounts were not
+            published.
+          </p>
+        </header>
+        <ol class="competition-awards">
+          <li>
+            <h3>First place</h3>
+            <p>Cash prize and a conversation with the judges.</p>
+          </li>
+          <li>
+            <h3>Second place</h3>
+            <p>Cash prize and a conversation with the judges.</p>
+          </li>
+          <li>
+            <h3>Third place</h3>
+            <p>Cash prize and a conversation with the judges.</p>
+          </li>
+        </ol>
+      </section>
 
-          <div class="note-block">
-            <p><strong>Team size:</strong> Teams are made up of 5 members. Individuals or incomplete teams will be
-              matched with others. If your team has fewer than 5 members, you must email <a
-                href="mailto:jsun.luban@gmail.com">jsun.luban@gmail.com</a> before the application deadline.</p>
-          </div>
+      <section
+        class="competition-sheet competition-sheet--notes page-frame"
+        aria-labelledby="requirements-title"
+      >
+        <header class="competition-section-head">
+          <h2 id="requirements-title">Published participation notes</h2>
+          <p>
+            These were the stated requirements and logistics for teams taking
+            part in the 2026 competition.
+          </p>
+        </header>
+        <ul class="competition-notes">
+          <li class="competition-note">
+            <p class="competition-note__label">Team size</p>
+            <p>
+              Teams were built toward five members. Individuals and incomplete
+              teams could be matched. Teams under five were asked to email
+              <a href="mailto:jsun.luban@gmail.com">jsun.luban@gmail.com</a>
+              before the deadline.
+            </p>
+          </li>
+          <li class="competition-note">
+            <p class="competition-note__label">Presentation</p>
+            <p>
+              The stock pitch was delivered through slides on Zoom and lasted
+              ten minutes in total: seven minutes of presentation and three
+              minutes of Q&amp;A.
+            </p>
+          </li>
+          <li class="competition-note">
+            <p class="competition-note__label">Valuation</p>
+            <p>
+              Rigorous discounted-cash-flow or other advanced valuations were
+              not required. A clear, well-supported investment thesis was the
+              priority.
+            </p>
+          </li>
+          <li class="competition-note">
+            <p class="competition-note__label">Attendance</p>
+            <p>
+              Teams were required at the opening ceremony, closing ceremony, and
+              their own presentation slot. Watching other pitches was optional
+              and expected to be respectful.
+            </p>
+          </li>
+          <li class="competition-note">
+            <p class="competition-note__label">Timeslots</p>
+            <p>
+              Presentation times were scheduled to be emailed to team addresses
+              on the morning of April 5. Scheduling questions went to
+              <a href="mailto:jsun.luban@gmail.com">jsun.luban@gmail.com</a>.
+            </p>
+          </li>
+        </ul>
+      </section>
 
-          <div class="note-block">
-            <p><strong>Presentation format:</strong> Your pitch must be delivered via slides on Zoom. Each presentation
-              is <strong>10 minutes total</strong>: 7 minutes for your pitch and 3 minutes for judge Q&A.</p>
-          </div>
-
-          <div class="note-block">
-            <p><strong>Valuations:</strong> Rigorous DCF or advanced valuations are <em>not</em> required, though judges
-              will appreciate the effort and skill you demonstrate. Focus on a clear, well-reasoned thesis.</p>
-          </div>
-
-          <div class="note-block">
-            <p><strong>Attendance:</strong> You are only required to attend the opening ceremony, closing ceremony, and
-              your own presentation timeslot. You are welcome to watch other teams, but please be respectful while doing
-              so.</p>
-          </div>
-
-          <div class="note-block">
-            <p><strong>Timeslot delivery:</strong> Your presentation time will be emailed to your team on the morning of
-              April 5th. For any special scheduling requests, contact <a
-                href="mailto:jsun.luban@gmail.com">jsun.luban@gmail.com</a>.</p>
-          </div>
+      <section
+        class="competition-close page-frame"
+        aria-labelledby="archive-title"
+      >
+        <div class="competition-close__copy">
+          <h2 id="archive-title">Review the 2026 event materials</h2>
+          <p>
+            This page is an archive. For current opportunities, return to
+            Luban&rsquo;s Events section or contact the team directly.
+          </p>
         </div>
+        <div class="competition-close__actions">
+          <a class="action action--primary" href="index.html#programs">
+            <span>Explore current events</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M5 12h13M14 7l5 5-5 5"></path>
+            </svg>
+          </a>
+          <a
+            class="action action--secondary"
+            href="mailto:jsun.luban@gmail.com"
+          >
+            <span>Email Luban</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M3 6h18v12H3zM3 7l9 7 9-7"></path>
+            </svg>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__grid page-frame">
+        <a class="site-footer__wordmark" href="index.html#top">Luban</a>
+        <nav aria-label="Featured event pages">
+          <a href="index.html#teaching-lessons">Teaching Lessons</a>
+          <a href="spc.html" aria-current="page">Stock Pitch Competition</a>
+          <a href="econ.html">Economics Competition</a>
+        </nav>
+        <p>Copyright &copy; 2026 Luban. All rights reserved.</p>
       </div>
-    </div>
-  </div>
-
-  <!-- ─── Registration CTA ─── -->
-  <div class="spc-section" style="padding-top: 0; padding-bottom: 100px;">
-    <div class="container">
-      <div class="reg-cta">
-        <div class="deadline-badge">Registration closes April 4, 2026</div>
-        <h2>Ready to Pitch?</h2>
-        <p>Join students from across the country in Luban's first Stock Pitch Competition. Build real finance skills,
-          connect with professionals, and compete for prizes.</p>
-        <a href="https://forms.gle/rLcSFnDu8oD1221Q9" target="_blank" class="reg-btn">Apply Now →</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="col-lg-12">
-        <p>Copyright © 2026 Luban. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/custom.js"></script>
-
-</body>
-
+    </footer>
+  </body>
 </html>

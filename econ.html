@@ -1,933 +1,481 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
-  <title>Economics Competition – Luban</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/fontawesome.css">
-  <link rel="stylesheet" href="assets/css/base.css">
-  <link rel="stylesheet" href="assets/css/animate.css">
-
-  <style>
-    /* ─── Page Hero (Teal/Emerald Theme) ─── */
-    .econ-hero {
-      background: linear-gradient(135deg, #0d5c56 0%, #14b8a6 50%, #5eead4 100%);
-      padding: 160px 0 100px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .econ-hero::before {
-      content: '';
-      position: absolute;
-      top: -80px;
-      right: -80px;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.06);
-    }
-
-    .econ-hero::after {
-      content: '';
-      position: absolute;
-      bottom: -60px;
-      left: 8%;
-      width: 260px;
-      height: 260px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.05);
-    }
-
-    .econ-hero .breadcrumb-label {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.15);
-      color: #fff;
-      font-size: 13px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      padding: 6px 18px;
-      border-radius: 20px;
-      margin-bottom: 22px;
-    }
-
-    .econ-hero h1 {
-      font-size: 54px;
-      font-weight: 800;
-      color: #fff;
-      line-height: 1.15;
-      margin-bottom: 20px;
-    }
-
-    .econ-hero h1 span {
-      display: block;
-      font-size: 22px;
-      font-weight: 300;
-      opacity: 0.85;
-      margin-top: 8px;
-    }
-
-    .econ-hero p.lead {
-      color: rgba(255, 255, 255, 0.88);
-      font-size: 15px;
-      line-height: 28px;
-      max-width: 560px;
-      margin-bottom: 36px;
-    }
-
-    .hero-cta {
-      display: inline-block;
-      background: #fff;
-      color: #0d9488;
-      font-size: 15px;
-      font-weight: 600;
-      height: 52px;
-      line-height: 52px;
-      padding: 0 32px;
-      border-radius: 26px;
-      transition: all .3s;
-      margin-right: 14px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-    }
-
-    .hero-cta:hover {
-      background: #f0fdfa;
-      color: #0f766e;
-      text-decoration: none;
-      transform: translateY(-2px);
-    }
-
-    .hero-cta-ghost {
-      display: inline-block;
-      background: transparent;
-      border: 2px solid rgba(255, 255, 255, 0.5);
-      color: #fff;
-      font-size: 14px;
-      font-weight: 500;
-      height: 52px;
-      line-height: 48px;
-      padding: 0 28px;
-      border-radius: 26px;
-      transition: all .3s;
-    }
-
-    .hero-cta-ghost:hover {
-      border-color: #fff;
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      text-decoration: none;
-    }
-
-    /* ─── Key Info Bar ─── */
-    .info-bar {
-      background: #fff;
-      border-radius: 25px;
-      padding: 40px 50px;
-      box-shadow: 0 10px 40px rgba(13, 148, 136, 0.12);
-      margin-top: -60px;
-      position: relative;
-      z-index: 10;
-    }
-
-    .info-bar .info-item {
-      text-align: center;
-      padding: 10px 20px;
-    }
-
-    .info-bar .info-item+.info-item {
-      border-left: 1px solid #eee;
-    }
-
-    .info-bar .info-item i {
-      font-size: 26px;
-      color: #0d9488;
-      margin-bottom: 10px;
-      display: block;
-    }
-
-    .info-bar .info-item h6 {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: #999;
-      font-weight: 500;
-      margin-bottom: 6px;
-    }
-
-    .info-bar .info-item p {
-      font-size: 14px;
-      font-weight: 600;
-      color: #1e1e1e;
-      margin: 0;
-      line-height: 1.5;
-    }
-
-    /* ─── Section Shared ─── */
-    .econ-section {
-      padding: 80px 0;
-    }
-
-    .econ-label {
-      display: inline-block;
-      color: #0d9488;
-      font-size: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 12px;
-    }
-
-    .econ-section h2 {
-      font-size: 34px;
-      font-weight: 700;
-      color: #1e1e1e;
-      margin-bottom: 16px;
-      line-height: 1.3;
-    }
-
-    .econ-section .intro-text {
-      font-size: 15px;
-      line-height: 29px;
-      color: #4a4a4a;
-      max-width: 680px;
-    }
-
-    /* ─── What to Expect Cards ─── */
-    .expect-card {
-      background: #f0fdfa;
-      border-radius: 25px;
-      padding: 36px 32px;
-      height: 100%;
-      transition: all .35s;
-    }
-
-    .expect-card:hover {
-      background: #0d9488;
-    }
-
-    .expect-card:hover h4,
-    .expect-card:hover p,
-    .expect-card:hover .card-icon {
-      color: #fff !important;
-    }
-
-    .expect-card .card-icon {
-      font-size: 32px;
-      color: #0d9488;
-      margin-bottom: 18px;
-      display: block;
-      transition: all .35s;
-    }
-
-    .expect-card:hover .card-icon {
-      color: rgba(255, 255, 255, 0.8) !important;
-    }
-
-    .expect-card h4 {
-      font-size: 18px;
-      font-weight: 700;
-      color: #1e1e1e;
-      margin-bottom: 10px;
-      transition: all .35s;
-    }
-
-    .expect-card p {
-      font-size: 14px;
-      line-height: 26px;
-      color: #4a4a4a;
-      margin: 0;
-      transition: all .35s;
-    }
-
-    /* ─── Sponsor Highlight Section ─── */
-    .sponsors-box {
-      background: #fafafa;
-      border: 1px solid #f0f0f0;
-      border-radius: 30px;
-      padding: 50px;
-      margin-top: 40px;
-    }
-
-    .sponsor-card {
-      background: #fff;
-      border: 1px solid #f0fdfa;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 8px 25px rgba(13, 148, 136, 0.04);
-      height: 100%;
-      transition: all 0.3s ease;
-      text-align: center;
-    }
-
-    .sponsor-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(13, 148, 136, 0.08);
-      border-color: #0d9488;
-    }
-
-    .sponsor-badge {
-      display: inline-block;
-      background: #f0fdfa;
-      color: #0d9488;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      padding: 4px 12px;
-      border-radius: 12px;
-      margin-bottom: 15px;
-    }
-
-    .sponsor-card h4 {
-      font-size: 22px;
-      font-weight: 700;
-      color: #1e1e1e;
-      margin-bottom: 12px;
-    }
-
-    .sponsor-card p {
-      font-size: 14px;
-      line-height: 24px;
-      color: #555;
-      margin: 0;
-    }
-
-    /* ─── Schedule + Important Info layout ─── */
-    .schedule-rules-wrap {
-      max-width: 1320px;
-    }
-
-    .schedule-rules-wrap .row {
-      align-items: flex-start;
-    }
-
-    /* ─── Timeline / Schedule ─── */
-    .schedule-block {
-      background: #0d9488;
-      border-radius: 30px;
-      padding: 60px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .schedule-block::before {
-      content: '';
-      position: absolute;
-      top: -40px;
-      right: -40px;
-      width: 220px;
-      height: 220px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.07);
-    }
-
-    .schedule-block h2 {
-      color: #fff;
-      font-size: 30px;
-      font-weight: 700;
-      margin-bottom: 40px;
-    }
-
-    .timeline-item {
-      display: flex;
-      align-items: flex-start;
-      margin-bottom: 32px;
-      position: relative;
-    }
-
-    .timeline-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .timeline-dot {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      margin-right: 22px;
-    }
-
-    .timeline-dot i {
-      color: #fff;
-      font-size: 18px;
-    }
-
-    .timeline-content h5 {
-      color: #fff;
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
-    .timeline-content p {
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 14px;
-      margin: 0;
-      line-height: 24px;
-    }
-
-    .timeline-connector {
-      width: 2px;
-      height: 24px;
-      background: rgba(255, 255, 255, 0.2);
-      margin-left: 24px;
-      margin-bottom: 0;
-    }
-
-    /* ─── Notes ─── */
-    .note-block {
-      background: #f0fdfa;
-      border-left: 4px solid #0d9488;
-      border-radius: 0 16px 16px 0;
-      padding: 20px 24px;
-      margin-bottom: 16px;
-    }
-
-    .note-block p {
-      font-size: 14px;
-      line-height: 26px;
-      margin: 0;
-      color: #4a4a4a;
-    }
-
-    .note-block p a {
-      color: #0d9488;
-      text-decoration: underline !important;
-      font-weight: 500;
-    }
-
-    /* ─── Registration CTA ─── */
-    .reg-cta {
-      background: #f0fdfa;
-      border-radius: 30px;
-      padding: 70px 60px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .reg-cta::before {
-      content: '';
-      position: absolute;
-      top: -60px;
-      left: -60px;
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      background: rgba(13, 148, 136, 0.08);
-    }
-
-    .reg-cta h2 {
-      font-size: 34px;
-      font-weight: 700;
-      color: #1e1e1e;
-      margin-bottom: 16px;
-    }
-
-    .reg-cta p {
-      font-size: 15px;
-      color: #4a4a4a;
-      max-width: 500px;
-      margin: 0 auto 36px;
-      line-height: 28px;
-    }
-
-    .reg-cta .deadline-badge {
-      display: inline-block;
-      background: #fff;
-      border-radius: 20px;
-      padding: 8px 22px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #0d9488;
-      margin-bottom: 30px;
-      box-shadow: 0 4px 14px rgba(13, 148, 136, 0.15);
-    }
-
-    .reg-btn {
-      display: inline-block;
-      background: #0d9488;
-      color: #fff;
-      font-size: 15px;
-      font-weight: 600;
-      height: 54px;
-      line-height: 54px;
-      padding: 0 42px;
-      border-radius: 27px;
-      transition: all .3s;
-      box-shadow: 0 6px 20px rgba(13, 148, 136, 0.25);
-    }
-
-    .reg-btn:hover {
-      background: #0f766e;
-      color: #fff;
-      text-decoration: none;
-      transform: translateY(-2px);
-    }
-
-    /* ─── Back nav ─── */
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      color: rgba(255, 255, 255, 0.75);
-      font-size: 13px;
-      font-weight: 500;
-      margin-bottom: 30px;
-      transition: color .2s;
-    }
-
-    .back-link:hover {
-      color: #fff;
-      text-decoration: none;
-    }
-
-    /* ─── Eligibility pill list ─── */
-    .pill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-    }
-
-    .pill {
-      background: #fff;
-      border: 2px solid #ccfbf1;
-      border-radius: 20px;
-      padding: 7px 20px;
-      font-size: 13px;
-      font-weight: 500;
-      color: #0d9488;
-    }
-
-    /* ─── Linktree Highlight Badge ─── */
-    .linktree-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: #25d366; /* Standout green */
-      background: linear-gradient(135deg, #128c7e, #25d366);
-      color: #fff;
-      font-weight: 700;
-      padding: 10px 20px;
-      border-radius: 30px;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-      position: fixed;
-      bottom: 30px;
-      right: 30px;
-      z-index: 999;
-      font-size: 14px;
-      transition: all 0.3s ease;
-    }
-
-    .linktree-badge:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.5);
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .linktree-badge i {
-      font-size: 16px;
-    }
-
-    /* ─── Responsive ─── */
-    @media (max-width: 768px) {
-      .econ-hero {
-        padding: 120px 0 80px;
-      }
-
-      .econ-hero h1 {
-        font-size: 36px;
-      }
-
-      .info-bar {
-        padding: 30px 20px;
-      }
-
-      .info-bar .info-item+.info-item {
-        border-left: none;
-        border-top: 1px solid #eee;
-      }
-
-      .sponsors-box {
-        padding: 30px 20px;
-      }
-
-      .schedule-block {
-        padding: 36px 28px;
-      }
-
-      .reg-cta {
-        padding: 48px 28px;
-      }
-      
-      .linktree-badge {
-        bottom: 20px;
-        right: 20px;
-        font-size: 12px;
-        padding: 8px 16px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- Preloader -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots"><span></span><span></span><span></span></div>
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header class="header-area header-sticky">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- Logo -->
-            <a href="index.html" class="logo">
-              <h1>Luban</h1>
-            </a>
-
-            <!-- Search -->
-            <div class="search-input">
-              <form id="search" action="#" onsubmit="return false;">
-                <input type="text" placeholder="Search..." id="searchText" name="searchKeyword" />
-                <i class="fa fa-search"></i>
-              </form>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Review the published format, schedule, partners, and participation details for the archived Luban Economics Competition 2026."
+    >
+    <title>Economics Competition 2026 | Luban</title>
+
+    <script>
+      document.documentElement.classList.replace("no-js", "js");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    >
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/competition.css">
+    <script defer src="assets/js/home.js"></script>
+  </head>
+
+  <body class="competition-document competition-document--econ">
+    <!--
+    THESIS: A competition briefing sheet turns dense logistics into a readable event dossier instead of a generic gradient marketing page.
+    OWN-WORLD: Luban purple canvas, white paper, ink rules, deep functional fields, and sparse lime and pink cues with Space Grotesk and IBM Plex Mono.
+    STORY: Identify the archived event, understand the simulation, review partners, schedule, and requirements, then find current Luban opportunities.
+    FIRST VIEWPORT: The ruled Luban header sits above a seven-five masthead, a simulation mechanism brief, and one attached facts band.
+    FORM: Established-world extension / competition dossier / inherited key luban-opportunity-press.
+    DIRECTION: Purple-led Luban identity / reference-inspired newspaper composition.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, DESIGN.md, and every shipping raster carrying its provenance
+    -->
+
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header" data-site-header>
+      <div class="site-header__row page-frame">
+        <a class="wordmark" href="index.html#top" aria-label="Luban home">
+          <span class="wordmark__name">Luban</span>
+          <span class="wordmark__descriptor">Youth-led nonprofit</span>
+        </a>
+
+        <nav
+          class="primary-nav"
+          id="primary-nav"
+          aria-label="Main navigation"
+          data-primary-nav
+        >
+          <ul>
+            <li><a href="index.html#top" data-nav-link>Home</a></li>
+            <li class="nav-dropdown nav-dropdown--current" data-nav-dropdown>
+              <span class="nav-dropdown__trigger">
+                <a href="index.html#programs" data-nav-link>Events</a>
+                <button
+                  class="nav-dropdown__toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="event-nav-menu"
+                  aria-label="Show event links"
+                  data-nav-dropdown-toggle
+                >
+                  <svg aria-hidden="true" viewBox="0 0 16 16">
+                    <path d="m4 6 4 4 4-4"></path>
+                  </svg>
+                </button>
+              </span>
+              <ul
+                class="nav-dropdown__menu"
+                id="event-nav-menu"
+                data-nav-dropdown-menu
+              >
+                <li>
+                  <a href="index.html#teaching-lessons">Teaching Lessons</a>
+                </li>
+                <li><a href="spc.html">SPC</a></li>
+                <li>
+                  <a href="econ.html" aria-current="page">Econ Competition</a>
+                </li>
+              </ul>
+            </li>
+            <li><a href="index.html#about" data-nav-link>About</a></li>
+            <li><a href="index.html#contact" data-nav-link>Contact Us</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            class="header-control menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="primary-nav"
+            data-menu-toggle
+          >
+            <span>Menu</span>
+            <span class="menu-toggle__mark" aria-hidden="true"
+              ><span></span><span></span
+            ></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="competition-page" id="main-content">
+      <section
+        class="competition-opening page-frame"
+        id="top"
+        aria-labelledby="econ-title"
+      >
+        <div class="competition-hero">
+          <div class="competition-hero__lead">
+            <div>
+              <p class="competition-record">
+                <span>2026 event archive</span>
+                <span>Event date passed</span>
+              </p>
+              <h1 id="econ-title">Economics Competition</h1>
+              <p class="competition-hero__deck">
+                Trade, negotiate, and learn through a live mock economy where
+                every resource decision changes the value a team can build.
+              </p>
             </div>
 
-            <!-- Menu -->
-            <ul class="nav">
-              <li class="scroll-to-section">
-                <a href="index.html#top">Home</a>
-              </li>
+            <div class="competition-actions">
+              <a
+                class="action action--primary"
+                href="https://linktr.ee/luban_canada"
+                target="_blank"
+                rel="noopener"
+              >
+                <span>Visit Luban on Linktree</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M7 17 17 7M9 7h8v8"></path>
+                </svg>
+                <span class="visually-hidden"> (opens in a new tab)</span>
+              </a>
+              <a class="action action--secondary" href="#simulation-format">
+                <span>How the simulation worked</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M5 12h13M14 7l5 5-5 5"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
 
-              <li class="scroll-to-section has-sub">
-                <a href="index.html#services" class="active">Events</a>
-                <ul class="sub-menu">
-                  <li><a href="spc.html">SPC</a></li>
-                  <li><a href="econ.html">Econ Competition</a></li>
-                </ul>
-              </li>
-
-              <li class="scroll-to-section">
-                <a href="index.html#contact">Contact Us</a>
-              </li>
+          <div class="competition-hero__brief">
+            <h2>Make the trade. Read the economy.</h2>
+            <p>
+              The simulation asked teams to manage limited resources, negotiate
+              with other players, and connect the choices made in the game to
+              economic ideas during a guided debrief.
+            </p>
+            <ul class="competition-terms" aria-label="Core simulation actions">
+              <li>Trade</li>
+              <li>Negotiate</li>
+              <li>Learn</li>
             </ul>
-
-            <!-- Mobile menu trigger -->
-            <a class="menu-trigger">
-              <span>Menu</span>
-            </a>
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- Floating Sticky Linktree Badge for Visibility -->
-  <a href="https://linktr.ee/luban_canada" target="_blank" class="linktree-badge">
-    <i class="fa fa-external-link"></i> Apply on Linktree
-  </a>
-
-  <!-- ─── Hero ─── -->
-  <div class="econ-hero" id="top">
-    <div class="container">
-      <a href="index.html#services" class="back-link">
-        <i class="fa fa-arrow-left"></i> Back to Events
-      </a>
-      <div class="row">
-        <div class="col-lg-9">
-          <span class="breadcrumb-label">Luban Econ 2026</span>
-          <h1>
-            Economics Competition
-            <span>Strategic Mock-Economy Simulation</span>
-          </h1>
-          <p class="lead">
-            Are you a student interested in a career in business? Form a team, compete in a live, free virtual simulation game, make smart negotiations, manage resources, and win cash prizes!
-          </p>
-          <a href="https://linktr.ee/luban_canada" target="_blank" class="hero-cta"><i class="fa fa-external-link"></i> Register via Linktree</a>
-          <a href="#overview" class="hero-cta-ghost">Learn More</a>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── Info Bar ─── -->
-  <div class="container" id="overview">
-    <div class="info-bar">
-      <div class="row">
-        <div class="col-6 col-md-3">
-          <div class="info-item">
-            <i class="fa fa-calendar"></i>
-            <h6>Date & Time</h6>
-            <p>June 27, 2026<br>1:30 PM EST</p>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="info-item">
-            <i class="fa fa-clock-o"></i>
-            <h6>Running Time</h6>
-            <p>~1 Hour Game<br>+ 15-30m Debrief</p>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="info-item">
-            <i class="fa fa-laptop"></i>
-            <h6>Format</h6>
-            <p>Online Simulation<br>Free to Join</p>
-          </div>
-        </div>
-        <div class="col-6 col-md-3">
-          <div class="info-item">
-            <i class="fa fa-users"></i>
-            <h6>Team Size</h6>
-            <p>Teams of 2–4<br>(Solo Matches Open)</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─── About Section ─── -->
-  <div class="econ-section">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-5">
-          <span class="econ-label">About the Event</span>
-          <h2>Play, Negotiate, and Strategize</h2>
-          <p class="intro-text">
-            Luban's Economics Competition places you and your teammates inside a dynamic, real-time mock-economy simulation. The team that accumulates the most value by the end of the simulation wins the cash prize!
-          </p>
-          <p class="intro-text" style="margin-top: 16px;">
-            With the support of our partners <strong>StudyScope</strong> and <strong>CFEE</strong>, this interactive event teaches fundamental economic concepts in a collaborative, fast-paced environment where you can immediately apply classroom ideas to sandbox negotiations.
-          </p>
-          <div class="pill-list">
-            <span class="pill">High School & University</span>
-            <span class="pill">Mock-Economy Game</span>
-            <span class="pill">Cash Prizes</span>
-            <span class="pill">No Prep Required</span>
-          </div>
-        </div>
-        <div class="col-lg-6 offset-lg-1 mt-5 mt-lg-0">
-          <div class="row g-4">
-            <div class="col-6">
-              <div class="expect-card">
-                <span class="card-icon"><i class="fa fa-sliders"></i></span>
-                <h4>Resource Management</h4>
-                <p>Allocate resources strategically and make critical budgeting decisions as economic indicators change.</p>
+            <dl class="competition-brief-format">
+              <div>
+                <dt>Simulation</dt>
+                <dd>About 1 hour</dd>
               </div>
-            </div>
-            <div class="col-6">
-              <div class="expect-card">
-                <span class="card-icon"><i class="fa fa-handshake"></i></span>
-                <h4>Active Negotiation</h4>
-                <p>Trade and cut deals with rival teams to secure components, raise value, and achieve mutual advantages.</p>
+              <div>
+                <dt>Debrief</dt>
+                <dd>15&ndash;30 minutes</dd>
               </div>
-            </div>
-            <div class="col-6">
-              <div class="expect-card">
-                <span class="card-icon"><i class="fa fa-graduation-cap"></i></span>
-                <h4>Real-world Debrief</h4>
-                <p>Following the 1-hour game, unpack the mechanics of inflation, supply/demand, and game theory you used.</p>
-              </div>
-            </div>
-            <div class="col-6">
-              <div class="expect-card">
-                <span class="card-icon"><i class="fa fa-trophy"></i></span>
-                <h4>Cash Prize Pool</h4>
-                <p>Put your business acumen to the test! The top-valued team wins real cash rewards.</p>
-              </div>
-            </div>
+            </dl>
           </div>
         </div>
-      </div>
 
-      <!-- ─── Sponsors Highlight Block ─── -->
-      <div class="sponsors-box" id="sponsors">
-        <div class="row text-center mb-4">
-          <div class="col-12">
-            <span class="econ-label">Event Sponsors</span>
-            <h3 style="font-weight: 700; color: #1e1e1e;">Proudly Sponsored By</h3>
-            <p class="intro-text mx-auto" style="margin-top: 8px;">We are thrilled to partner with organizations that share our commitment to youth financial empowerment and accessible business education.</p>
-          </div>
-        </div>
-        <div class="row justify-content-center">
-          <div class="col-md-5 mb-4 mb-md-0">
-            <div class="sponsor-card">
-              <span class="sponsor-badge">Academic Partner</span>
-              <h4>StudyScope</h4>
-              <p>StudyScope is a leading educational platform dedicated to providing students with high-quality academic support, mentorship pathways, and resources to bridge the gap between high school and higher education success.</p>
-            </div>
-          </div>
-          <div class="col-md-5">
-            <div class="sponsor-card">
-              <span class="sponsor-badge">Economic Capability Partner</span>
-              <h4>CFEE</h4>
-              <p>The Canadian Foundation for Economic Education (CFEE) is a non-profit, non-partisan organization working to improve economic capability, financial literacy, and entrepreneurship development for people in Canada and around the world.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- ─── Schedule & Rules ─── -->
-  <div class="econ-section" style="padding-top: 0;">
-    <div class="container schedule-rules-wrap">
-      <div class="row">
-        <div class="col-lg-7">
-          <div class="schedule-block">
-            <h2>Event Schedule</h2>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"><i class="fa fa-sign-in"></i></div>
-              <div class="timeline-content">
-                <h5>1:30 PM EST: Welcome & Onboarding</h5>
-                <p>Log in, meet the coordinators, learn the simulation game mechanics, study the interface controls, and align with your team members in private breakout channels.</p>
-              </div>
-            </div>
-            <div class="timeline-connector"></div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"><i class="fa fa-play"></i></div>
-              <div class="timeline-content">
-                <h5>1:45 PM EST: Simulation Begins</h5>
-                <p>The live economy simulation launches! Run trade cycles, purchase resources, negotiate with other players, and maximize your team's value over roughly 1 hour.</p>
-              </div>
-            </div>
-            <div class="timeline-connector"></div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"><i class="fa fa-pie-chart"></i></div>
-              <div class="timeline-content">
-                <h5>2:45 PM EST: Tally & Analysis</h5>
-                <p>Simulation rounds end. The final values of all teams are logged, audited, and compiled. Grab a quick water break while results are verified.</p>
-              </div>
-            </div>
-            <div class="timeline-connector"></div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"><i class="fa fa-lightbulb-o"></i></div>
-              <div class="timeline-content">
-                <h5>3:00 PM EST: Economic Concepts Debrief</h5>
-                <p>Learn how the principles of scarcity, micro-economics, and negotiation played out in the game. Real-world applications are broken down in an interactive debriefing session.</p>
-              </div>
-            </div>
-            <div class="timeline-connector"></div>
-
-            <div class="timeline-item">
-              <div class="timeline-dot"><i class="fa fa-gift"></i></div>
-              <div class="timeline-content">
-                <h5>3:20 PM EST: Winners Announced & Wrap-up</h5>
-                <p>The winning teams are revealed, cash prizes are distributed, and key takeaways are shared.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-lg-5 mt-5 mt-lg-0 d-flex flex-column">
+        <dl class="competition-meta">
           <div>
-            <span class="econ-label">Important Info</span>
-            <h2>Before You Enter</h2>
-            <p class="intro-text" style="margin-bottom: 28px;">Keep these key details in mind as you prepare for the simulation event.</p>
+            <dt>Event date</dt>
+            <dd>
+              <time datetime="2026-06-27T13:30"
+                >June 27, 2026<br>1:30 PM ET</time
+              >
+            </dd>
           </div>
-          
-          <div class="note-block">
-            <p><strong>Eligibility:</strong> Any high school or university student is welcome to apply. You don't need any prior business or economics coursework—the rules will be taught from scratch at the beginning of the event!</p>
+          <div>
+            <dt>Duration</dt>
+            <dd>About 1 hour<br>plus debrief</dd>
           </div>
+          <div>
+            <dt>Format</dt>
+            <dd>Online<br>and free</dd>
+          </div>
+          <div>
+            <dt>Teams</dt>
+            <dd>2&ndash;4 students<br>matching available</dd>
+          </div>
+          <div>
+            <dt>Audience</dt>
+            <dd>High school and<br>university students</dd>
+          </div>
+        </dl>
+      </section>
 
-          <div class="note-block">
-            <p><strong>Team Dynamics:</strong> Teams will consist of 2 to 4 players. If you don't have a team, register individually and we'll pair you with teammates before kickoff so you don't miss out on the action.</p>
-          </div>
+      <section
+        class="competition-sheet competition-sheet--features page-frame"
+        id="simulation-format"
+        aria-labelledby="simulation-title"
+      >
+        <header class="competition-section-head">
+          <h2 id="simulation-title">How the simulation worked</h2>
+          <p>
+            Luban&rsquo;s Economics Competition placed teams inside a live mock
+            economy. Students had to turn classroom concepts into decisions,
+            react to other teams, and then examine the economic patterns created
+            by the game.
+          </p>
+        </header>
+        <ul class="competition-feature-grid">
+          <li>
+            <h3>Resource management</h3>
+            <p>
+              Allocate limited resources and adjust budgeting decisions as
+              conditions inside the simulation change.
+            </p>
+          </li>
+          <li>
+            <h3>Active negotiation</h3>
+            <p>
+              Trade with other teams, secure needed components, and look for
+              agreements that create value.
+            </p>
+          </li>
+          <li>
+            <h3>Economic debrief</h3>
+            <p>
+              Connect the game to scarcity, supply and demand, inflation,
+              negotiation, and strategic behaviour.
+            </p>
+          </li>
+          <li>
+            <h3>Published prizes</h3>
+            <p>
+              The 2026 event materials stated that cash prizes were part of the
+              competition; amounts were not published.
+            </p>
+          </li>
+        </ul>
+      </section>
 
-          <div class="note-block">
-            <p><strong>Platform & Setup:</strong> You'll need a stable internet connection and a laptop or desktop computer to run the simulation interface and access the Zoom session concurrently.</p>
-          </div>
+      <section
+        class="competition-sheet competition-sheet--partners page-frame"
+        aria-labelledby="partners-title"
+      >
+        <header class="competition-section-head">
+          <h2 id="partners-title">Event partners</h2>
+          <p>
+            The published 2026 event page identified StudyScope and the Canadian
+            Foundation for Economic Education as Luban partners for the
+            competition.
+          </p>
+        </header>
+        <div class="competition-partners">
+          <article class="competition-partner">
+            <p class="competition-partner__role">Academic partner</p>
+            <h3>StudyScope</h3>
+            <p>
+              StudyScope supports students through academic resources and
+              mentorship pathways designed to help bridge secondary and
+              post-secondary learning.
+            </p>
+          </article>
+          <article class="competition-partner">
+            <p class="competition-partner__role">Economic capability partner</p>
+            <h3>CFEE</h3>
+            <p>
+              The Canadian Foundation for Economic Education is a non-profit,
+              non-partisan organization working to improve economic capability,
+              financial literacy, and entrepreneurship development.
+            </p>
+          </article>
         </div>
+      </section>
+
+      <section
+        class="competition-sheet competition-sheet--schedule page-frame"
+        aria-labelledby="schedule-title"
+      >
+        <header class="competition-section-head">
+          <h2 id="schedule-title">Published 2026 schedule</h2>
+          <p>
+            This timetable records the plan shown for June 27, 2026. The event
+            date has passed, so the sequence is presented as an archive rather
+            than a current registration schedule.
+          </p>
+        </header>
+        <div class="competition-schedule-layout">
+          <ol class="competition-timeline">
+            <li>
+              <div class="competition-timeline__rail">
+                <p class="competition-timeline__date">Onboarding</p>
+                <time datetime="2026-06-27T13:30">1:30 PM ET</time>
+              </div>
+              <div class="competition-timeline__body">
+                <h3>Welcome and setup</h3>
+                <p>
+                  The published plan opened with coordinators, game mechanics,
+                  interface controls, and team alignment.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="competition-timeline__rail">
+                <p class="competition-timeline__date">Simulation</p>
+                <time datetime="2026-06-27T13:45">1:45 PM ET</time>
+              </div>
+              <div class="competition-timeline__body">
+                <h3>Live economy begins</h3>
+                <p>
+                  Teams were scheduled to run trade cycles, purchase resources,
+                  negotiate, and build value for about one hour.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="competition-timeline__rail">
+                <p class="competition-timeline__date">Tally</p>
+                <time datetime="2026-06-27T14:45">2:45 PM ET</time>
+              </div>
+              <div class="competition-timeline__body">
+                <h3>Values and analysis</h3>
+                <p>
+                  The schedule reserved time to record final team values and
+                  prepare the simulation results for discussion.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="competition-timeline__rail">
+                <p class="competition-timeline__date">Debrief</p>
+                <time datetime="2026-06-27T15:00">3:00 PM ET</time>
+              </div>
+              <div class="competition-timeline__body">
+                <h3>Economic concepts</h3>
+                <p>
+                  The planned debrief connected scarcity, supply and demand,
+                  negotiation, and strategy to decisions made in the game.
+                </p>
+              </div>
+            </li>
+            <li>
+              <div class="competition-timeline__rail">
+                <p class="competition-timeline__date">Wrap-up</p>
+                <time datetime="2026-06-27T15:20">3:20 PM ET</time>
+              </div>
+              <div class="competition-timeline__body">
+                <h3>Winners and takeaways</h3>
+                <p>
+                  The published plan closed with winner announcements, prize
+                  information, and the main lessons from the simulation.
+                </p>
+              </div>
+            </li>
+          </ol>
+
+          <aside class="competition-side" aria-labelledby="entry-title">
+            <h3 id="entry-title">Before the simulation</h3>
+            <p>
+              No prior business or economics coursework was required. Students
+              did need the right team and technical setup to participate online.
+            </p>
+            <dl class="competition-format-list">
+              <div>
+                <dt>Eligibility</dt>
+                <dd>High school and university students.</dd>
+              </div>
+              <div>
+                <dt>Team size</dt>
+                <dd>
+                  Two to four players; individual entrants could be matched.
+                </dd>
+              </div>
+              <div>
+                <dt>Setup</dt>
+                <dd>
+                  Stable internet, Zoom, and a laptop or desktop computer.
+                </dd>
+              </div>
+            </dl>
+          </aside>
+        </div>
+      </section>
+
+      <section
+        class="competition-sheet competition-sheet--notes page-frame"
+        aria-labelledby="requirements-title"
+      >
+        <header class="competition-section-head">
+          <h2 id="requirements-title">Published participation notes</h2>
+          <p>
+            These details summarize the audience, team formation, and technology
+            requirements shown for the 2026 event.
+          </p>
+        </header>
+        <ul class="competition-notes">
+          <li class="competition-note">
+            <p class="competition-note__label">Eligibility</p>
+            <p>
+              Any high school or university student could take part. The rules
+              were intended to be taught at the beginning, so prior coursework
+              was not required.
+            </p>
+          </li>
+          <li class="competition-note">
+            <p class="competition-note__label">Team matching</p>
+            <p>
+              Teams were made up of two to four players. Students without a full
+              team could register individually and be paired before the event.
+            </p>
+          </li>
+          <li class="competition-note">
+            <p class="competition-note__label">Platform</p>
+            <p>
+              The simulation required a stable internet connection and a laptop
+              or desktop capable of running the simulation interface and Zoom
+              together.
+            </p>
+          </li>
+          <li class="competition-note">
+            <p class="competition-note__label">Event cost</p>
+            <p>
+              The published competition was free and online, allowing students
+              to participate from different locations.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section
+        class="competition-close page-frame"
+        aria-labelledby="archive-title"
+      >
+        <div class="competition-close__copy">
+          <h2 id="archive-title">Find current Luban opportunities</h2>
+          <p>
+            This page is an archive of the June 2026 competition. Return to
+            Events for current teaching sessions and future program updates.
+          </p>
+        </div>
+        <div class="competition-close__actions">
+          <a class="action action--primary" href="index.html#programs">
+            <span>Explore current events</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M5 12h13M14 7l5 5-5 5"></path>
+            </svg>
+          </a>
+          <a
+            class="action action--secondary"
+            href="https://linktr.ee/luban_canada"
+            target="_blank"
+            rel="noopener"
+          >
+            <span>Visit Luban on Linktree</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <path d="M7 17 17 7M9 7h8v8"></path>
+            </svg>
+            <span class="visually-hidden"> (opens in a new tab)</span>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__grid page-frame">
+        <a class="site-footer__wordmark" href="index.html#top">Luban</a>
+        <nav aria-label="Featured event pages">
+          <a href="index.html#teaching-lessons">Teaching Lessons</a>
+          <a href="spc.html">Stock Pitch Competition</a>
+          <a href="econ.html" aria-current="page">Economics Competition</a>
+        </nav>
+        <p>Copyright &copy; 2026 Luban. All rights reserved.</p>
       </div>
-    </div>
-  </div>
-
-  <!-- ─── Registration CTA ─── -->
-  <div class="econ-section" style="padding-top: 0; padding-bottom: 100px;">
-    <div class="container">
-      <div class="reg-cta">
-        <div class="deadline-badge">Competition date: June 27, 2026</div>
-        <h2>Ready to Accumulate Value?</h2>
-        <p>Spaces for the live simulation game are limited to ensure smooth platform performance. Complete your registration early on Linktree to lock in your team's spot!</p>
-        <a href="https://linktr.ee/luban_canada" target="_blank" class="reg-btn">Apply Now via Linktree →</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="col-lg-12">
-        <p>Copyright © 2026 Luban. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/custom.js"></script>
-
-  <!-- Search Highlight Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('searchText').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          const query = this.value.trim().toLowerCase();
-          if (!query) return;
-
-          document.querySelectorAll('.search-highlight').forEach(el => {
-            el.outerHTML = el.innerHTML;
-          });
-
-          const searchableElements = document.querySelectorAll('p, h2, h3, h4, h5, h6, .note-block, .sponsor-card');
-          let firstMatch = null;
-
-          searchableElements.forEach(el => {
-            const regex = new RegExp(`(${query})`, 'gi');
-            if (regex.test(el.textContent)) {
-              el.innerHTML = el.innerHTML.replace(regex, '<mark class="search-highlight">$1</mark>');
-              if (!firstMatch) firstMatch = el;
-            }
-          });
-
-          if (firstMatch) {
-            firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          } else {
-            alert('No results found for "' + query + '"');
-          }
-
-          this.value = '';
-        }
-      });
-    });
-  </script>
-
-</body>
-
+    </footer>
+  </body>
 </html>
