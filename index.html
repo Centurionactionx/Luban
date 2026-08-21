@@ -1,500 +1,421 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="en" class="no-js">
   <head>
-
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Luban is a youth-led Canadian nonprofit that helps high school students prepare for post-secondary education and careers in business.">
+    <title>Luban | Youth-Led Business Education and Mentorship</title>
 
-    <title>Luban</title>
+    <script>document.documentElement.classList.replace('no-js', 'js');</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/home.css">
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/base.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
-
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-    <script>emailjs.init("Ql9fdB8-80sRNy095");</script>
-
-    <style>
-      mark.search-highlight {
-        background-color: #f4a803;
-        color: #fff;
-        border-radius: 3px;
-        padding: 0 2px;
-      }
-
-      .live-banner {
-        background: linear-gradient(90deg, #f4a803, #ff6b35);
-        color: #fff;
-        text-align: center;
-        font-weight: 700;
-        padding: 14px 20px;
-        border-radius: 14px;
-        margin: 0 auto 30px auto;
-        max-width: 720px;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        letter-spacing: 0.4px;
-      }
-      .apply-button {
-        display: block;
-        text-align: center;
-        background: linear-gradient(90deg, #e0d9ff, #7a6ad8);
-        color: #ffffff;
-        font-weight: 700;
-        font-size: 18px;
-        padding: 18px 24px;
-        border-radius: 16px;
-        margin: 0 auto;
-        max-width: 760px;
-        text-decoration: none;
-        box-shadow: 0 10px 25px rgba(122, 106, 216, 0.3);
-        transition: all 0.25s ease;
-      }
-      .apply-button:hover {
-        transform: translateY(-3px) scale(1.02);
-        box-shadow: 0 14px 30px rgba(122, 106, 216, 0.4);
-        background: linear-gradient(90deg, #c7bdff, #6453d1);
-        color: #ffffff;
-      }
-      #services .row > div {
-        display: flex;
-        flex-direction: column;
-      }
-      .service-item {
-        display: flex;
-        flex-direction: column;
-        flex-grow: 1;
-        width: 100%;
-      }
-      .service-item .main-content {
-        flex-grow: 1;
-      }
-      .service-item .main-content ul {
-        padding-left: 18px;
-        margin: 0;
-        color: #4a4a4a;
-        font-size: 14px;
-        line-height: 1.9;
-        list-style-type: disc;
-      }
-      .service-item .main-content ul li {
-        display: list-item;
-      }
-    </style>
-
+    <script defer src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script defer src="assets/js/home.js"></script>
   </head>
 
-<body>
+  <body>
+    <!--
+    THESIS: Luban is a centered civic opportunity poster sheet where active programs, not decoration, carry the identity.
+    OWN-WORLD: White paper, white gutters, black rules, plum, indigo, berry, lavender, and precise geometric marks.
+    STORY: State the mission, make four programs tangible, show honest scale, explain the model, then invite contact.
+    FIRST VIEWPORT: A calm mission rail faces a 2x2 wall of responsive program posters; the wall reacts without reshuffling.
+    FORM: A centered paper sheet, generous chapter gaps, square editorial regions, thin seams, moderate grotesk type, flat color, real lists, and native controls.
+    SEED KEY: 9e416951 / design-canon-swiss-grid-poster-wall / composition A.
+    FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
 
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </div>
-  <!-- ***** Preloader End ***** -->
+    <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <a href="index.html" class="logo">
-                        <h1>Luban</h1>
-                    </a>
-                    <div class="search-input">
-                      <form id="search" action="#" onsubmit="return false;">
-                        <input type="text" placeholder="Search..." id="searchText" name="searchKeyword" />
-                        <i class="fa fa-search"></i>
-                      </form>
-                    </div>
-                    <ul class="nav">
-                      <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
-                      <li class="scroll-to-section has-sub">
-                        <a href="#services">Events</a>
-                        <ul class="sub-menu">
-                          <li><a href="spc.html">SPC</a></li>
-                          <li><a href="econ.html">Econ Competition</a></li>
-                        </ul>
-                      </li>
-                      <!-- <li><a href="apply.html">Join Us</a></li> -->
-                      <li class="scroll-to-section"><a href="#contact">Contact Us</a></li>
-                  </ul>
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                </nav>
-            </div>
-        </div>
-    </div>
-  </header>
-
-  <div class="main-banner" id="top">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="owl-carousel owl-banner">
-            <div class="item item-1">
-              <div class="header-text">
-                <span class="category">Youth-Led Nonprofit</span>
-                <h2>Preparing Youth for University and Careers in Business</h2>
-                <p>Luban is a youth-led multiprovincial nonprofit dedicated to enriching and preparing high school students, especially those in underserved communities, for post-secondary education and future careers in business.</p>
-              </div>
-            </div>
-            <div class="item item-2">
-              <div class="header-text">
-                <span class="category">Our Mission</span>
-                <h2>Bridge the Gap From School to Future Success</h2>
-                <p>We aim to bridge the gap from high school to post-secondary education and from academics to future careers through free events, practical exposure, and mentorship.</p>
-              </div>
-            </div>
-            <div class="item item-3">
-              <div class="header-text">
-                <span class="category">Four Pillars</span>
-                <h2>Hands-On Learning, Guidance, Career Insight, and Mentorship</h2>
-                <p>Luban provides free in-person and virtual programming centered on hands-on events, post-secondary planning, career pathfinding, and mentorship opportunities.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="services section margin-top-20" id="services">
-    <div class="container" style="max-width: 1600px;">
-      <div class="section-heading">
-        <h2 style="text-align: center;">Planned Event Types</h2>
-      </div>
-
-      <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin: 0 auto 30px auto; max-width: 760px;">
-        
-        <a href="econ.html" class="econ-button" style="margin: 0; flex: 1; min-width: 260px;">
-        Econ Competition is Live: Click for Details
+    <header class="site-header" data-site-header>
+      <div class="site-header__row page-frame">
+        <a class="wordmark" href="#top" aria-label="Luban home">
+          <span class="wordmark__name">Luban</span>
+          <span class="wordmark__descriptor">Youth-led nonprofit</span>
         </a>
-        <!-- <a href="apply.html" class="apply-button" style="margin: 0; flex: 1; min-width: 260px;">
-        Executive Applications Open: Apply Now
-        </a> -->
-      </div>
-      
-      <div class="row">
-        <div class="col-lg-3 col-md-6">
-          <div class="service-item">
-            <div class="icon">
-              <img src="assets/images/service-02.png" alt="hands-on events">
-            </div>
-            <div class="main-content">
-              <h4>Hands-On Events</h4>
-              <ul>
-                <li>- Paper Trading Simulation</li>
-                <li>- Market Simulations</li>
-                <li>- Stock Pitch Competition</li>
-                <li>- Market Debate</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="service-item">
-            <div class="icon">
-              <img src="assets/images/service-01.png" alt="post-secondary blueprint">
-            </div>
-            <div class="main-content">
-              <h4>Post-Secondary Blueprint</h4>
-              <ul>
-                <li>- University Application Roadmap: university landscape, application timelines, and admission process</li>
-                <li>- Admission Officer Connections and Q&amp;As</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="service-item">
-            <div class="icon">
-              <img src="assets/images/service-03.png" alt="career pathfinder">
-            </div>
-            <div class="main-content">
-              <h4>Career Pathfinder</h4>
-              <ul>
-                <li>- Finance 101: Finance Technical Educational Series</li>
-                <li>- Introduction to Internships: covering finance, consulting, accounting, and marketing</li>
-                <li>- Ask-Me-Anything sessions with industry professionals</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-          <div class="service-item">
-            <div class="icon">
-              <img src="assets/images/service-04.png" alt="mentorship">
-            </div>
-            <div class="main-content">
-              <h4>Mentorship</h4>
-              <ul>
-                <li>- Coffee chat pairings with industry professionals</li>
-                <li>- Fireside chats with university students</li>
-                <li>- Chat roulettes</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="section about-us">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 offset-lg-1">
-          <div class="accordion" id="accordionExample">
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingOne">
-                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Why does Luban exist?
-                </button>
-              </h2>
-              <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  Public schools and underserved communities often lack hands-on opportunities, funding, and direct access to career insight. Luban was created to give students equal access to guidance, exploration, and practical learning.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingTwo">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  How do our programs work?
-                </button>
-              </h2>
-              <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  We run free virtual and in-person events across four pillars: hands-on events, post-secondary blueprint, career pathfinder, and mentorship. Students learn through workshops, competitions, speaker sessions, and guided networking.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingThree">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Who do we support?
-                </button>
-              </h2>
-              <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  Luban currently focuses on students in grades 9-11, with plans to expand to grades 6-8. We especially support youth who need more access to university guidance, business education, and professional networks.
-                </div>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <h2 class="accordion-header" id="headingFour">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  How do we ensure long-term impact?
-                </button>
-              </h2>
-              <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                <div class="accordion-body">
-                  Luban strengthens mentor training, diversifies funding, maintains unified curriculum standards, and operates with transparent financial protocols so students can rely on consistent, high-quality support.
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-5 align-self-center">
-          <div class="section-heading">
-            <h6>About Us</h6>
-            <h2>Enlighten the Present, Empower the Future</h2>
-            <p>Our vision is to empower underserved youth by exploring business through discovery, creativity, and mentorship, helping students build clarity, confidence, and the skills needed to thrive in higher education and future careers.</p>
-          </div>
+        <nav class="primary-nav" id="primary-nav" aria-label="Main navigation" data-primary-nav>
+          <ul>
+            <li><a href="#top" aria-current="page">Home</a></li>
+            <li><a href="#programs">Programs</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button class="header-control search-toggle" type="button" aria-expanded="false" aria-controls="site-search-panel" data-search-toggle>
+            <svg aria-hidden="true" viewBox="0 0 24 24">
+              <circle cx="10.5" cy="10.5" r="6.5"></circle>
+              <path d="m15.5 15.5 5 5"></path>
+            </svg>
+            <span>Search</span>
+          </button>
+
+          <button class="header-control menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-menu-toggle>
+            <span>Menu</span>
+            <span class="menu-toggle__mark" aria-hidden="true">
+              <span></span>
+              <span></span>
+            </span>
+          </button>
         </div>
       </div>
-    </div>
-  </div>
 
-  <div class="section fun-facts">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="wrapper">
-            <div class="row">
-              <div class="col-lg-4 col-md-4">
-                <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="4" data-speed="1000"></h2>
-                  <p class="count-text">Core Program Pillars</p>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-4">
-                <div class="counter">
-                  <h2 class="timer count-title count-number" data-to="18" data-speed="1000"></h2>
-                  <p class="count-text">Current Core Members</p>
-                </div>
-              </div>
-              <div class="col-lg-4 col-md-4">
-                <div class="counter end">
-                  <h2 class="timer count-title count-number" data-to="100" data-speed="1000"></h2>
-                  <p class="count-text">Target National Volunteers by 2028</p>
-                </div>
-              </div>
+      <div class="search-panel page-frame" id="site-search-panel" hidden data-search-panel>
+        <form class="site-search" id="site-search-form" role="search">
+          <label for="site-search-input">Search this page</label>
+          <div class="site-search__controls">
+            <input id="site-search-input" name="query" type="search" autocomplete="off" placeholder="Try mentorship or university">
+            <button class="search-submit" type="submit">
+              <span>Find</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M5 12h13M14 7l5 5-5 5"></path>
+              </svg>
+            </button>
+            <button class="search-clear" type="button" data-search-clear>Clear</button>
+          </div>
+          <p class="search-status" role="status" aria-live="polite" data-search-status></p>
+        </form>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero__layout page-frame">
+          <div class="hero__copy" data-searchable>
+            <span class="hero__rule" aria-hidden="true"></span>
+            <h1 id="hero-title">Prepare for university and a career in business</h1>
+            <p class="hero__intro">Luban is a youth-led nonprofit active across multiple Canadian provinces. We help high school students, especially those in underserved communities, prepare for post-secondary education and careers in business.</p>
+            <div class="hero__actions">
+              <a class="action action--primary" href="#programs">
+                <span>Explore programs</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M5 12h13M14 7l5 5-5 5"></path>
+                </svg>
+              </a>
+              <a class="action action--secondary" href="#contact">
+                <span>Get in touch</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24">
+                  <path d="M5 12h13M14 7l5 5-5 5"></path>
+                </svg>
+              </a>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
 
-  <div class="contact-us section" id="contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 align-self-center">
-          <div class="section-heading">
-            <h6>Contact Us</h6>
-            <h2>Connect with Luban</h2>
-            <p>If you are a student, educator, sponsor, mentor, admission officer, or industry professional interested in supporting Luban, we would love to hear from you and explore ways to work together.</p>
+          <div class="poster-wall" aria-labelledby="poster-wall-title" data-poster-wall>
+            <h2 class="visually-hidden" id="poster-wall-title">Luban's four program pillars</h2>
+
+            <article class="program-poster program-poster--plum" data-poster data-active="true">
+              <a class="program-poster__link" href="#program-hands-on">
+                <span class="program-poster__copy">
+                  <span class="program-poster__bar" aria-hidden="true"></span>
+                  <span class="program-poster__index">01 / 04</span>
+                  <h3>Hands-On Events</h3>
+                  <p>Practice with paper trading, market simulations, stock pitches, and debate.</p>
+                  <span class="program-poster__action">
+                    <span>See details</span>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
+                  </span>
+                </span>
+                <svg class="program-poster__art" aria-hidden="true" viewBox="0 0 320 260" preserveAspectRatio="xMidYMid slice">
+                  <rect x="154" y="44" width="15" height="136"></rect>
+                  <rect x="184" y="44" width="15" height="136"></rect>
+                  <rect x="214" y="44" width="15" height="136"></rect>
+                  <rect x="244" y="44" width="15" height="136"></rect>
+                  <path class="poster-shape poster-shape--accent" d="M155 262a156 156 0 0 1 156-156v64a92 92 0 0 0-92 92z"></path>
+                </svg>
+              </a>
+            </article>
+
+            <article class="program-poster program-poster--indigo" data-poster data-active="false">
+              <a class="program-poster__link" href="#program-blueprint">
+                <span class="program-poster__copy">
+                  <span class="program-poster__bar" aria-hidden="true"></span>
+                  <span class="program-poster__index">02 / 04</span>
+                  <h3>Post-Secondary Blueprint</h3>
+                  <p>Build an application plan and bring your questions to admission officers.</p>
+                  <span class="program-poster__action">
+                    <span>See details</span>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
+                  </span>
+                </span>
+                <svg class="program-poster__art" aria-hidden="true" viewBox="0 0 320 260" preserveAspectRatio="xMidYMid slice">
+                  <path class="poster-shape poster-shape--accent" d="M70 258a152 152 0 1 1 304 0h-64a88 88 0 1 0-176 0z"></path>
+                  <rect x="250" y="46" width="70" height="10"></rect>
+                  <rect x="250" y="72" width="70" height="10"></rect>
+                  <rect x="250" y="98" width="70" height="10"></rect>
+                  <rect x="250" y="124" width="70" height="10"></rect>
+                </svg>
+              </a>
+            </article>
+
+            <article class="program-poster program-poster--berry" data-poster data-active="false">
+              <a class="program-poster__link" href="#program-career">
+                <span class="program-poster__copy">
+                  <span class="program-poster__bar" aria-hidden="true"></span>
+                  <span class="program-poster__index">03 / 04</span>
+                  <h3>Career Pathfinder</h3>
+                  <p>Learn finance basics, find out how internships work, and ask professionals about their careers.</p>
+                  <span class="program-poster__action">
+                    <span>See details</span>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
+                  </span>
+                </span>
+                <svg class="program-poster__art" aria-hidden="true" viewBox="0 0 320 260" preserveAspectRatio="xMidYMid slice">
+                  <path class="poster-shape poster-shape--accent" d="M316 12a154 154 0 1 0 0 308v-66a88 88 0 1 1 0-176z"></path>
+                  <rect x="48" y="188" width="13" height="72"></rect>
+                  <rect x="75" y="166" width="13" height="94"></rect>
+                  <rect x="102" y="142" width="13" height="118"></rect>
+                  <rect x="129" y="118" width="13" height="142"></rect>
+                </svg>
+              </a>
+            </article>
+
+            <article class="program-poster program-poster--ink" data-poster data-active="false">
+              <a class="program-poster__link" href="#program-mentorship">
+                <span class="program-poster__copy">
+                  <span class="program-poster__bar" aria-hidden="true"></span>
+                  <span class="program-poster__index">04 / 04</span>
+                  <h3>Mentorship</h3>
+                  <p>Meet professionals in coffee chats, hear from university students at fireside sessions, or join a chat roulette.</p>
+                  <span class="program-poster__action">
+                    <span>See details</span>
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
+                  </span>
+                </span>
+                <svg class="program-poster__art" aria-hidden="true" viewBox="0 0 320 260" preserveAspectRatio="xMidYMid slice">
+                  <rect class="poster-shape poster-shape--indigo" x="54" y="32" width="13" height="116"></rect>
+                  <rect class="poster-shape poster-shape--indigo" x="82" y="32" width="13" height="116"></rect>
+                  <rect class="poster-shape poster-shape--indigo" x="110" y="32" width="13" height="116"></rect>
+                  <rect class="poster-shape poster-shape--indigo" x="138" y="32" width="13" height="116"></rect>
+                  <path class="poster-shape poster-shape--plum" d="M145 262a156 156 0 0 1 156-156v64a92 92 0 0 0-92 92z"></path>
+                  <rect x="246" y="208" width="74" height="9"></rect>
+                  <rect x="246" y="232" width="74" height="9"></rect>
+                </svg>
+              </a>
+            </article>
           </div>
         </div>
-        <div class="col-lg-6">
-          <div class="contact-us-content">
-            <form id="contact-form" onsubmit="sendEmail(event)">
-              <div class="row">
-                <div class="col-lg-12">
-                  <fieldset>
-                    <input type="text" name="name" id="name" placeholder="Your Name..." autocomplete="on" required>
-                  </fieldset>
-                </div>
-                <div class="col-lg-12">
-                  <fieldset>
-                    <input type="email" name="email" id="email" placeholder="Your E-mail..." required>
-                  </fieldset>
-                </div>
-                <div class="col-lg-12">
-                  <fieldset>
-                    <textarea name="message" id="message" placeholder="Your Message"></textarea>
-                  </fieldset>
-                </div>
-                <div class="col-lg-12">
-                  <fieldset>
-                    <button type="submit" id="form-submit" class="orange-button">Send Message Now</button>
-                  </fieldset>
-                </div>
-              </div>
-            </form>
+      </section>
+
+      <section class="facts page-frame" aria-labelledby="facts-title" data-searchable>
+        <h2 class="visually-hidden" id="facts-title">Luban at a glance</h2>
+        <div class="facts__signal" aria-hidden="true">
+          <span></span><span></span><span></span><span></span>
+        </div>
+        <dl>
+          <div class="fact fact--plum">
+            <dt>Active program pillars</dt>
+            <dd>4</dd>
+          </div>
+          <div class="fact fact--indigo">
+            <dt>Current core members</dt>
+            <dd>18</dd>
+          </div>
+          <div class="fact fact--goal">
+            <dt>National volunteer target for 2028</dt>
+            <dd>100</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section class="story page-frame" aria-label="Our mission and programs" data-searchable>
+        <article class="story__panel story__panel--mission">
+          <h2>Plan for life after high school</h2>
+          <p>Our free events and mentorship help students prepare for post-secondary education, get practical experience, and see how school connects to future careers.</p>
+        </article>
+        <article class="story__panel story__panel--pillars">
+          <h2>Free programs, online and in person</h2>
+          <p>Our four program pillars cover hands-on events, post-secondary planning, career pathfinding, and mentorship.</p>
+        </article>
+        <nav class="event-pages" aria-label="Event pages">
+          <span>Featured events</span>
+          <a href="spc.html">
+            <span>Stock Pitch Competition</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
+          </a>
+          <a href="econ.html">
+            <span>Economics Competition</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
+          </a>
+        </nav>
+      </section>
+
+      <section class="programs page-frame" id="programs" aria-labelledby="programs-title" data-searchable>
+        <header class="programs__header">
+          <h2 id="programs-title">Four active program pillars</h2>
+          <p>Luban runs free programs online and in person. Students get practical experience, plan for post-secondary education, learn about careers, and meet mentors.</p>
+        </header>
+
+        <article class="program-row" id="program-hands-on">
+          <p class="program-row__index" aria-hidden="true">01 / 04</p>
+          <h3>Hands-On Events</h3>
+          <div class="program-row__content">
+            <ul>
+              <li>Paper Trading Simulation</li>
+              <li>Market Simulations</li>
+              <li>Stock Pitch Competition</li>
+              <li>Market Debate</li>
+            </ul>
+            <div class="program-row__links">
+              <a href="spc.html">
+                <span>Stock Pitch Competition details</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
+              </a>
+              <a href="econ.html">
+                <span>Economics Competition details</span>
+                <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
+              </a>
+            </div>
+          </div>
+          <div class="program-row__signal program-row__signal--plum" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </article>
+
+        <article class="program-row" id="program-blueprint">
+          <p class="program-row__index" aria-hidden="true">02 / 04</p>
+          <h3>Post-Secondary Blueprint</h3>
+          <div class="program-row__content">
+            <ul>
+              <li>University Application Roadmap: the university landscape, application timelines, and admissions</li>
+              <li>Connections and Q&amp;A sessions with admission officers</li>
+            </ul>
+          </div>
+          <div class="program-row__signal program-row__signal--indigo" aria-hidden="true">
+            <span></span>
+          </div>
+        </article>
+
+        <article class="program-row" id="program-career">
+          <p class="program-row__index" aria-hidden="true">03 / 04</p>
+          <h3>Career Pathfinder</h3>
+          <div class="program-row__content">
+            <ul>
+              <li>Finance 101: Technical Finance Education Series</li>
+              <li>Introduction to Internships: finance, consulting, accounting, and marketing</li>
+              <li>Ask Me Anything sessions with industry professionals</li>
+            </ul>
+          </div>
+          <div class="program-row__signal program-row__signal--berry" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+        </article>
+
+        <article class="program-row" id="program-mentorship">
+          <p class="program-row__index" aria-hidden="true">04 / 04</p>
+          <h3>Mentorship</h3>
+          <div class="program-row__content">
+            <ul>
+              <li>Coffee chat pairings with industry professionals</li>
+              <li>Fireside chats with university students</li>
+              <li>Chat roulettes</li>
+            </ul>
+          </div>
+          <div class="program-row__signal program-row__signal--ink" aria-hidden="true">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </article>
+      </section>
+
+      <section class="about page-frame" id="about" aria-labelledby="about-title" data-searchable>
+        <div class="about__statement">
+          <h2 id="about-title">Business education should be easier to reach</h2>
+          <p>Our vision is to give more students in underserved communities the chance to explore business. Creative learning and mentorship can help them understand their options, build useful skills and confidence, and prepare for post-secondary education and future careers.</p>
+        </div>
+
+        <div class="faq" aria-labelledby="faq-title">
+          <h2 id="faq-title">About Luban</h2>
+
+          <details open>
+            <summary>
+              <span>Why does Luban exist?</span>
+              <span class="faq__mark" aria-hidden="true"><span></span><span></span></span>
+            </summary>
+            <p>Public schools and underserved communities often have limited funding for hands-on learning and fewer direct connections to people who can explain career options. Luban was created to make practical learning and guidance easier to reach.</p>
+          </details>
+
+          <details>
+            <summary>
+              <span>How do our programs work?</span>
+              <span class="faq__mark" aria-hidden="true"><span></span><span></span></span>
+            </summary>
+            <p>Luban runs free events online and in person through four program pillars: Hands-On Events, Post-Secondary Blueprint, Career Pathfinder, and Mentorship. Depending on the program, students might join a workshop, enter a competition, hear from a speaker, or meet people through guided networking.</p>
+          </details>
+
+          <details>
+            <summary>
+              <span>Who do we support?</span>
+              <span class="faq__mark" aria-hidden="true"><span></span><span></span></span>
+            </summary>
+            <p>We currently focus on students in grades 9 to 11, especially those who have less access to university guidance, business education, and professional networks.</p>
+          </details>
+
+          <details>
+            <summary>
+              <span>How is Luban building for the long term?</span>
+              <span class="faq__mark" aria-hidden="true"><span></span><span></span></span>
+            </summary>
+            <p>Luban is improving mentor training and seeking a wider mix of funding sources. We are also keeping curriculum standards consistent and developing transparent financial protocols so students can count on reliable, high-quality support.</p>
+          </details>
+        </div>
+      </section>
+
+      <section class="contact page-frame" id="contact" aria-labelledby="contact-title" data-searchable>
+        <div class="contact__statement">
+          <h2 id="contact-title">Talk with our team</h2>
+          <p>Students, educators, sponsors, mentors, admission officers, and industry professionals are welcome to reach out. Tell us how you would like to take part or work with Luban.</p>
+          <div class="contact__signal" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
 
-  <footer>
-    <div class="container">
-      <div class="col-lg-12">
+        <form
+          class="contact-form"
+          id="contact-form"
+          data-emailjs-public-key="Ql9fdB8-80sRNy095"
+          data-emailjs-service="service_15ofg9r"
+          data-emailjs-template="template_wbgu902"
+          novalidate
+        >
+          <div class="field">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+
+          <div class="field field--message">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="6" required></textarea>
+          </div>
+
+          <div class="contact-form__footer">
+            <p class="form-status" role="status" aria-live="polite" data-form-status></p>
+            <button class="form-submit" type="submit" id="form-submit">
+              <span data-submit-label>Send message</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
+            </button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__grid page-frame">
+        <a class="site-footer__wordmark" href="#top">Luban</a>
+        <nav aria-label="Featured event pages">
+          <a href="spc.html">Stock Pitch Competition</a>
+          <a href="econ.html">Economics Competition</a>
+        </nav>
         <p>Copyright © 2026 Luban. All rights reserved.</p>
       </div>
-    </div>
-  </footer>
-
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/counter.js"></script>
-  <script src="assets/js/custom.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      document.getElementById('searchText').addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          const query = this.value.trim().toLowerCase();
-          if (!query) return;
-
-          document.querySelectorAll('.search-highlight').forEach(el => {
-            el.outerHTML = el.innerHTML;
-          });
-
-          const searchableElements = document.querySelectorAll('p, h2, h4, h6, .accordion-body');
-          let firstMatch = null;
-
-          searchableElements.forEach(el => {
-            const regex = new RegExp(`(${query})`, 'gi');
-            if (regex.test(el.textContent)) {
-              el.innerHTML = el.innerHTML.replace(regex, '<mark class="search-highlight">$1</mark>');
-              if (!firstMatch) firstMatch = el;
-            }
-          });
-
-          if (firstMatch) {
-            firstMatch.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          } else {
-            alert('No results found for "' + query + '"');
-          }
-
-          this.value = '';
-        }
-      });
-    });
-  </script>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const navLinks = document.querySelectorAll('.nav a[href^="#"]');
-
-      navLinks.forEach(link => {
-        link.addEventListener('click', function (e) {
-          const targetId = this.getAttribute('href');
-          const target = document.querySelector(targetId);
-
-          if (target) {
-            e.preventDefault();
-
-            const header = document.querySelector('.header-area');
-            const headerHeight = header ? header.offsetHeight : 0;
-            const targetPosition =
-              target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 10;
-
-            window.scrollTo({
-              top: targetPosition,
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-    });
-  </script>
-
-  <script>
-    function sendEmail(e) {
-      e.preventDefault();
-
-      const btn = document.getElementById("form-submit");
-      btn.innerText = "Sending...";
-      btn.disabled = true;
-
-      const params = {
-        name: document.getElementById("name").value,
-        email: document.getElementById("email").value,
-        message: document.getElementById("message").value,
-      };
-
-      emailjs.send("service_15ofg9r", "template_wbgu902", params)
-        .then(() => {
-          btn.innerText = "Message Sent!";
-          document.getElementById("contact-form").reset();
-        })
-        .catch((err) => {
-          console.error(err);
-          btn.innerText = "Failed. Try Again.";
-          btn.disabled = false;
-        });
-    }
-  </script>
-</body>
+    </footer>
+  </body>
 </html>
