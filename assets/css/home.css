@@ -1627,6 +1627,7 @@ main {
 }
 
 .primary-nav a::after {
+  display: none;
   right: 50%;
   bottom: 20px;
   left: auto;
@@ -1638,13 +1639,25 @@ main {
   transform-origin: center;
 }
 
-.primary-nav a:hover::after,
-.primary-nav a[aria-current="page"]::after {
-  transform: translateX(50%) scaleX(1);
+.primary-nav > ul > li > a,
+.nav-dropdown__trigger > a {
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 7px;
+  text-decoration-skip-ink: none;
 }
 
-.primary-nav a[aria-current="location"]::after {
-  transform: translateX(50%) scaleX(1);
+.primary-nav > ul > li > a:hover,
+.primary-nav > ul > li > a:focus-visible,
+.primary-nav > ul > li > a[aria-current="page"],
+.primary-nav > ul > li > a[aria-current="location"],
+.nav-dropdown__trigger > a:hover,
+.nav-dropdown__trigger > a:focus-visible,
+.nav-dropdown__trigger > a[aria-current="page"],
+.nav-dropdown__trigger > a[aria-current="location"],
+.nav-dropdown--current > .nav-dropdown__trigger > a {
+  text-decoration-color: var(--purple);
 }
 
 .nav-dropdown {
@@ -1731,9 +1744,14 @@ main {
 }
 
 .primary-nav .nav-dropdown__menu a:hover,
-.primary-nav .nav-dropdown__menu a:focus-visible {
+.primary-nav .nav-dropdown__menu a:focus-visible,
+.primary-nav .nav-dropdown__menu a[aria-current="page"] {
   background: var(--lime);
   color: var(--ink);
+}
+
+.primary-nav .nav-dropdown__menu a[aria-current="page"]:focus-visible {
+  outline-color: var(--paper);
 }
 
 .header-actions {
@@ -2281,6 +2299,7 @@ main {
   }
 
   .primary-nav a::after {
+    display: block;
     top: 0;
     right: auto;
     bottom: 0;
@@ -2292,9 +2311,15 @@ main {
     transform-origin: top;
   }
 
+  .primary-nav > ul > li > a,
+  .nav-dropdown__trigger > a {
+    text-decoration-line: none;
+  }
+
   .primary-nav a:hover::after,
   .primary-nav a[aria-current="page"]::after,
-  .primary-nav a[aria-current="location"]::after {
+  .primary-nav a[aria-current="location"]::after,
+  .nav-dropdown--current > .nav-dropdown__trigger > a::after {
     transform: scaleY(1);
   }
 

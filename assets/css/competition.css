@@ -17,25 +17,6 @@
   content: "\2726";
 }
 
-.competition-document
-  .nav-dropdown--current
-  > .nav-dropdown__trigger
-  > a::after {
-  transform: translateX(50%) scaleX(1);
-}
-
-.competition-document .primary-nav .nav-dropdown__menu a[aria-current="page"] {
-  background: var(--lime);
-  color: var(--ink);
-}
-
-.competition-document
-  .primary-nav
-  .nav-dropdown__menu
-  a[aria-current="page"]:focus-visible {
-  outline-color: var(--paper);
-}
-
 .competition-page {
   padding-bottom: var(--section-gap);
 }
@@ -705,13 +686,6 @@
 }
 
 @media (max-width: 880px) {
-  .competition-document
-    .nav-dropdown--current
-    > .nav-dropdown__trigger
-    > a::after {
-    transform: scaleY(1);
-  }
-
   .competition-notes {
     grid-template-columns: 1fr;
   }
