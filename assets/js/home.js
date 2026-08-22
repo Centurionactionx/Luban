@@ -21,7 +21,9 @@
     primaryNav.dataset.open = String(open);
 
     if (open) {
-      window.requestAnimationFrame(() => primaryNav.querySelector("a")?.focus());
+      window.requestAnimationFrame(() =>
+        primaryNav.querySelector("a")?.focus(),
+      );
     } else {
       setDropdownOpen(false);
       if (restoreFocus) menuToggle.focus();
@@ -84,14 +86,18 @@
     if (!trackedSections.length) return;
 
     const header = document.querySelector("[data-site-header]");
-    const threshold = window.scrollY + (header?.getBoundingClientRect().height || 0) + 48;
+    const threshold =
+      window.scrollY + (header?.getBoundingClientRect().height || 0) + 48;
     let current = trackedSections[0];
 
     trackedSections.forEach((item) => {
       if (item.section.offsetTop <= threshold) current = item;
     });
 
-    if (Math.ceil(window.scrollY + window.innerHeight) >= document.documentElement.scrollHeight - 2) {
+    if (
+      Math.ceil(window.scrollY + window.innerHeight) >=
+      document.documentElement.scrollHeight - 2
+    ) {
       current = trackedSections[trackedSections.length - 1];
     }
 
@@ -107,7 +113,11 @@
   window.addEventListener("scroll", requestNavSync, { passive: true });
   window.addEventListener("resize", requestNavSync);
   window.addEventListener("hashchange", requestNavSync);
-  window.addEventListener("load", () => window.setTimeout(requestNavSync, 120), { once: true });
+  window.addEventListener(
+    "load",
+    () => window.setTimeout(requestNavSync, 120),
+    { once: true },
+  );
   syncCurrentNav();
 
   document.querySelectorAll("[data-lesson-tabs]").forEach((tabsRoot) => {
@@ -133,7 +143,9 @@
       if (moveFocus) nextTab.focus();
     };
 
-    const selectedTab = tabs.find((tab) => tab.getAttribute("aria-selected") === "true") || tabs[0];
+    const selectedTab =
+      tabs.find((tab) => tab.getAttribute("aria-selected") === "true") ||
+      tabs[0];
     tablist.hidden = false;
     activateTab(selectedTab);
 
@@ -180,7 +192,8 @@
       if (!contactForm.checkValidity()) {
         formStatus.dataset.state = "error";
         formStatus.setAttribute("role", "alert");
-        formStatus.textContent = "Please complete the required fields and try again.";
+        formStatus.textContent =
+          "Please complete the required fields and try again.";
         contactForm.reportValidity();
         return;
       }
@@ -213,7 +226,8 @@
         console.error("Luban contact form:", error);
         formStatus.dataset.state = "error";
         formStatus.setAttribute("role", "alert");
-        formStatus.textContent = "We couldn't send your message. Check your connection and try again.";
+        formStatus.textContent =
+          "We couldn't send your message. Check your connection and try again.";
         submitLabel.textContent = "Try sending again";
       } finally {
         contactForm.removeAttribute("aria-busy");
