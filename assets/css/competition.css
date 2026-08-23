@@ -12,11 +12,6 @@
   --competition-signal: var(--pink);
 }
 
-.competition-document .wordmark__name::before,
-.competition-document .site-footer__wordmark::before {
-  content: "\2726";
-}
-
 .competition-page {
   padding-bottom: var(--section-gap);
 }
