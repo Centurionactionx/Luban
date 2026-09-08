@@ -188,6 +188,14 @@
 
     contactForm.addEventListener("submit", async (event) => {
       event.preventDefault();
+      if (submitButton.disabled) return;
+
+      // Native required-field checks accept spaces; validate the actual values
+      // that will be sent to the mail service.
+      for (const field of ["name", "email", "message"]) {
+        const input = document.getElementById(field);
+        if (input) input.value = input.value.trim();
+      }
 
       if (!contactForm.checkValidity()) {
         formStatus.dataset.state = "error";
