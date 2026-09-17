@@ -172,6 +172,90 @@
     });
   });
 
+  document.querySelectorAll("[data-competition-accordion]").forEach((accordion) => {
+    const trigger = accordion.querySelector("[data-accordion-trigger]");
+    const panel = accordion.querySelector("[data-accordion-panel]");
+
+    if (!trigger || !panel) return;
+
+    let animation;
+
+    const prefersReducedMotion = () =>
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    const setStaticState = (open) => {
+      trigger.setAttribute("aria-expanded", String(open));
+      accordion.dataset.open = String(open);
+      panel.hidden = !open;
+      panel.style.height = open ? "auto" : "";
+      panel.style.opacity = open ? "1" : "";
+    };
+
+    const setOpenState = (open) => {
+      if (animation) animation.cancel();
+
+      trigger.setAttribute("aria-expanded", String(open));
+      accordion.dataset.open = String(open);
+
+      if (open) {
+        panel.hidden = false;
+        panel.style.height = "0px";
+        panel.style.opacity = "0";
+        const targetHeight = panel.scrollHeight;
+
+        if (prefersReducedMotion() || typeof panel.animate !== "function") {
+          setStaticState(true);
+          return;
+        }
+
+        animation = panel.animate(
+          [
+            { height: "0px", opacity: 0 },
+            { height: `${targetHeight}px`, opacity: 1 },
+          ],
+          {
+            duration: 320,
+            easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+          },
+        );
+        animation.onfinish = () => {
+          animation = null;
+          setStaticState(true);
+        };
+        return;
+      }
+
+      const startHeight = panel.getBoundingClientRect().height;
+
+      if (prefersReducedMotion() || typeof panel.animate !== "function") {
+        setStaticState(false);
+        return;
+      }
+
+      panel.style.height = `${startHeight}px`;
+      panel.style.opacity = "1";
+      animation = panel.animate(
+        [
+          { height: `${startHeight}px`, opacity: 1 },
+          { height: "0px", opacity: 0 },
+        ],
+        {
+          duration: 320,
+          easing: "cubic-bezier(0.16, 1, 0.3, 1)",
+        },
+      );
+      animation.onfinish = () => {
+        animation = null;
+        setStaticState(false);
+      };
+    };
+
+    trigger.addEventListener("click", () => {
+      const open = trigger.getAttribute("aria-expanded") === "true";
+      setOpenState(!open);
+    });
+  });
+
   const contactForm = document.getElementById("contact-form");
   const submitButton = document.getElementById("form-submit");
   const submitLabel = document.querySelector("[data-submit-label]");
