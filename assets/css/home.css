@@ -2705,15 +2705,20 @@ main {
 }
 
 .legal-sheet {
-  margin-top: var(--section-gap);
   border: 2px solid var(--ink);
-  border-radius: 4px;
+  border-top: 0;
+  border-radius: 0 0 4px 4px;
   background: var(--paper);
   overflow: hidden;
 }
 
+.legal-head,
+.legal-body {
+  --legal-inline: max(clamp(24px, 5vw, 68px), calc((100% - 72ch) / 2));
+}
+
 .legal-head {
-  padding: clamp(40px, 6vw, 80px) clamp(24px, 5vw, 68px) clamp(28px, 4vw, 44px);
+  padding: clamp(40px, 6vw, 80px) var(--legal-inline) clamp(28px, 4vw, 44px);
   background: var(--ink);
   color: var(--paper);
 }
@@ -2735,7 +2740,6 @@ main {
 }
 
 .legal-head p:last-child {
-  max-width: 64ch;
   margin-bottom: 0;
   font-size: clamp(1rem, 1.15vw, 1.1rem);
   line-height: 1.6;
@@ -2743,8 +2747,7 @@ main {
 }
 
 .legal-body {
-  max-width: calc(72ch + 2 * clamp(24px, 5vw, 68px));
-  padding: clamp(12px, 2vw, 24px) clamp(24px, 5vw, 68px) clamp(48px, 6vw, 80px);
+  padding: clamp(12px, 2vw, 24px) var(--legal-inline) clamp(48px, 6vw, 80px);
 }
 
 .legal-body section {
