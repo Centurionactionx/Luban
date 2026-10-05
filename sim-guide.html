@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A step-by-step, beginner-friendly guide to Luban's Market Lab trading simulator, with screenshots showing where every button is and what it does.">
+    <title>How to use the Market Lab | Luban</title>
+
+    <script>
+      document.documentElement.classList.replace("no-js", "js");
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <link rel="stylesheet" href="assets/css/competition.css?v=20260917-stack">
+    <link rel="stylesheet" href="assets/css/guide.css?v=20261005">
+    <script defer src="assets/js/home.js?v=20260917-accordion"></script>
+  </head>
+
+  <body class="competition-document">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    <header class="site-header" data-site-header>
+      <div class="site-header__row page-frame">
+        <a class="wordmark" href="index.html#top" aria-label="Luban home">
+          <span class="wordmark__name">Luban</span>
+          <span class="wordmark__descriptor">Youth-led nonprofit</span>
+        </a>
+
+        <nav
+          class="primary-nav"
+          id="primary-nav"
+          aria-label="Main navigation"
+          data-primary-nav
+        >
+          <ul>
+            <li><a href="index.html#top" data-nav-link>Home</a></li>
+            <li class="nav-dropdown" data-nav-dropdown>
+              <span class="nav-dropdown__trigger">
+                <a href="index.html#programs" data-nav-link>Events</a>
+                <button
+                  class="nav-dropdown__toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="event-nav-menu"
+                  aria-label="Show event links"
+                  data-nav-dropdown-toggle
+                >
+                  <svg aria-hidden="true" viewBox="0 0 16 16">
+                    <path d="m4 6 4 4 4-4"></path>
+                  </svg>
+                </button>
+              </span>
+              <ul class="nav-dropdown__menu" id="event-nav-menu">
+                <li>
+                  <a href="paper-trading-simulation.html"
+                    >Paper Trading Simulation</a
+                  >
+                </li>
+                <li>
+                  <a href="discovering-entrepreneurship.html"
+                    >Discovering Entrepreneurship</a
+                  >
+                </li>
+                <li><a href="spc.html">Stock Pitch Competition</a></li>
+                <li><a href="econ.html">Econ Competition</a></li>
+              </ul>
+            </li>
+            <li><a href="index.html#about" data-nav-link>About</a></li>
+            <li><a href="index.html#contact" data-nav-link>Contact Us</a></li>
+          </ul>
+        </nav>
+
+        <div class="header-actions">
+          <button
+            class="header-control menu-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="primary-nav"
+            data-menu-toggle
+          >
+            <span>Menu</span>
+            <span class="menu-toggle__mark" aria-hidden="true"
+              ><span></span><span></span
+            ></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main class="competition-page legal-page guide-page" id="main-content">
+      <article class="legal-sheet guide-sheet page-frame" aria-labelledby="guide-title">
+        <header class="legal-head guide-head">
+          <p class="legal-head__date">Market Lab guide · Updated October 5, 2026</p>
+          <h1 id="guide-title">How to use the Market Lab</h1>
+          <p>
+            A step-by-step tour of Luban's trading simulator for people who
+            have never bought a stock. Each step shows a screenshot of the
+            Market Lab. The red circles mark the buttons we're talking about,
+            and their numbers match the list under each picture. Every trade
+            uses simulated money, so nothing you do here can cost you real
+            money.
+          </p>
+          <div class="guide-head__actions">
+            <a class="action action--primary" href="https://sim.lubancanada.com/sign-in">
+              <span>Open the Market Lab</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M7 17 17 7M8 7h9v9"></path>
+              </svg>
+            </a>
+            <a class="action action--secondary" href="#words">
+              <span>Start with the key words</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 5v13M7 13l5 5 5-5"></path>
+              </svg>
+            </a>
+          </div>
+        </header>
+
+        <div class="legal-body guide-body">
+          <nav class="guide-toc" aria-labelledby="guide-toc-title">
+            <h2 id="guide-toc-title">In this guide</h2>
+            <ul>
+              <li><a href="#words"><span aria-hidden="true">·</span>Words you'll see</a></li>
+              <li><a href="#step-layout"><span>1</span>Find your way around</a></li>
+              <li><a href="#step-header"><span>2</span>The top bar</a></li>
+              <li><a href="#step-summary"><span>3</span>Your portfolio at a glance</a></li>
+              <li><a href="#step-history"><span>4</span>Your portfolio over time</a></li>
+              <li><a href="#step-search"><span>5</span>Look up a stock</a></li>
+              <li><a href="#step-quote"><span>6</span>Read the quote</a></li>
+              <li><a href="#step-chart"><span>7</span>Read the price chart</a></li>
+              <li><a href="#step-advanced"><span>8</span>The Advanced view</a></li>
+              <li><a href="#step-order"><span>9</span>Buy or sell</a></li>
+              <li><a href="#step-max"><span>10</span>The Max and All buttons</a></li>
+              <li><a href="#step-waiting"><span>11</span>Orders that wait for a price</a></li>
+              <li><a href="#step-holdings"><span>12</span>Your holdings</a></li>
+              <li><a href="#step-map"><span>13</span>The portfolio map</a></li>
+              <li><a href="#step-waiting-list"><span>14</span>Your waiting orders</a></li>
+              <li><a href="#step-team"><span>15</span>Your team's activity</a></li>
+              <li><a href="#step-leaderboard"><span>16</span>Your team and the leaderboard</a></li>
+              <li><a href="#step-footer"><span>17</span>Is everything up to date?</a></li>
+              <li><a href="#habits"><span aria-hidden="true">·</span>Good habits for beginners</a></li>
+            </ul>
+          </nav>
+
+          <section id="words" aria-labelledby="words-title">
+            <h2 id="words-title">Words you'll see</h2>
+            <p>
+              You don't need to know anything about investing to start. These
+              are the words the Market Lab uses most.
+            </p>
+            <dl class="guide-glossary">
+              <div>
+                <dt>Stock (or share)</dt>
+                <dd>
+                  A small piece of a company. When the company does well and
+                  more people want to own it, the price of its shares usually
+                  goes up. When it does badly, the price usually goes down.
+                </dd>
+              </div>
+              <div>
+                <dt>ETF</dt>
+                <dd>
+                  Short for exchange-traded fund. One ETF holds many stocks at
+                  once, so buying a single ETF share spreads your money across
+                  lots of companies. You buy and sell it just like a stock.
+                </dd>
+              </div>
+              <div>
+                <dt>Crypto</dt>
+                <dd>
+                  Digital currencies such as Bitcoin. Crypto trades every hour
+                  of every day. In the Market Lab you buy it in lots, a fixed
+                  small amount of the coin, instead of whole coins.
+                </dd>
+              </div>
+              <div>
+                <dt>Symbol</dt>
+                <dd>
+                  The short code for something you can buy. SHOP.TO is
+                  Shopify on the Toronto Stock Exchange (the .TO means
+                  Toronto). AAPL is Apple in the US. BTC-CAD is Bitcoin priced
+                  in Canadian dollars.
+                </dd>
+              </div>
+              <div>
+                <dt>Portfolio</dt>
+                <dd>
+                  Everything your team owns: your cash plus everything you've
+                  bought. Its total value decides your place on the
+                  leaderboard.
+                </dd>
+              </div>
+              <div>
+                <dt>Market value</dt>
+                <dd>
+                  What something you own is worth right now: the number of
+                  shares times today's price.
+                </dd>
+              </div>
+              <div>
+                <dt>Gain, loss, and return</dt>
+                <dd>
+                  How much an investment has gone up (a gain) or down (a loss)
+                  compared to what you paid. A return is the same thing as a
+                  percentage: +5% means it's worth 5% more than you paid.
+                </dd>
+              </div>
+              <div>
+                <dt>Previous close</dt>
+                <dd>
+                  The price when the market last closed. Today's change is
+                  measured from it.
+                </dd>
+              </div>
+              <div>
+                <dt>Volume</dt>
+                <dd>
+                  How many shares changed hands. High volume means lots of
+                  people were buying and selling.
+                </dd>
+              </div>
+              <div>
+                <dt>Order</dt>
+                <dd>
+                  An instruction to buy or sell. Steps 9 and 11 explain the
+                  different kinds.
+                </dd>
+              </div>
+            </dl>
+          </section>
+
+          <section class="guide-step" id="step-layout" aria-labelledby="step-layout-title">
+            <p class="guide-step__number">Step 1</p>
+            <h2 id="step-layout-title">Find your way around</h2>
+            <p>
+              Sign in at
+              <a href="https://sim.lubancanada.com/sign-in">sim.lubancanada.com</a>
+              with the account you registered. The Market Lab opens on one
+              screen split into three areas.
+            </p>
+            <figure class="guide-shot">
+              <img src="assets/images/sim-guide/01-overview.jpg" width="2160" height="1350" alt="The whole Market Lab screen with three areas circled: the team portfolio on the left, the quote workbench in the middle, and the team room on the right." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>Team portfolio.</strong> Your team's money and
+                everything it owns.
+              </li>
+              <li>
+                <strong>Quote workbench.</strong> Where you look up prices,
+                read charts and place orders.
+              </li>
+              <li>
+                <strong>Team room.</strong> Who on your team is online and the
+                competition leaderboard.
+              </li>
+            </ol>
+            <p class="guide-tip">
+              <strong>Tip:</strong> your whole team shares one portfolio. When
+              a teammate buys something, you'll see it in your holdings too.
+            </p>
+          </section>
+
+          <section class="guide-step" id="step-header" aria-labelledby="step-header-title">
+            <p class="guide-step__number">Step 2</p>
+            <h2 id="step-header-title">The top bar</h2>
+            <figure class="guide-shot">
+              <img src="assets/images/sim-guide/02-header.jpg" width="2151" height="225" alt="The Market Lab's top bar with the competition name, the How to use button, the activity bell, and the market data status circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>Competition name and status.</strong> <em>Open</em>
+                means you can trade. If it says <em>paused</em> or
+                <em>ended</em>, orders are turned off.
+              </li>
+              <li>
+                <strong>How to use.</strong> Opens this guide in a new tab, so
+                you can follow along while you trade.
+              </li>
+              <li>
+                <strong>Activity bell.</strong> Your team's activity feed
+                (step 15). A red bubble with a number means there are new
+                entries you haven't seen.
+              </li>
+              <li>
+                <strong>Market data.</strong> Shows where prices come from and
+                whether they've loaded. <em>Latest available</em> means
+                you're seeing current prices. If it says
+                <em>Connecting</em>, give it a few seconds.
+              </li>
+            </ol>
+            <p>
+              Your name, an <em>Account</em> link and <em>Sign out</em> sit at
+              the top right, next to the bell.
+            </p>
+          </section>
+
+          <section class="guide-step" id="step-summary" aria-labelledby="step-summary-title">
+            <p class="guide-step__number">Step 3</p>
+            <h2 id="step-summary-title">Your portfolio at a glance</h2>
+            <figure class="guide-shot guide-shot--narrow">
+              <img src="assets/images/sim-guide/03-portfolio-summary.jpg" width="740" height="434" alt="The portfolio summary with total portfolio value, cash, buying power, daily return, and total return circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>Total portfolio value.</strong> Your cash plus the
+                current value of everything you own. This is the number that
+                ranks your team.
+              </li>
+              <li>
+                <strong>Cash.</strong> Money you haven't invested.
+              </li>
+              <li>
+                <strong>Buying power.</strong> The cash you can spend right
+                now. It can be lower than your cash, because money is set
+                aside for buy orders that are still waiting (step 11).
+              </li>
+              <li>
+                <strong>Daily return.</strong> How much your portfolio has
+                gained or lost since the previous day.
+              </li>
+              <li>
+                <strong>Total return.</strong> How much it has gained or lost
+                since the competition started.
+              </li>
+            </ol>
+          </section>
+
+          <section class="guide-step" id="step-history" aria-labelledby="step-history-title">
+            <p class="guide-step__number">Step 4</p>
+            <h2 id="step-history-title">Your portfolio over time</h2>
+            <figure class="guide-shot guide-shot--narrow">
+              <img src="assets/images/sim-guide/04-portfolio-history.jpg" width="660" height="339" alt="The portfolio value history chart with the range buttons and the latest value circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>7D, 1M and ALL.</strong> Show the last seven days, the
+                last month, or everything since you started.
+              </li>
+              <li>
+                <strong>Latest value.</strong> Your portfolio's value right
+                now. The line shows how you got there.
+              </li>
+            </ol>
+          </section>
+
+          <section class="guide-step" id="step-search" aria-labelledby="step-search-title">
+            <p class="guide-step__number">Step 5</p>
+            <h2 id="step-search-title">Look up a stock</h2>
+            <figure class="guide-shot guide-shot--narrow">
+              <img src="assets/images/sim-guide/05-search.jpg" width="858" height="704" alt="The symbol search box with Royal typed in and the list of matching listings, the box and first suggestion circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>Search box.</strong> Type a company name (like
+                <em>Royal Bank</em>) or a symbol (like <em>RY.TO</em>). You
+                can also click the empty box to see popular picks.
+              </li>
+              <li>
+                <strong>Suggestions.</strong> Click one to load it into the
+                workbench. Its price, chart and order ticket all switch to it.
+              </li>
+            </ol>
+            <p class="guide-tip">
+              <strong>Tip:</strong> Canadian companies on the Toronto Stock
+              Exchange end in <em>.TO</em>. US companies have no ending. Crypto
+              looks like <em>BTC-CAD</em>.
+            </p>
+          </section>
+
+          <section class="guide-step" id="step-quote" aria-labelledby="step-quote-title">
+            <p class="guide-step__number">Step 6</p>
+            <h2 id="step-quote-title">Read the quote</h2>
+            <figure class="guide-shot">
+              <img src="assets/images/sim-guide/06-quote.jpg" width="999" height="303" alt="The quote header showing the price and percent change, and the row of facts below it, both circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>Price and change.</strong> The latest price, and how
+                much it has moved since the previous close. Green means up,
+                red means down.
+              </li>
+              <li>
+                <strong>Facts.</strong> The previous close, today's change in
+                dollars, the exchange it trades on, its sector (the kind of
+                business), and when the price was last updated.
+              </li>
+            </ol>
+            <p>
+              Prices come from Yahoo Finance's free feed and can be a few
+              minutes behind the real market.
+            </p>
+          </section>
+
+          <section class="guide-step" id="step-chart" aria-labelledby="step-chart-title">
+            <p class="guide-step__number">Step 7</p>
+            <h2 id="step-chart-title">Read the price chart</h2>
+            <figure class="guide-shot">
+              <img src="assets/images/sim-guide/07-chart.jpg" width="735" height="488" alt="The price chart with the range buttons, the hover box, and the Advanced view button circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>1D, 5D, 1M, 3M.</strong> Show one day, five days, one
+                month, or three months of prices.
+              </li>
+              <li>
+                <strong>Hover box.</strong> Move your mouse over the chart (or
+                tap it on a phone) to see the price at that moment: where it
+                opened, its high and low, where it closed, and the volume.
+              </li>
+              <li>
+                <strong>Advanced view.</strong> Opens a bigger chart with more
+                tools (step 8).
+              </li>
+            </ol>
+            <p>
+              The dashed line with a coloured label on the right is today's
+              price. On the 1D chart, a grey dashed line marks the previous
+              close, so you can see at a glance whether the price is above or
+              below it. The bars along the bottom are volume.
+            </p>
+          </section>
+
+          <section class="guide-step" id="step-advanced" aria-labelledby="step-advanced-title">
+            <p class="guide-step__number">Step 8</p>
+            <h2 id="step-advanced-title">The Advanced view</h2>
+            <figure class="guide-shot">
+              <img src="assets/images/sim-guide/08-advanced-view.jpg" width="2160" height="1350" alt="The full-screen Advanced view showing a candle chart, with the chart style buttons, the price readout, the volume toggle, the range and dates controls, the interval menu, and the close button circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>Line, Candle, Bar.</strong> Three ways to draw the
+                same prices. Line is the simplest. Candle and Bar show more
+                detail for each time period (see below).
+              </li>
+              <li>
+                <strong>Price readout.</strong> O, H, L, C and V stand for
+                open, high, low, close and volume for the bar under your
+                mouse.
+              </li>
+              <li>
+                <strong>Volume.</strong> Shows the volume for that bar. The
+                arrow hides or shows the volume bars at the bottom.
+              </li>
+              <li>
+                <strong>Range and Dates.</strong> Pick a preset range, or
+                click <em>Dates</em> to choose your own start and end date,
+                then <em>Apply</em>.
+              </li>
+              <li>
+                <strong>Interval.</strong> How much time each bar covers, from
+                1 minute to 1 week. Greyed-out choices aren't available for
+                the dates you picked.
+              </li>
+              <li>
+                <strong>Close.</strong> Returns to the main screen. The Esc
+                key works too.
+              </li>
+            </ol>
+            <div class="guide-explainer">
+              <h3>How to read a candle</h3>
+              <p>
+                Each candle is one time period, like five minutes or one day.
+                A <strong>green</strong> candle closed higher than it opened.
+                A <strong>red</strong> candle closed lower. The thick body
+                runs from the opening price to the closing price, and the thin
+                line through it reaches the highest and lowest prices in that
+                period.
+              </p>
+            </div>
+          </section>
+
+          <section class="guide-step" id="step-order" aria-labelledby="step-order-title">
+            <p class="guide-step__number">Step 9</p>
+            <h2 id="step-order-title">Buy or sell</h2>
+            <p>
+              The order ticket sits under the chart and always trades whatever
+              is loaded in the workbench.
+            </p>
+            <figure class="guide-shot">
+              <img src="assets/images/sim-guide/09-order-ticket.jpg" width="849" height="908" alt="The order ticket with the Buy and Sell switch, order type, quantity, Max button, estimates, Place simulated buy button, and Clear ticket button circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>Buy or Sell.</strong> Choose whether you're buying
+                more or selling something you own.
+              </li>
+              <li>
+                <strong>Order type.</strong> <em>Market</em> trades right away
+                at the current price. The other types wait for a price you
+                choose (step 11).
+              </li>
+              <li>
+                <strong>Quantity.</strong> How many shares to buy or sell.
+                Stocks and ETFs trade in whole shares, and crypto trades in
+                whole lots.
+              </li>
+              <li>
+                <strong>Max (or All when selling).</strong> Fills in the most
+                you can buy with your buying power, or everything you can
+                sell. It asks you to confirm first (step 10).
+              </li>
+              <li>
+                <strong>Estimates.</strong> The price you'll probably get and
+                the total cost of the order, before you commit.
+              </li>
+              <li>
+                <strong>Place simulated buy</strong> (or sell). Sends the
+                order. A market order fills straight away, and the result
+                shows below the ticket.
+              </li>
+              <li>
+                <strong>Clear ticket.</strong> Resets everything you typed.
+              </li>
+            </ol>
+            <p>
+              Stocks and ETFs can only be traded while their exchange is open,
+              which is 9:30 a.m. to 4:00 p.m. Eastern time on weekdays for
+              both Toronto and the US. Crypto trades any time. When a market
+              is closed, the ticket tells you why and the button stays off.
+            </p>
+            <p class="guide-tip">
+              <strong>Tip:</strong> start with a small order to see how it
+              works. You can always buy more.
+            </p>
+          </section>
+
+          <section class="guide-step" id="step-max" aria-labelledby="step-max-title">
+            <p class="guide-step__number">Step 10</p>
+            <h2 id="step-max-title">The Max and All buttons</h2>
+            <figure class="guide-shot guide-shot--narrow">
+              <img src="assets/images/sim-guide/10-max-confirm.jpg" width="822" height="372" alt="The Buy the maximum confirmation box with its explanation, the Cancel button, and the Use shares button circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>What it will do.</strong> How many shares it would
+                fill in, what they'd cost, and how much of your buying power
+                that uses.
+              </li>
+              <li>
+                <strong>Cancel.</strong> Leaves the quantity as it was.
+              </li>
+              <li>
+                <strong>Use.</strong> Fills in that quantity. Nothing is
+                bought or sold until you press the place button on the ticket.
+              </li>
+            </ol>
+            <p class="guide-tip">
+              <strong>Tip:</strong> putting all your money into one company is
+              risky. If that one company has a bad day, your whole portfolio
+              does too.
+            </p>
+          </section>
+
+          <section class="guide-step" id="step-waiting" aria-labelledby="step-waiting-title">
+            <p class="guide-step__number">Step 11</p>
+            <h2 id="step-waiting-title">Orders that wait for a price</h2>
+            <p>
+              Instead of trading right now, you can tell the Market Lab to
+              trade later, once the price reaches a number you pick. These
+              are the order types:
+            </p>
+            <dl class="guide-glossary guide-glossary--compact">
+              <div>
+                <dt>Market</dt>
+                <dd>Buys or sells right away at the current price.</dd>
+              </div>
+              <div>
+                <dt>Limit</dt>
+                <dd>
+                  Waits for your price or better. A limit buy at $50 only buys
+                  if the price drops to $50 or lower. A limit sell at $60 only
+                  sells at $60 or higher.
+                </dd>
+              </div>
+              <div>
+                <dt>Stop loss</dt>
+                <dd>
+                  Sells if the price falls to the number you set, so a loss
+                  can't grow past it. It sells at the next available price,
+                  which can be a little lower if the price is dropping fast.
+                </dd>
+              </div>
+              <div>
+                <dt>Take profit</dt>
+                <dd>
+                  Sells once the price rises to your target, locking in the
+                  gain.
+                </dd>
+              </div>
+            </dl>
+            <figure class="guide-shot">
+              <img src="assets/images/sim-guide/11-limit-order.jpg" width="870" height="1059" alt="The order ticket set to a limit order, with the order type, limit price, time in force, and the exits box circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>Order type.</strong> Pick <em>Limit</em>,
+                <em>Stop loss</em> or <em>Take profit</em>.
+              </li>
+              <li>
+                <strong>Price.</strong> The price the order waits for. The
+                current price is shown underneath to help you choose.
+              </li>
+              <li>
+                <strong>Time in force.</strong> How long the order waits.
+                <em>Day</em> cancels the order when
+                the trading day ends. <em>Good until cancelled</em> keeps it
+                waiting until it fills, someone cancels it, or the competition
+                ends.
+              </li>
+              <li>
+                <strong>Exits for this buy.</strong> Optional. Add a take
+                profit price, a stop loss price, or both. They start waiting
+                as soon as your buy fills, and when one of them sells, the
+                other is cancelled.
+              </li>
+            </ol>
+            <p>
+              The Market Lab checks waiting orders about once a minute while
+              their market is open. Money for a waiting buy is set aside, so
+              your buying power drops until it fills or is cancelled. A team
+              can have up to 20 waiting orders at once. The
+              <span class="guide-inline-icon" aria-hidden="true">?</span>
+              buttons next to each field explain them in the Market Lab too.
+            </p>
+          </section>
+
+          <section class="guide-step" id="step-holdings" aria-labelledby="step-holdings-title">
+            <p class="guide-step__number">Step 12</p>
+            <h2 id="step-holdings-title">Your holdings</h2>
+            <figure class="guide-shot guide-shot--narrow">
+              <img src="assets/images/sim-guide/12-holdings.jpg" width="716" height="300" alt="The holdings table with a symbol, its quantity, market value, and gain or loss circled, plus the Map button." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>Symbol.</strong> Click it to load that holding into
+                the workbench, ready to look at or sell.
+              </li>
+              <li>
+                <strong>Quantity.</strong> How many shares (or lots) your team
+                owns. If some are held back for a waiting sell, it says so.
+              </li>
+              <li>
+                <strong>Market value.</strong> What they're worth at today's
+                price.
+              </li>
+              <li>
+                <strong>Gain/loss.</strong> How much they've made or lost
+                compared to what you paid.
+              </li>
+              <li>
+                <strong>Map.</strong> Opens the portfolio map (step 13).
+              </li>
+            </ol>
+            <p>
+              Holdings are listed from the biggest to the smallest by market
+              value.
+            </p>
+          </section>
+
+          <section class="guide-step" id="step-map" aria-labelledby="step-map-title">
+            <p class="guide-step__number">Step 13</p>
+            <h2 id="step-map-title">The portfolio map</h2>
+            <p>
+              The map shows your whole portfolio as a picture. Each tile is one
+              holding, grouped by sector and industry. The bigger the tile,
+              the more of your money is in it. Green tiles are up, red tiles
+              are down, and grey is about even.
+            </p>
+            <figure class="guide-shot">
+              <img src="assets/images/sim-guide/13-map.jpg" width="2160" height="1350" alt="The portfolio map with the Color by and Size by controls, the Show cash checkbox, a holding tile, and the colour legend circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>Color by.</strong> <em>Total return</em> colours each
+                tile by how it's done since you bought it. <em>1-day %</em>
+                colours it by today's move.
+              </li>
+              <li>
+                <strong>Size by.</strong> <em>Market value</em> makes bigger
+                holdings bigger tiles. <em>Equal</em> makes every tile the
+                same size.
+              </li>
+              <li>
+                <strong>Show cash.</strong> Shows your uninvested cash as the
+                grey area around your holdings.
+              </li>
+              <li>
+                <strong>A holding.</strong> Hover for details, or click it to
+                open that holding in the workbench.
+              </li>
+              <li>
+                <strong>Legend.</strong> What each colour means.
+              </li>
+            </ol>
+            <p>
+              If the map is hard to read, <em>View as list</em> shows the same
+              information as a table.
+            </p>
+          </section>
+
+          <section class="guide-step" id="step-waiting-list" aria-labelledby="step-waiting-list-title">
+            <p class="guide-step__number">Step 14</p>
+            <h2 id="step-waiting-list-title">Your waiting orders</h2>
+            <figure class="guide-shot guide-shot--narrow">
+              <img src="assets/images/sim-guide/14-waiting-orders.jpg" width="711" height="761" alt="The waiting orders list with an order, how long it lasts, and its Cancel button circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>The order.</strong> What it will do and who placed it.
+              </li>
+              <li>
+                <strong>Lasts.</strong> Whether it ends today or waits until
+                it's cancelled.
+              </li>
+              <li>
+                <strong>Cancel.</strong> Removes the order and frees up any
+                money set aside for it. Anyone on your team can cancel any of
+                the team's orders.
+              </li>
+            </ol>
+          </section>
+
+          <section class="guide-step" id="step-team" aria-labelledby="step-team-title">
+            <p class="guide-step__number">Step 15</p>
+            <h2 id="step-team-title">Your team's activity</h2>
+            <p>
+              Every order anyone on your team places shows up in one feed,
+              behind the bell at the top right.
+            </p>
+            <figure class="guide-shot guide-shot--narrow">
+              <img src="assets/images/sim-guide/15-activity.jpg" width="675" height="918" alt="The activity bell opened to show the team activity feed, with the bell, the newest entry, and its status tag circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>The bell.</strong> Click it to open or close the feed.
+                When there's something new, a red bubble on its top right
+                shows how many entries you haven't seen. Opening the feed
+                clears it.
+              </li>
+              <li>
+                <strong>An entry.</strong> What happened, who did it, and
+                when. New entries have a purple mark on their left edge.
+                Entries can't be edited or deleted.
+              </li>
+              <li>
+                <strong>Status.</strong> <em>Filled</em> means the trade went
+                through. <em>Waiting</em> means it's waiting for its price.
+                <em>Cancelled</em> and <em>Expired</em> mean it ended without
+                trading.
+              </li>
+            </ol>
+            <p class="guide-tip">
+              <strong>Tip:</strong> talk to your team before big trades. You
+              all share the same money.
+            </p>
+          </section>
+
+          <section class="guide-step" id="step-leaderboard" aria-labelledby="step-leaderboard-title">
+            <p class="guide-step__number">Step 16</p>
+            <h2 id="step-leaderboard-title">Your team and the leaderboard</h2>
+            <figure class="guide-shot guide-shot--narrow">
+              <img src="assets/images/sim-guide/16-leaderboard.jpg" width="776" height="791" alt="The team presence list and the competition leaderboard, with the presence list, your team's row, the Value column, and the Return column circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>Team presence.</strong> Everyone on your team. A green
+                dot means they're online now.
+              </li>
+              <li>
+                <strong>Your team.</strong> Highlighted on the leaderboard so
+                you can find it.
+              </li>
+              <li>
+                <strong>Value.</strong> Each team's total portfolio value.
+                The highest value when the competition ends wins.
+              </li>
+              <li>
+                <strong>Return.</strong> How much each team has gained or lost
+                since the start, as a percentage.
+              </li>
+            </ol>
+            <p>
+              Every team is valued at the same prices at the same moment, so
+              the ranking is fair.
+            </p>
+          </section>
+
+          <section class="guide-step" id="step-footer" aria-labelledby="step-footer-title">
+            <p class="guide-step__number">Step 17</p>
+            <h2 id="step-footer-title">Is everything up to date?</h2>
+            <figure class="guide-shot">
+              <img src="assets/images/sim-guide/17-footer.jpg" width="2151" height="222" alt="The status bar at the bottom of the Market Lab with the connection status and last team sync time circled." loading="lazy" decoding="async">
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>Connection.</strong> <em>Connected</em> means the
+                Market Lab is talking to the server. Your team's numbers and
+                prices refresh about every 60 seconds.
+              </li>
+              <li>
+                <strong>Last team sync.</strong> When your team's numbers last
+                refreshed.
+              </li>
+            </ol>
+            <p>
+              If the page says it can't connect, check your internet and use
+              the <em>Retry now</em> button that appears near the top.
+            </p>
+          </section>
+
+          <section id="habits" aria-labelledby="habits-title">
+            <h2 id="habits-title">Good habits for beginners</h2>
+            <ul>
+              <li>
+                <strong>Spread your money out.</strong> Owning several
+                different companies, or an ETF, means one bad day doesn't sink
+                your whole portfolio.
+              </li>
+              <li>
+                <strong>Know why you're buying.</strong> Look at the chart and
+                the company's sector first. A price that jumped a lot in one
+                day can fall just as fast.
+              </li>
+              <li>
+                <strong>Use a stop loss.</strong> It sells for you if a price
+                falls too far, even when you're not watching.
+              </li>
+              <li>
+                <strong>Don't chase every move.</strong> Prices go up and down
+                all day. Checking once or twice a day is plenty.
+              </li>
+              <li>
+                <strong>Ask questions.</strong> The weekly info sessions are a
+                good place to ask, or email
+                <a href="mailto:jsun.luban@gmail.com">jsun.luban@gmail.com</a>.
+              </li>
+            </ul>
+            <p class="guide-disclaimer">
+              The Market Lab uses simulated money for education. Nothing in
+              this guide is investment advice. See the
+              <a href="terms.html">contest rules</a> for the full terms.
+            </p>
+          </section>
+        </div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__grid page-frame">
+        <a class="site-footer__wordmark" href="index.html#top">Luban</a>
+        <nav aria-label="Featured event pages">
+          <a href="index.html#teaching-lessons">Teaching Lessons</a>
+          <a href="paper-trading-simulation.html"
+            >Paper Trading Simulation</a
+          >
+          <a href="spc.html">Stock Pitch Competition</a>
+          <a href="econ.html">Economics Competition</a>
+        </nav>
+        <div class="site-footer__meta">
+          <p>
+            Luban is a youth-led nonprofit in Canada.
+            <a href="mailto:jsun.luban@gmail.com">jsun.luban@gmail.com</a>
+          </p>
+          <p>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms and contest rules</a>
+          </p>
+          <p>Copyright &copy; 2026 Luban. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
