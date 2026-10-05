@@ -224,3 +224,45 @@
     padding-left: 36px;
   }
 }
+
+.guide-shot__link {
+  display: block;
+}
+
+.guide-shot__link:focus-visible {
+  outline: 3px solid var(--purple-deep);
+  outline-offset: -3px;
+}
+
+.guide-shot__hint {
+  display: none;
+}
+
+/* Phones: full-screen shots keep a readable size and scroll sideways. */
+@media (max-width: 640px) {
+  .guide-shot--wide {
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+  }
+
+  .guide-shot--wide .guide-shot__link {
+    width: max-content;
+  }
+
+  .guide-shot--wide img {
+    width: 640px;
+    max-width: none;
+  }
+
+  .guide-shot__hint {
+    position: sticky;
+    left: 0;
+    display: block;
+    padding: 6px 10px;
+    border-top: 1px solid var(--rule-soft);
+    background: var(--paper);
+    color: rgba(0, 23, 31, 0.72);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+  }
+}
