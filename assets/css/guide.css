@@ -19,11 +19,56 @@
   max-width: 72ch;
 }
 
+/* Hero: a deep purple gradient with a particles.js field (guide-particles.js). */
+.guide-head {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(120% 140% at 100% 0%, rgba(150, 245, 80, 0.14), transparent 46%),
+    radial-gradient(90% 120% at 85% 100%, #7a6ad8 0%, transparent 62%),
+    linear-gradient(135deg, #1e1550 0%, #3a2b8f 48%, #5a49bd 100%);
+}
+
+.guide-head__particles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.guide-head__particles canvas {
+  display: block;
+}
+
+/* The copy sits above the particles but lets the pointer through to
+   them; its links stay clickable. */
+.guide-head > :not(.guide-head__particles) {
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.guide-head a {
+  pointer-events: auto;
+}
+
 .guide-head__actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
   margin-top: 28px;
+}
+
+.guide-head__actions .action--primary {
+  border-color: var(--lime);
+  background: var(--lime);
+  color: var(--ink);
+}
+
+.guide-head__actions .action--primary:hover,
+.guide-head__actions .action--primary:focus-visible {
+  border-color: var(--paper);
+  background: var(--paper);
 }
 
 .guide-head__actions .action--secondary {

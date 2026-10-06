@@ -18,8 +18,10 @@
       rel="stylesheet">
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/competition.css?v=20260917-stack">
-    <link rel="stylesheet" href="assets/css/guide.css?v=20261005">
+    <link rel="stylesheet" href="assets/css/guide.css?v=20261006b">
     <script defer src="assets/js/home.js?v=20260917-accordion"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script defer src="assets/js/guide-particles.js?v=20261006"></script>
   </head>
 
   <body class="competition-document">
@@ -96,7 +98,8 @@
     <main class="competition-page legal-page guide-page" id="main-content">
       <article class="legal-sheet guide-sheet page-frame" aria-labelledby="guide-title">
         <header class="legal-head guide-head">
-          <p class="legal-head__date">Market Lab guide · Updated October 5, 2026</p>
+          <div class="guide-head__particles" id="guide-particles" aria-hidden="true"></div>
+          <p class="legal-head__date">Market Lab guide · Updated October 6, 2026</p>
           <h1 id="guide-title">How to use the Market Lab</h1>
           <p>
             A step-by-step tour of Luban's trading simulator for people who
@@ -133,17 +136,19 @@
               <li><a href="#step-history"><span>4</span>Your portfolio over time</a></li>
               <li><a href="#step-search"><span>5</span>Look up a stock</a></li>
               <li><a href="#step-quote"><span>6</span>Read the quote</a></li>
-              <li><a href="#step-chart"><span>7</span>Read the price chart</a></li>
-              <li><a href="#step-advanced"><span>8</span>The Advanced view</a></li>
-              <li><a href="#step-order"><span>9</span>Buy or sell</a></li>
-              <li><a href="#step-max"><span>10</span>The Max and All buttons</a></li>
-              <li><a href="#step-waiting"><span>11</span>Orders that wait for a price</a></li>
-              <li><a href="#step-holdings"><span>12</span>Your holdings</a></li>
-              <li><a href="#step-map"><span>13</span>The portfolio map</a></li>
-              <li><a href="#step-waiting-list"><span>14</span>Your waiting orders</a></li>
-              <li><a href="#step-team"><span>15</span>Your team's activity</a></li>
-              <li><a href="#step-leaderboard"><span>16</span>Your team and the leaderboard</a></li>
-              <li><a href="#step-footer"><span>17</span>Is everything up to date?</a></li>
+              <li><a href="#step-watchlist"><span>7</span>Your team's watchlist</a></li>
+              <li><a href="#step-chart"><span>8</span>Read the price chart</a></li>
+              <li><a href="#step-advanced"><span>9</span>The Advanced view</a></li>
+              <li><a href="#step-order"><span>10</span>Buy or sell</a></li>
+              <li><a href="#step-max"><span>11</span>The Max and All buttons</a></li>
+              <li><a href="#step-waiting"><span>12</span>Orders that wait for a price</a></li>
+              <li><a href="#step-holdings"><span>13</span>Your holdings</a></li>
+              <li><a href="#step-map"><span>14</span>The portfolio map</a></li>
+              <li><a href="#step-waiting-list"><span>15</span>Your waiting orders</a></li>
+              <li><a href="#step-trades"><span>16</span>Your trade history</a></li>
+              <li><a href="#step-team"><span>17</span>Your team's activity</a></li>
+              <li><a href="#step-leaderboard"><span>18</span>Your team and the leaderboard</a></li>
+              <li><a href="#step-footer"><span>19</span>Is everything up to date?</a></li>
               <li><a href="#habits"><span aria-hidden="true">·</span>Good habits for beginners</a></li>
             </ul>
           </nav>
@@ -228,7 +233,7 @@
               <div>
                 <dt>Order</dt>
                 <dd>
-                  An instruction to buy or sell. Steps 9 and 11 explain the
+                  An instruction to buy or sell. Steps 10 and 12 explain the
                   different kinds.
                 </dd>
               </div>
@@ -258,8 +263,8 @@
                 read charts and place orders.
               </li>
               <li>
-                <strong>Team room.</strong> Who on your team is online and the
-                competition leaderboard.
+                <strong>Team room.</strong> Your team's watchlist, who on your
+                team is online, and the competition leaderboard.
               </li>
             </ol>
             <p class="guide-tip">
@@ -272,7 +277,7 @@
             <p class="guide-step__number">Step 2</p>
             <h2 id="step-header-title">The top bar</h2>
             <figure class="guide-shot guide-shot--wide">
-              <a class="guide-shot__link" href="assets/images/sim-guide/02-header.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/02-header.jpg" width="2151" height="225" alt="The Market Lab's top bar with the competition name, the How to use button, the feedback button, the activity bell, and the market data status circled." loading="lazy" decoding="async"></a>
+              <a class="guide-shot__link" href="assets/images/sim-guide/02-header.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/02-header.jpg" width="2151" height="225" alt="The Market Lab's top bar with the competition name, the How to use button, the theme button, the feedback button, the activity bell, and the market data status circled." loading="lazy" decoding="async"></a>
               <figcaption class="guide-shot__hint">Swipe to see the whole screen, or tap to open it full size.</figcaption>
             </figure>
             <ol class="guide-callouts">
@@ -286,13 +291,18 @@
                 you can follow along while you trade.
               </li>
               <li>
+                <strong>Light or dark.</strong> The moon button switches the
+                Market Lab to a dark theme, and the sun switches it back. It
+                remembers your choice on that device.
+              </li>
+              <li>
                 <strong>Feedback.</strong> The speech-bubble button. Tell us
                 about anything confusing or broken, on the simulator or this
                 website. Pick what it's about, write a few words, and send.
               </li>
               <li>
                 <strong>Activity bell.</strong> Your team's activity feed
-                (step 15). A red bubble with a number means there are new
+                (step 17). A red bubble with a number means there are new
                 entries you haven't seen.
               </li>
               <li>
@@ -303,30 +313,41 @@
               </li>
             </ol>
             <p>
-              Your name, an <em>Account</em> link and <em>Sign out</em> sit at
-              the top right, next to the bell.
+              Your name sits at the top right, next to the bell. Hover over it
+              (or tap it on a phone) to open a menu with <em>Account</em> and
+              <em>Sign out</em>.
             </p>
+            <div class="guide-explainer">
+              <h3>Your account page</h3>
+              <p>
+                <strong>Display name.</strong> Change the name your team sees.
+                It updates the top bar, your team's member list, and every
+                trade you've placed.
+              </p>
+              <p>
+                <strong>Sign-in and security.</strong> Change your email or
+                password, or add multi-factor authentication.
+              </p>
+              <p>
+                <strong>Delete your account.</strong> At the bottom of the
+                page. It removes your name, email, sign-in and seat on your
+                team for good. Your team keeps its portfolio, and your trades
+                stay on its record as made by <em>Deleted user</em>.
+              </p>
+            </div>
           </section>
 
           <section class="guide-step" id="step-summary" aria-labelledby="step-summary-title">
             <p class="guide-step__number">Step 3</p>
             <h2 id="step-summary-title">Your portfolio at a glance</h2>
             <figure class="guide-shot guide-shot--narrow">
-              <a class="guide-shot__link" href="assets/images/sim-guide/03-portfolio-summary.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/03-portfolio-summary.jpg" width="740" height="434" alt="The portfolio summary with total portfolio value, cash, buying power, daily return, and total return circled." loading="lazy" decoding="async"></a>
+              <a class="guide-shot__link" href="assets/images/sim-guide/03-portfolio-summary.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/03-portfolio-summary.jpg" width="776" height="665" alt="The portfolio summary with the total portfolio value, the daily and total return, the bar that splits the total into holdings, buying power and cash set aside, and the unrealized and realized gains circled." loading="lazy" decoding="async"></a>
             </figure>
             <ol class="guide-callouts">
               <li>
                 <strong>Total portfolio value.</strong> Your cash plus the
                 current value of everything you own. This is the number that
                 ranks your team.
-              </li>
-              <li>
-                <strong>Cash.</strong> Money you haven't invested.
-              </li>
-              <li>
-                <strong>Buying power.</strong> The cash you can spend right
-                now. It can be lower than your cash, because money is set
-                aside for buy orders that are still waiting (step 11).
               </li>
               <li>
                 <strong>Daily return.</strong> How much your portfolio has
@@ -336,14 +357,34 @@
                 <strong>Total return.</strong> How much it has gained or lost
                 since the competition started.
               </li>
+              <li>
+                <strong>Where your money is.</strong> The bar splits your
+                total into <em>holdings</em> (what you own), <em>buying
+                power</em> (cash you can spend right now), and cash <em>set
+                aside</em> for buy orders that are still waiting (step 12).
+              </li>
+              <li>
+                <strong>Unrealized.</strong> The gain or loss on shares you
+                still hold. It changes with the price until you sell.
+              </li>
+              <li>
+                <strong>Realized.</strong> The gain or loss you've locked in by
+                selling.
+              </li>
             </ol>
+            <p>
+              Your cash balance and the time of the price snapshot are along
+              the bottom. The
+              <span class="guide-inline-icon" aria-hidden="true">?</span>
+              buttons explain each number.
+            </p>
           </section>
 
           <section class="guide-step" id="step-history" aria-labelledby="step-history-title">
             <p class="guide-step__number">Step 4</p>
             <h2 id="step-history-title">Your portfolio over time</h2>
             <figure class="guide-shot guide-shot--narrow">
-              <a class="guide-shot__link" href="assets/images/sim-guide/04-portfolio-history.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/04-portfolio-history.jpg" width="660" height="339" alt="The portfolio value history chart with the range buttons and the latest value circled." loading="lazy" decoding="async"></a>
+              <a class="guide-shot__link" href="assets/images/sim-guide/04-portfolio-history.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/04-portfolio-history.jpg" width="660" height="338" alt="The portfolio value history chart with the range buttons and the latest value circled." loading="lazy" decoding="async"></a>
             </figure>
             <ol class="guide-callouts">
               <li>
@@ -385,18 +426,27 @@
             <p class="guide-step__number">Step 6</p>
             <h2 id="step-quote-title">Read the quote</h2>
             <figure class="guide-shot">
-              <a class="guide-shot__link" href="assets/images/sim-guide/06-quote.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/06-quote.jpg" width="999" height="303" alt="The quote header showing the price and percent change, and the row of facts below it, both circled." loading="lazy" decoding="async"></a>
+              <a class="guide-shot__link" href="assets/images/sim-guide/06-quote.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/06-quote.jpg" width="831" height="296" alt="The quote header with the exchange and market status, the price, the Watch button, and today's change circled." loading="lazy" decoding="async"></a>
             </figure>
             <ol class="guide-callouts">
               <li>
-                <strong>Price and change.</strong> The latest price, and how
-                much it has moved since the previous close. Green means up,
-                red means down.
+                <strong>Where it trades.</strong> The exchange, its sector
+                (the kind of business), whether its market is open, and when
+                the price was last updated.
               </li>
               <li>
-                <strong>Facts.</strong> The previous close, today's change in
-                dollars, the exchange it trades on, its sector (the kind of
-                business), and when the price was last updated.
+                <strong>Price.</strong> The latest price, in Canadian dollars.
+                US stocks are converted for you.
+              </li>
+              <li>
+                <strong>Watch.</strong> The star adds this stock to your
+                team's watchlist (step 7). Press it again to take it off.
+              </li>
+              <li>
+                <strong>Today.</strong> How much the price has moved since the
+                previous close, in dollars and as a percentage. The band is
+                green when it's up and red when it's down. The previous close
+                and the price source are on the right.
               </li>
             </ol>
             <p>
@@ -405,8 +455,43 @@
             </p>
           </section>
 
-          <section class="guide-step" id="step-chart" aria-labelledby="step-chart-title">
+          <section class="guide-step" id="step-watchlist" aria-labelledby="step-watchlist-title">
             <p class="guide-step__number">Step 7</p>
+            <h2 id="step-watchlist-title">Your team's watchlist</h2>
+            <p>
+              The watchlist sits at the top of the team room. It's one list
+              for your whole team, so anything a teammate adds shows up for
+              you too.
+            </p>
+            <figure class="guide-shot guide-shot--narrow">
+              <a class="guide-shot__link" href="assets/images/sim-guide/18-watchlist.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/18-watchlist.jpg" width="741" height="524" alt="The team watchlist with the count of watched symbols, the Symbol sort button, a row's small price chart, and its remove button circled." loading="lazy" decoding="async"></a>
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>How full it is.</strong> A team can watch up to 20
+                symbols.
+              </li>
+              <li>
+                <strong>Sort.</strong> Click <em>Symbol</em>, <em>Price</em> or
+                <em>Day</em> to sort the list. Click again to flip the order.
+              </li>
+              <li>
+                <strong>Today's trend.</strong> A small chart of the price so
+                far today, green if it's up and red if it's down.
+              </li>
+              <li>
+                <strong>Remove.</strong> Takes the symbol off the list for
+                everyone on your team.
+              </li>
+            </ol>
+            <p class="guide-tip">
+              <strong>Tip:</strong> click a symbol in the watchlist to load it
+              into the workbench. Hover over it to see who added it.
+            </p>
+          </section>
+
+          <section class="guide-step" id="step-chart" aria-labelledby="step-chart-title">
+            <p class="guide-step__number">Step 8</p>
             <h2 id="step-chart-title">Read the price chart</h2>
             <figure class="guide-shot">
               <a class="guide-shot__link" href="assets/images/sim-guide/07-chart.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/07-chart.jpg" width="735" height="488" alt="The price chart with the range buttons, the hover box, and the Advanced view button circled." loading="lazy" decoding="async"></a>
@@ -423,7 +508,7 @@
               </li>
               <li>
                 <strong>Advanced view.</strong> Opens a bigger chart with more
-                tools (step 8).
+                tools (step 9).
               </li>
             </ol>
             <p>
@@ -435,7 +520,7 @@
           </section>
 
           <section class="guide-step" id="step-advanced" aria-labelledby="step-advanced-title">
-            <p class="guide-step__number">Step 8</p>
+            <p class="guide-step__number">Step 9</p>
             <h2 id="step-advanced-title">The Advanced view</h2>
             <figure class="guide-shot guide-shot--wide">
               <a class="guide-shot__link" href="assets/images/sim-guide/08-advanced-view.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/08-advanced-view.jpg" width="2160" height="1350" alt="The full-screen Advanced view showing a candle chart, with the chart style buttons, the price readout, the volume toggle, the range and dates controls, the interval menu, and the close button circled." loading="lazy" decoding="async"></a>
@@ -485,14 +570,15 @@
           </section>
 
           <section class="guide-step" id="step-order" aria-labelledby="step-order-title">
-            <p class="guide-step__number">Step 9</p>
+            <p class="guide-step__number">Step 10</p>
             <h2 id="step-order-title">Buy or sell</h2>
             <p>
               The order ticket sits under the chart and always trades whatever
-              is loaded in the workbench.
+              is loaded in the workbench. Your choices are on the left, and
+              the summary on the right adds them up.
             </p>
             <figure class="guide-shot">
-              <a class="guide-shot__link" href="assets/images/sim-guide/09-order-ticket.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/09-order-ticket.jpg" width="849" height="908" alt="The order ticket with the Buy and Sell switch, order type, quantity, Max button, estimates, Place simulated buy button, and Clear ticket button circled." loading="lazy" decoding="async"></a>
+              <a class="guide-shot__link" href="assets/images/sim-guide/09-order-ticket.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/09-order-ticket.jpg" width="810" height="588" alt="The order ticket with the Buy and Sell switch, order type, quantity, Max button, the order summary, the Place simulated buy button, and the Clear ticket button circled." loading="lazy" decoding="async"></a>
             </figure>
             <ol class="guide-callouts">
               <li>
@@ -502,7 +588,7 @@
               <li>
                 <strong>Order type.</strong> <em>Market</em> trades right away
                 at the current price. The other types wait for a price you
-                choose (step 11).
+                choose (step 12).
               </li>
               <li>
                 <strong>Quantity.</strong> How many shares to buy or sell.
@@ -512,11 +598,13 @@
               <li>
                 <strong>Max (or All when selling).</strong> Fills in the most
                 you can buy with your buying power, or everything you can
-                sell. It asks you to confirm first (step 10).
+                sell. It asks you to confirm first (step 11).
               </li>
               <li>
-                <strong>Estimates.</strong> The price you'll probably get and
-                the total cost of the order, before you commit.
+                <strong>Order summary.</strong> Adds it all up before you
+                commit: the price you'll probably get, times the number of
+                shares, makes the estimated total. Underneath, it shows the
+                cash (or shares) you'll have left afterwards.
               </li>
               <li>
                 <strong>Place simulated buy</strong> (or sell). Sends the
@@ -540,10 +628,10 @@
           </section>
 
           <section class="guide-step" id="step-max" aria-labelledby="step-max-title">
-            <p class="guide-step__number">Step 10</p>
+            <p class="guide-step__number">Step 11</p>
             <h2 id="step-max-title">The Max and All buttons</h2>
             <figure class="guide-shot guide-shot--narrow">
-              <a class="guide-shot__link" href="assets/images/sim-guide/10-max-confirm.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/10-max-confirm.jpg" width="822" height="372" alt="The Buy the maximum confirmation box with its explanation, the Cancel button, and the Use shares button circled." loading="lazy" decoding="async"></a>
+              <a class="guide-shot__link" href="assets/images/sim-guide/10-max-confirm.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/10-max-confirm.jpg" width="822" height="384" alt="The Buy the maximum confirmation box with its explanation, the Cancel button, and the Use shares button circled." loading="lazy" decoding="async"></a>
             </figure>
             <ol class="guide-callouts">
               <li>
@@ -567,7 +655,7 @@
           </section>
 
           <section class="guide-step" id="step-waiting" aria-labelledby="step-waiting-title">
-            <p class="guide-step__number">Step 11</p>
+            <p class="guide-step__number">Step 12</p>
             <h2 id="step-waiting-title">Orders that wait for a price</h2>
             <p>
               Instead of trading right now, you can tell the Market Lab to
@@ -604,7 +692,7 @@
               </div>
             </dl>
             <figure class="guide-shot">
-              <a class="guide-shot__link" href="assets/images/sim-guide/11-limit-order.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/11-limit-order.jpg" width="870" height="1059" alt="The order ticket set to a limit order, with the order type, limit price, time in force, and the exits box circled." loading="lazy" decoding="async"></a>
+              <a class="guide-shot__link" href="assets/images/sim-guide/11-limit-order.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/11-limit-order.jpg" width="804" height="1287" alt="The order ticket set to a limit order, with the order type, limit price, time in force, and the exits box circled." loading="lazy" decoding="async"></a>
             </figure>
             <ol class="guide-callouts">
               <li>
@@ -623,8 +711,9 @@
                 ends.
               </li>
               <li>
-                <strong>Exits for this buy.</strong> Optional. Add a take
-                profit price, a stop loss price, or both. They start waiting
+                <strong>Exits for this buy.</strong> Optional. Press <em>Add take
+                profit or stop loss</em> under the quantity, then fill in a
+                take profit price, a stop loss price, or both. They start waiting
                 as soon as your buy fills, and when one of them sells, the
                 other is cancelled.
               </li>
@@ -640,10 +729,10 @@
           </section>
 
           <section class="guide-step" id="step-holdings" aria-labelledby="step-holdings-title">
-            <p class="guide-step__number">Step 12</p>
+            <p class="guide-step__number">Step 13</p>
             <h2 id="step-holdings-title">Your holdings</h2>
             <figure class="guide-shot guide-shot--narrow">
-              <a class="guide-shot__link" href="assets/images/sim-guide/12-holdings.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/12-holdings.jpg" width="716" height="300" alt="The holdings table with a symbol, its quantity, market value, and gain or loss circled, plus the Map button." loading="lazy" decoding="async"></a>
+              <a class="guide-shot__link" href="assets/images/sim-guide/12-holdings.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/12-holdings.jpg" width="722" height="1005" alt="The holdings table with a symbol, its number of shares, average cost, market value, and gain or loss circled, plus the CSV and Map buttons." loading="lazy" decoding="async"></a>
             </figure>
             <ol class="guide-callouts">
               <li>
@@ -655,6 +744,11 @@
                 owns. If some are held back for a waiting sell, it says so.
               </li>
               <li>
+                <strong>Avg cost.</strong> What you paid per share on average,
+                with the total you paid underneath. Buying more at a
+                different price changes the average.
+              </li>
+              <li>
                 <strong>Market value.</strong> What they're worth at today's
                 price.
               </li>
@@ -663,7 +757,12 @@
                 compared to what you paid.
               </li>
               <li>
-                <strong>Map.</strong> Opens the portfolio map (step 13).
+                <strong>CSV.</strong> Downloads your holdings as a
+                spreadsheet file you can open in Excel, Numbers or Google
+                Sheets.
+              </li>
+              <li>
+                <strong>Map.</strong> Opens the portfolio map (step 14).
               </li>
             </ol>
             <p>
@@ -673,7 +772,7 @@
           </section>
 
           <section class="guide-step" id="step-map" aria-labelledby="step-map-title">
-            <p class="guide-step__number">Step 13</p>
+            <p class="guide-step__number">Step 14</p>
             <h2 id="step-map-title">The portfolio map</h2>
             <p>
               The map shows your whole portfolio as a picture. Each tile is one
@@ -715,10 +814,10 @@
           </section>
 
           <section class="guide-step" id="step-waiting-list" aria-labelledby="step-waiting-list-title">
-            <p class="guide-step__number">Step 14</p>
+            <p class="guide-step__number">Step 15</p>
             <h2 id="step-waiting-list-title">Your waiting orders</h2>
             <figure class="guide-shot guide-shot--narrow">
-              <a class="guide-shot__link" href="assets/images/sim-guide/14-waiting-orders.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/14-waiting-orders.jpg" width="711" height="761" alt="The waiting orders list with an order, how long it lasts, and its Cancel button circled." loading="lazy" decoding="async"></a>
+              <a class="guide-shot__link" href="assets/images/sim-guide/14-waiting-orders.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/14-waiting-orders.jpg" width="716" height="431" alt="The waiting orders list with an order, how long it lasts, and its Cancel button circled." loading="lazy" decoding="async"></a>
             </figure>
             <ol class="guide-callouts">
               <li>
@@ -736,15 +835,46 @@
             </ol>
           </section>
 
+          <section class="guide-step" id="step-trades" aria-labelledby="step-trades-title">
+            <p class="guide-step__number">Step 16</p>
+            <h2 id="step-trades-title">Your trade history</h2>
+            <p>
+              Every trade your team has made, newest first, sits under your
+              holdings.
+            </p>
+            <figure class="guide-shot guide-shot--narrow">
+              <a class="guide-shot__link" href="assets/images/sim-guide/19-trade-history.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/19-trade-history.jpg" width="716" height="1082" alt="The trade history with a sale, the money it made, the CSV button, and the Show up to 100 trades button circled." loading="lazy" decoding="async"></a>
+            </figure>
+            <ol class="guide-callouts">
+              <li>
+                <strong>The trade.</strong> Whether it was a buy or a sell,
+                the symbol, when it happened, and who on your team placed it.
+              </li>
+              <li>
+                <strong>Realized.</strong> What a sale made or lost compared
+                to what you paid. Buys show a dash, because nothing is
+                locked in until you sell.
+              </li>
+              <li>
+                <strong>CSV.</strong> Downloads every trade as a spreadsheet
+                file.
+              </li>
+              <li>
+                <strong>Show up to 100 trades.</strong> The list starts with
+                your latest eight. This loads more.
+              </li>
+            </ol>
+          </section>
+
           <section class="guide-step" id="step-team" aria-labelledby="step-team-title">
-            <p class="guide-step__number">Step 15</p>
+            <p class="guide-step__number">Step 17</p>
             <h2 id="step-team-title">Your team's activity</h2>
             <p>
               Every order anyone on your team places shows up in one feed,
               behind the bell at the top right.
             </p>
             <figure class="guide-shot guide-shot--narrow">
-              <a class="guide-shot__link" href="assets/images/sim-guide/15-activity.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/15-activity.jpg" width="693" height="918" alt="The activity bell opened to show the team activity feed, with the bell, the newest entry, and its status tag circled." loading="lazy" decoding="async"></a>
+              <a class="guide-shot__link" href="assets/images/sim-guide/15-activity.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/15-activity.jpg" width="699" height="978" alt="The activity bell opened to show the team activity feed, with the bell, the newest entry, and its status tag circled." loading="lazy" decoding="async"></a>
             </figure>
             <ol class="guide-callouts">
               <li>
@@ -772,10 +902,10 @@
           </section>
 
           <section class="guide-step" id="step-leaderboard" aria-labelledby="step-leaderboard-title">
-            <p class="guide-step__number">Step 16</p>
+            <p class="guide-step__number">Step 18</p>
             <h2 id="step-leaderboard-title">Your team and the leaderboard</h2>
             <figure class="guide-shot guide-shot--narrow">
-              <a class="guide-shot__link" href="assets/images/sim-guide/16-leaderboard.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/16-leaderboard.jpg" width="776" height="791" alt="The team presence list and the competition leaderboard, with the presence list, your team's row, the Value column, and the Return column circled." loading="lazy" decoding="async"></a>
+              <a class="guide-shot__link" href="assets/images/sim-guide/16-leaderboard.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/16-leaderboard.jpg" width="740" height="950" alt="The team presence list and the competition leaderboard, with the presence list, your team's name, its value, and its return bar circled." loading="lazy" decoding="async"></a>
             </figure>
             <ol class="guide-callouts">
               <li>
@@ -783,16 +913,18 @@
                 dot means they're online now.
               </li>
               <li>
-                <strong>Your team.</strong> Highlighted on the leaderboard so
-                you can find it.
+                <strong>Your team.</strong> Highlighted and tagged
+                <em>You</em> so you can find it.
               </li>
               <li>
-                <strong>Value.</strong> Each team's total portfolio value.
-                The highest value when the competition ends wins.
+                <strong>Value.</strong> Each team's total portfolio value,
+                under its name. The highest value when the competition ends
+                wins.
               </li>
               <li>
-                <strong>Return.</strong> How much each team has gained or lost
-                since the start, as a percentage.
+                <strong>Return since start.</strong> How much each team has
+                gained or lost, as a bar and a percentage. Green bars are up
+                and red bars are down.
               </li>
             </ol>
             <p>
@@ -802,10 +934,10 @@
           </section>
 
           <section class="guide-step" id="step-footer" aria-labelledby="step-footer-title">
-            <p class="guide-step__number">Step 17</p>
+            <p class="guide-step__number">Step 19</p>
             <h2 id="step-footer-title">Is everything up to date?</h2>
             <figure class="guide-shot guide-shot--wide">
-              <a class="guide-shot__link" href="assets/images/sim-guide/17-footer.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/17-footer.jpg" width="2151" height="222" alt="The status bar at the bottom of the Market Lab with the connection status and last team sync time circled." loading="lazy" decoding="async"></a>
+              <a class="guide-shot__link" href="assets/images/sim-guide/17-footer.jpg" aria-label="Open this screenshot full size"><img src="assets/images/sim-guide/17-footer.jpg" width="2151" height="224" alt="The status bar at the bottom of the Market Lab with the connection status, the last team sync time, and the version number circled." loading="lazy" decoding="async"></a>
               <figcaption class="guide-shot__hint">Swipe to see the whole screen, or tap to open it full size.</figcaption>
             </figure>
             <ol class="guide-callouts">
@@ -817,6 +949,10 @@
               <li>
                 <strong>Last team sync.</strong> When your team's numbers last
                 refreshed.
+              </li>
+              <li>
+                <strong>Version.</strong> Click it to open <em>What's new</em>,
+                a list of everything that has changed in the Market Lab.
               </li>
             </ol>
             <p>
