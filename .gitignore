@@ -1,2 +1,13 @@
 homepage-redesign-preview/
 .impeccable/review/
+
+# AI coding agent files and notes
+.claude/
+.codex/
+.cursor/
+.impeccable/
+AGENTS.md
+CLAUDE.md
+AUDIT.md
+DESIGN.md
+PRODUCT.md
