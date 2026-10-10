@@ -11,3 +11,7 @@ CLAUDE.md
 AUDIT.md
 DESIGN.md
 PRODUCT.md
+
+# separate repos, kept locally
+/simulator-prototype/
+/luban-sim-supabase-worktree/

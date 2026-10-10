@@ -35,4 +35,4 @@ The site is a Vercel project and every push to `main` goes straight to productio
 
 ## The simulator
 
-`simulator-prototype/` is a separate git repo: the Market Lab trading simulator, deployed on its own at [sim.lubancanada.com](https://sim.lubancanada.com). It has its own README. Commit and push it from inside that folder. This repo only stores a pointer to it, and `.vercelignore` keeps it out of the site deploy.
+`simulator-prototype/` is a separate git repo: the Market Lab trading simulator, deployed on its own at [sim.lubancanada.com](https://sim.lubancanada.com). It has its own README and lives at [github.com/Centurionactionx/luban-sim](https://github.com/Centurionactionx/luban-sim). This repo ignores the folder, so commit and push it from inside. `.vercelignore` keeps it out of the site deploy.
