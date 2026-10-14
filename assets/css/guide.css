@@ -1,87 +1,407 @@
-/* Market Lab guide: a legal-sheet reading page with wide screenshots and
-   numbered callouts that match the red circles drawn on each picture. */
+/* Market Lab guide: a docs layout (contents sidebar, reading column,
+   featured rail) with screenshots and numbered callouts that match the red
+   boxes drawn on each picture. */
 
-.guide-sheet {
+.docs-document {
   --guide-callout: #e0001b;
+  --docs-sticky-top: calc(var(--header-height) + 28px);
+  --docs-muted: rgba(0, 23, 31, 0.64);
 }
 
-/* Screenshots get more room than the 72ch text column around them. */
-.guide-body {
-  --legal-inline: max(clamp(24px, 5vw, 68px), calc((100% - 960px) / 2));
-}
-
-.guide-body > section > p,
-.guide-body > section > ul,
-.guide-body .guide-callouts,
-.guide-body .guide-glossary,
-.guide-body .guide-explainer,
-.guide-toc {
-  max-width: 72ch;
-}
-
-/* Hero: a deep purple gradient with a particles.js field (guide-particles.js). */
-.guide-head {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  background:
-    radial-gradient(120% 140% at 100% 0%, rgba(150, 245, 80, 0.14), transparent 46%),
-    radial-gradient(90% 120% at 85% 100%, #7a6ad8 0%, transparent 62%),
-    linear-gradient(135deg, #1e1550 0%, #3a2b8f 48%, #5a49bd 100%);
-}
-
-.guide-head__particles {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-}
-
-.guide-head__particles canvas {
-  display: block;
-}
-
-/* The copy sits above the particles but lets the pointer through to
-   them; its links stay clickable. */
-.guide-head > :not(.guide-head__particles) {
-  position: relative;
-  z-index: 1;
-  pointer-events: none;
-}
-
-.guide-head a {
-  pointer-events: auto;
-}
-
-.guide-head__actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 28px;
-}
-
-.guide-head__actions .action--primary {
-  border-color: var(--lime);
-  background: var(--lime);
-  color: var(--ink);
-}
-
-.guide-head__actions .action--primary:hover,
-.guide-head__actions .action--primary:focus-visible {
-  border-color: var(--paper);
+/* The sheet hangs off the site header like the other reading pages. */
+.docs {
+  border: 2px solid var(--ink);
+  border-top: 0;
+  border-radius: 0 0 4px 4px;
   background: var(--paper);
 }
 
-.guide-head__actions .action--secondary {
-  border-color: var(--paper);
+.docs a {
+  color: inherit;
+}
+
+/* Top bar: title, search, date. */
+.docs-bar {
+  display: grid;
+  grid-template-columns: 1fr minmax(0, 420px) 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 12px clamp(16px, 2.4vw, 28px);
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.docs-bar__title {
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.docs-bar__date {
+  margin: 0;
+  justify-self: end;
+  color: var(--docs-muted);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+}
+
+.docs-search {
+  position: relative;
+}
+
+.docs-search svg {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  width: 15px;
+  height: 15px;
+  translate: 0 -50%;
+  fill: none;
+  stroke: var(--docs-muted);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  pointer-events: none;
+}
+
+.docs-search input {
+  width: 100%;
+  height: 38px;
+  padding: 0 12px 0 34px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: var(--paper-muted);
   color: var(--ink);
+  font: inherit;
+  font-size: 0.92rem;
 }
 
-.guide-toc {
+.docs-search input:focus {
+  border-color: var(--purple-deep);
+  outline: 2px solid var(--lavender);
+  background: var(--paper);
+}
+
+/* Three columns: contents, reading column, featured links. */
+.docs-layout {
+  display: grid;
+  grid-template-columns: 236px minmax(0, 1fr) 200px;
+  gap: clamp(24px, 3vw, 48px);
+  padding: 0 clamp(16px, 2.4vw, 28px);
+}
+
+.docs-nav,
+.docs-rail {
+  position: sticky;
+  top: var(--docs-sticky-top);
+  align-self: start;
+  max-height: calc(100vh - var(--docs-sticky-top) - 16px);
+  overflow-y: auto;
+  padding: 28px 0 32px;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.docs-nav:hover,
+.docs-rail:hover {
+  scrollbar-color: var(--rule-soft) transparent;
+}
+
+.docs-nav summary {
+  display: none;
+}
+
+.docs-nav ul,
+.docs-rail ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.docs-nav a,
+.docs-rail a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 8px;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.docs-nav a:hover,
+.docs-nav a:focus-visible,
+.docs-rail a:hover,
+.docs-rail a:focus-visible {
+  background: var(--paper-muted);
+}
+
+.docs-nav a[aria-current="true"] {
+  background: var(--lavender);
+  color: var(--purple-deep);
+  font-weight: 600;
+}
+
+.docs-nav li span {
+  flex: none;
+  min-width: 1.6em;
+  color: var(--docs-muted);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+}
+
+.docs-nav a[aria-current="true"] span {
+  color: inherit;
+}
+
+.docs-nav__pinned {
+  margin-bottom: 12px !important;
+}
+
+.docs-nav__pinned a {
+  padding-block: 6px;
+}
+
+.docs-nav__icon svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.docs-nav__pinned .docs-nav__icon {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--rule-soft);
+  border-radius: 6px;
+  background: var(--paper-muted);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+}
+
+.docs-nav__ext {
+  width: 13px;
+  height: 13px;
+  margin-left: auto;
+  fill: none;
+  stroke: var(--docs-muted);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.docs-nav__group,
+.docs-rail__title {
+  margin: 18px 0 6px;
+  padding-left: 8px;
+  color: var(--docs-muted);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.docs-nav__empty,
+.docs-rail__note {
+  padding-left: 8px;
+  color: var(--docs-muted);
+  font-size: 0.86rem;
+  line-height: 1.5;
+}
+
+.docs-rail__note a {
+  display: inline;
+  padding: 0;
+  font-size: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* Reading column. */
+.docs-main {
+  min-width: 0;
+  max-width: 780px;
+  margin-inline: auto;
+  padding: clamp(28px, 4vw, 56px) 0 48px;
+}
+
+.docs-hero {
+  display: grid;
+  justify-items: center;
+  padding-bottom: clamp(28px, 4vw, 44px);
+  text-align: center;
+}
+
+.docs-hero__mark {
+  display: grid;
+  place-items: center;
+  width: clamp(120px, 14vw, 168px);
+  aspect-ratio: 1;
+  margin-bottom: 24px;
+  border-radius: 50%;
+  background: var(--lavender);
+  color: var(--purple-deep);
+}
+
+.docs-hero__mark svg {
+  width: 66%;
+}
+
+.docs-hero h1 {
+  margin: 0 0 14px;
+  font-size: clamp(2.2rem, 4.2vw, 3.4rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.docs-hero p {
+  max-width: 34ch;
+  margin: 0 0 24px;
+  color: var(--docs-muted);
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.docs-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+}
+
+.docs-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  padding: 0 16px;
+  border: 1px solid var(--ink);
+  border-radius: 6px;
+  background: var(--paper);
+  font-size: 0.94rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.docs-button svg,
+.docs-card__more svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.docs-button:hover,
+.docs-button:focus-visible {
+  background: var(--paper-muted);
+}
+
+.docs-button--primary {
+  border-color: var(--purple-deep);
+  background: var(--purple-deep);
+  color: var(--paper) !important;
+}
+
+.docs-button--primary:hover,
+.docs-button--primary:focus-visible {
+  border-color: var(--ink);
+  background: var(--ink);
+}
+
+.docs-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+  margin-bottom: 28px;
+}
+
+.docs-card {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  padding: 22px 24px;
+  border: 1px solid var(--rule-soft);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.docs-card:hover,
+.docs-card:focus-visible {
+  border-color: var(--purple-deep);
+}
+
+.docs-card__icon {
+  width: 18px;
+  height: 18px;
+  margin-bottom: 6px;
+  fill: var(--ink);
+}
+
+.docs-card h2 {
+  margin: 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.docs-card p {
+  margin: 0;
+  color: var(--docs-muted);
+  font-size: 0.94rem;
+  line-height: 1.55;
+}
+
+.docs-card__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  color: var(--purple-deep);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.docs-intro {
+  padding-bottom: 8px;
+  color: var(--docs-muted);
+}
+
+/* Step sections. */
+.guide-body a {
+  text-underline-offset: 3px;
+}
+
+.guide-body > section {
   padding-top: clamp(28px, 3.5vw, 44px);
+  border-top: 1px solid var(--rule-soft);
+  margin-top: clamp(28px, 3.5vw, 44px);
+  /* Adds to the page's scroll-padding so a step lands level with the sidebar. */
+  scroll-margin-top: 8px;
 }
 
-.guide-toc h2 {
-  margin-bottom: 12px;
+.guide-body > section[hidden] {
+  display: none;
+}
+
+.guide-body > section > h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.5rem, 2.2vw, 1.9rem);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.guide-body h3 {
+  margin: 22px 0 8px;
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 600;
@@ -89,43 +409,87 @@
   text-transform: uppercase;
 }
 
-.guide-toc ul {
-  display: block;
-  columns: 2 220px;
-  column-gap: 32px;
-  margin: 0;
-  padding: 0;
-  list-style: none;
+.guide-body p,
+.guide-body li {
+  font-size: 1rem;
+  line-height: 1.65;
 }
 
-.guide-toc li {
-  margin-bottom: 6px;
-  break-inside: avoid;
-  font-size: 0.96rem;
+.guide-body p {
+  margin: 0 0 14px;
 }
 
-.guide-toc li span {
-  display: inline-block;
-  min-width: 1.8em;
+.guide-body > section > ul {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 16px;
+  padding-left: 1.2em;
+}
+
+.docs-meta {
+  display: grid;
+  gap: 14px;
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule-soft);
+  color: var(--docs-muted);
+  font-size: 0.86rem;
+}
+
+.docs-meta a {
   color: var(--purple-deep);
-  font-family: var(--font-mono);
-  font-size: 0.86em;
   font-weight: 600;
 }
 
-.guide-toc a {
-  text-decoration: underline;
-  text-decoration-color: var(--rule-soft);
-  text-underline-offset: 3px;
+.docs-meta p {
+  margin: 0;
+  font-size: inherit;
 }
 
-.guide-toc a:hover,
-.guide-toc a:focus-visible {
-  text-decoration-color: currentColor;
+@media (max-width: 1180px) {
+  .docs-layout {
+    grid-template-columns: 220px minmax(0, 1fr);
+  }
+
+  .docs-rail {
+    display: none;
+  }
 }
 
-.guide-body section {
-  scroll-margin-top: calc(var(--header-height) + 16px);
+/* Narrow screens: one column, contents fold into a disclosure. */
+@media (max-width: 820px) {
+  .docs-bar {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .docs-bar__date {
+    display: none;
+  }
+
+  .docs-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0;
+  }
+
+  .docs-nav {
+    position: static;
+    max-height: none;
+    padding: 12px 0 0;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+
+  .docs-nav summary {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0 12px;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .docs-main {
+    padding-top: 32px;
+  }
 }
 
 .guide-step__number {
@@ -161,7 +525,7 @@
   max-width: 620px;
 }
 
-/* Numbered items that match the red circles in the screenshot above. */
+/* Numbered items that match the red boxes in the screenshot above. */
 .guide-callouts {
   display: grid;
   gap: 10px;
