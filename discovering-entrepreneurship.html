@@ -18,6 +18,7 @@
       rel="stylesheet">
     <link rel="stylesheet" href="assets/css/home.css">
     <link rel="stylesheet" href="assets/css/workshop.css">
+    <link rel="stylesheet" href="assets/css/site.css">
     <script defer src="assets/js/home.js"></script>
   </head>
 
@@ -35,6 +36,7 @@
     <header class="site-header" data-site-header>
       <div class="site-header__row page-frame">
         <a class="wordmark" href="index.html#top" aria-label="Luban home">
+          <svg class="wordmark__mark" aria-hidden="true" viewBox="6 14 180 124"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M65 88.5 V23 Q65 20.5 67.5 20.5 H72 Q74.5 20.5 74.5 23 V87.8 M126 88.5 V23 Q126 20.5 123.5 20.5 H119 Q116.5 20.5 116.5 23 V87.8" stroke-width="5.5"/><path d="M74.5 23 H116.5 M74.5 30.5 H116.5" stroke-width="4.5"/><path d="M65 27 Q38 60 10.5 82 M126 27 Q153 60 180.5 82" stroke-width="5.5"/><path d="M38.5 56.6 V91.9 M152.5 56.6 V91.9" stroke-width="5"/><path d="M12 98 Q95.5 78 179 98 L179 104.5 Q95.5 86.5 12 104.5 Z" stroke-width="4.5"/><path d="M24.5 133.5 V122.5 A12.5 12.5 0 0 1 49.5 122.5 V133.5 Z M166.5 133.5 V122.5 A12.5 12.5 0 0 0 141.5 122.5 V133.5 Z" stroke-width="5"/></g></svg>
           <span class="wordmark__name">Luban</span>
           <span class="wordmark__descriptor">Youth-led nonprofit</span>
         </a>
@@ -100,86 +102,69 @@
 
     <main class="workshop-page" id="main-content">
       <section
-        class="workshop-opening page-frame"
+        class="event-hero page-frame"
         id="top"
         aria-labelledby="workshop-title"
       >
-        <div class="workshop-hero">
-          <div class="workshop-hero__lead">
-            <div>
-              <h1 id="workshop-title">Discovering Entrepreneurship</h1>
-              <p class="workshop-hero__deck">
-                A practical introduction to what it means to be an entrepreneur
-                and how to pursue ambitious work while making time for life
-                outside it.
-              </p>
-            </div>
-
-            <div class="workshop-actions">
-              <a class="action action--primary" href="#workshop-outline">
-                <span>Read the workshop outline</span>
-                <svg aria-hidden="true" viewBox="0 0 24 24">
-                  <path d="M12 5v13M7 14l5 5 5-5"></path>
-                </svg>
-              </a>
-              <a
-                class="action action--secondary"
-                href="index.html#teaching-lessons"
-              >
-                <span>Back to teaching lessons</span>
-                <svg aria-hidden="true" viewBox="0 0 24 24">
-                  <path d="M19 12H6M10 7l-5 5 5 5"></path>
-                </svg>
-              </a>
-            </div>
+        <div class="tile event-hero__lead">
+          <ul class="chips">
+            <li class="chip chip--brand">Completed workshop</li>
+            <li class="chip">Session 1 of 3</li>
+          </ul>
+          <h1 id="workshop-title">Discovering Entrepreneurship</h1>
+          <p class="event-hero__deck">
+            A practical introduction to what it means to be an entrepreneur and how to pursue ambitious work while making time for life outside it.
+          </p>
+          <div class="event-hero__actions">
+            <a class="action action--primary action--large" href="#workshop-outline">
+              <span>Read the workshop outline</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 5v13M7 13l5 5 5-5"></path></svg>
+            </a>
+            <a class="action action--secondary action--large" href="index.html#teaching-lessons">
+              <span>Back to teaching lessons</span>
+              
+            </a>
           </div>
-
-          <div class="workshop-hero__brief">
-            <h2>What does it mean to start your own path?</h2>
-            <p>
-              The published lesson outline connected entrepreneurial thinking
-              with the practical challenge of building a healthy relationship
-              between work and the rest of life.
-            </p>
-            <dl class="workshop-focus">
-              <div>
-                <dt>Focus</dt>
-                <dd>Entrepreneurial mindset</dd>
-              </div>
-              <div>
-                <dt>Alongside</dt>
-                <dd>Healthy work-life balance</dd>
-              </div>
-            </dl>
+          <div class="event-hero__more">
+            <p>Want to take part next time? <a class="text-link" href="index.html#contact"><span>Contact the team</span></a></p>
           </div>
         </div>
 
-        <dl class="workshop-meta">
-          <div>
-            <dt>Status</dt>
-            <dd>Completed workshop</dd>
-          </div>
-          <div>
-            <dt>Date and time</dt>
-            <dd>
-              <time datetime="2026-08-08T13:30:00-04:00"
-                >August 8, 2026<br>1:30 PM ET</time
-              >
-            </dd>
-          </div>
-          <div>
-            <dt>Format</dt>
-            <dd>Online workshop</dd>
-          </div>
-          <div>
-            <dt>Series</dt>
-            <dd>Session 1 of 3</dd>
-          </div>
-          <div>
-            <dt>Hosted by</dt>
-            <dd>Luban and CFEE</dd>
-          </div>
-        </dl>
+        <aside class="tile event-glance" aria-labelledby="glance-title">
+          <header class="tile__head">
+            <h2 id="glance-title">At a glance</h2>
+            <p class="tile__meta">Online workshop</p>
+          </header>
+          <dl class="glance">
+            <div>
+              <dt>Date</dt>
+              <dd><time datetime="2026-08-08T13:30:00-04:00">August 8, 2026, 1:30 PM ET</time></dd>
+            </div>
+            <div>
+              <dt>Focus</dt>
+              <dd>Entrepreneurial mindset</dd>
+            </div>
+            <div>
+              <dt>Alongside</dt>
+              <dd>Healthy work-life balance</dd>
+            </div>
+            <div>
+              <dt>Series</dt>
+              <dd>Session 1 of 3</dd>
+            </div>
+            <div>
+              <dt>Hosted by</dt>
+              <dd>Luban and CFEE</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd class="glance__state">Completed</dd>
+            </div>
+          </dl>
+          <p class="event-glance__note">
+            The published lesson outline connected entrepreneurial thinking with the practical challenge of building a healthy relationship between work and the rest of life.
+          </p>
+        </aside>
       </section>
 
       <article class="workshop-article page-frame" id="workshop-outline">
@@ -289,27 +274,21 @@
         </section>
       </article>
 
-      <section class="workshop-close page-frame" aria-labelledby="next-title">
-        <div class="workshop-close__copy">
-          <h2 id="next-title">Explore more Luban teaching.</h2>
+      <section class="tile event-close page-frame" aria-labelledby="next-title">
+        <div class="event-close__copy">
+          <h2 id="next-title">Explore more Luban teaching</h2>
           <p>
-            Return to the teaching lessons newsroom for lesson previews and
-            completed workshop summaries.
+            Return to the teaching lessons newsroom for lesson previews and completed workshop summaries.
           </p>
         </div>
-        <div class="workshop-close__actions">
-          <a class="action action--primary" href="index.html#teaching-lessons">
-            <span>Explore teaching lessons</span>
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M5 12h13M14 7l5 5-5 5"></path>
-            </svg>
-          </a>
-          <a class="action action--secondary" href="index.html#contact">
-            <span>Contact the team</span>
-            <svg aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M5 12h13M14 7l5 5-5 5"></path>
-            </svg>
-          </a>
+        <div class="event-close__actions">
+          <a class="action action--primary action--large" href="index.html#teaching-lessons">
+              <span>Explore teaching lessons</span>
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M5 12h13M14 7l5 5-5 5"></path></svg>
+            </a>
+          <p class="event-close__links">
+            <a class="text-link" href="index.html#contact"><span>Contact the team</span></a>
+          </p>
         </div>
       </section>
     </main>
